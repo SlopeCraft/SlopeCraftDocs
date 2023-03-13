@@ -1,4 +1,4 @@
-name: Build PDF version and deploy to GitHub Pages
+name: Build MkDocs and Deploy to GitHub Pages
 on:
   push:
     branches:
