@@ -1,0 +1,21 @@
+version: 2
+updates:
+  # Maintain dependencies for GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "daily"
+      # Check for GitHub Actions updates at 00:00 UTC
+      time: "00:00"
+    # Add assignees
+    assignees:
+      - "Cubik65536"
+    # Add reviewers
+    reviewers:
+      - "Cubik65536"
+    # Include a list of updated dependencies
+    # with a prefix determined by the dependency group
+    commit-message:
+      prefix: "ci(.github/workflows)"
+      include: "scope"
+    open-pull-requests-limit: 25

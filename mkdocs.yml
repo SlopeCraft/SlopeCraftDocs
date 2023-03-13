@@ -1,0 +1,103 @@
+site_name: My Docs
+docs_dir: 'docs'
+repo_url: https://github.com/CubikTech/MkDocsTemplate
+repo_name: CubikTech/MkDocsTemplate
+edit_uri: edit/main/docs/
+
+site_author: Contributors
+copyright: Licensed under Creative Commons Attribution-NonCommercial 4.0 International License.
+
+theme:
+  name: material
+  palette:
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: white
+      accent: red
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to dark mode
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: blue
+      accent: blue
+      toggle:
+        icon: material/weather-night
+        name: Switch to light mode
+  include_search_page: false
+  search_index_only: true
+  features:
+    - navigation.tabs
+
+# Customization
+extra_css:
+  - '_static/css/extra.css?v=14'
+  
+# Extensions
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true 
+  - tables
+  - footnotes
+
+# Navigation
+nav:
+  - Welcome to MkDocs: index.md
+
+# Plugins
+plugins:
+  - search
+  - i18n:
+      default_language: en
+      docs_structure: suffix
+      languages:
+        en:
+          name: English
+          build: false
+        zh:
+          name: 中文
+          build: true
+      nav_translations:
+        zh:
+          Welcome to MkDocs: 欢迎使用 MkDocs
+  - with-pdf:
+      #author: Contributors
+      #copyright: Licensed under Creative Commons Attribution-NonCommercial 4.0 International License.
+        
+      cover: true
+      back_cover: true
+      cover_title: TITLE TEXT
+      cover_subtitle: SUBTITLE TEXT
+      #custom_template_path: TEMPLATES PATH
+        
+      #toc_title: TOC TITLE TEXT
+      #heading_shift: false
+      #toc_level: 3
+      #ordered_chapter_level: 2
+      #excludes_children:
+      #   - 'release-notes/:upgrading'
+      #   - 'release-notes/:changelog'
+
+      #exclude_pages:
+      #   - 'bugs/'
+      #   - 'appendix/contribute/'
+      #convert_iframe:
+      #   - src: IFRAME SRC
+      #     img: POSTER IMAGE URL
+      #     text: ALTERNATE TEXT
+      #   - src: ...
+      #two_columns_level: 3
+        
+      #render_js: true
+      #headless_chrome_path: headless-chromium
+      
+      #enabled_if_env: ENABLE_PDF_EXPORT
+        
+      #debug_html: true
+      #show_anchors: true
+      #verbose: true

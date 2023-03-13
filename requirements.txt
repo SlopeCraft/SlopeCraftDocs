@@ -1,0 +1,6 @@
+mkdocs
+mkdocs-material
+mkdocs-material-extensions
+mkdocs-static-i18n
+mkdocs-with-pdf
+qrcode
