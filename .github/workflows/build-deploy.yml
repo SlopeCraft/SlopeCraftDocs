@@ -16,17 +16,10 @@ jobs:
         python: [
           3.11.1,     # Current latest Python
         ]
-    runs-on: macos-latest
+    runs-on: linux-latest
     steps:
       - name: Checkout the repository
         uses: actions/checkout@v3
-      - name: Install Homebrew dependencies
-        run: |
-          brew install weasyprint
-      - name: Install font
-        run: |
-          brew tap homebrew/cask-fonts
-          brew install --cask font-noto-serif-cjk
       - name: Setup Python ${{ matrix.python }}
         uses: actions/setup-python@v4
         with:
@@ -43,31 +36,9 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-      - name: Get short SHA
-        run: echo "SHORT_SHA=${GITHUB_SHA::7}" >> $GITHUB_ENV
-      - name: Build PDF
+      - name: Build
         run: |
           mkdocs build
-      - name: Rename and Move PDF
-        run: |
-          mkdir pdf
-          mv site/en/pdf/document.pdf pdf/${{ github.event.repository.name }}-en-${{ env.SHORT_SHA }}.pdf
-          mv site/zh/pdf/document.pdf pdf/${{ github.event.repository.name }}-zh-${{ env.SHORT_SHA }}.pdf
-      - name: Upload PDF
-        uses: actions/upload-artifact@v3
-        with:
-          name: ${{ github.event.repository.name }}-${{ env.SHORT_SHA }}-Generated-PDF
-          path: pdf
-      - name: Release PDF
-        uses: marvinpinto/action-automatic-releases@latest
-        with:
-          repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          title: "Generated PDF - ${{ github.event.repository.name }}-${{ env.SHORT_SHA }}"
-          files: |
-            pdf/${{ github.event.repository.name }}-en-${{ env.SHORT_SHA }}.pdf
-            pdf/${{ github.event.repository.name }}-zh-${{ env.SHORT_SHA }}.pdf
-          automatic_release_tag: "Generated-PDF-${{ github.event.repository.name }}-${{ env.SHORT_SHA }}"
-          prerelease: false
       - name: Deploy to GitHub Pages
         run: |
           mkdocs gh-deploy --force
