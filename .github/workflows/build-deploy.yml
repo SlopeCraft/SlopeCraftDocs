@@ -16,7 +16,7 @@ jobs:
         python: [
           3.11.1,     # Current latest Python
         ]
-    runs-on: linux-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout the repository
         uses: actions/checkout@v3
