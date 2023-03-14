@@ -1,5 +1,7 @@
 # 欢迎使用 MkDocs
 
+![SlopeCraft](_static/image/SlopeCraft.png)
+
 请访问 [mkdocs.org](https://www.mkdocs.org) 查看完整文档。
 
 ## 命令
