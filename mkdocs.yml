@@ -47,21 +47,21 @@ markdown_extensions:
 
 # Navigation
 nav:
-  - Welcome to MkDocs: index.md
+  - 欢迎使用 MkDocs: index.md
 
 # Plugins
 plugins:
   - search
   - i18n:
-      default_language: en
+      default_language: zh
       docs_structure: suffix
       languages:
-        en:
-          name: English
-          build: false
         zh:
           name: 中文
+          build: false
+        en:
+          name: English
           build: true
       nav_translations:
-        zh:
-          Welcome to MkDocs: 欢迎使用 MkDocs
+        en:
+           欢迎使用 MkDocs: Welcome to MkDocs
