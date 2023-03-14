@@ -1,11 +1,13 @@
-site_name: My Docs
+site_name: SlopeCraft 文档
 docs_dir: 'docs'
-repo_url: https://github.com/CubikTech/MkDocsTemplate
-repo_name: CubikTech/MkDocsTemplate
+repo_url: https://github.com/SlopeCraft/SlopeCraftDocs
+repo_name: SlopeCraft/SlopeCraftDocs
 edit_uri: edit/main/docs/
 
-site_author: Contributors
-copyright: Licensed under Creative Commons Attribution-NonCommercial 4.0 International License.
+site_author: SlopeCraft Team, Cubik65536, ToKiNoBug and Contributors
+copyright: Copyright © 2023 SlopeCraft Team, Cubik65536, ToKiNoBug and Contributors. 
+  All rights reserved.<br/>
+  Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
 
 theme:
   name: material
@@ -58,9 +60,11 @@ plugins:
       languages:
         zh:
           name: 中文
+          site_name: SlopeCraft 文档
           build: false
         en:
           name: English
+          site_name: SlopeCraft Documentation
           build: true
       nav_translations:
         en:
