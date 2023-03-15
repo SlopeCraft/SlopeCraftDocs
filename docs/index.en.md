@@ -6,13 +6,13 @@
 
 SlopeCraft is a project about generating (map) pixel arts in Minecraft, including following tools:
 
-|    Name     | Description                                                                                                                                   |
-| :---------: | :-------------------------------------------------------------------------------------------------------------------------------------------- |
-| SlopeCraft  | Generator for **map** pixel arts(including but not only 3D maps). **Not suitable for looking to directly**.                                   |
-| VisualCraft | Generator for traditional pixel arts, which is **suitable for looking to directly but not for maps**.   All viewing directions are supported. |
-| imageCutter | An assitant tool to seperate and resize images                                                                                                |
-|  MapViewer  | An assitant tool to browse Minecraft map data files                                                                                           |
-|    vccl     | Command line version of  VisualCraft.                                                                                                         |
+|                   Name                    | Description                                                                                                                                   |
+| :---------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------- |
+|                SlopeCraft                 | Generator for **map** pixel arts(including but not only 3D maps). **Not suitable for looking to directly**.                                   |
+| [VisualCraft](VisualCraft-tutorial.en.md) | Generator for traditional pixel arts, which is **suitable for looking to directly but not for maps**.   All viewing directions are supported. |
+|                imageCutter                | An assitant tool to seperate and resize images                                                                                                |
+|                 MapViewer                 | An assitant tool to browse Minecraft map data files                                                                                           |
+|                   vccl                    | Command line version of  VisualCraft.                                                                                                         |
 
 ## Why SlopeCraft?
 
