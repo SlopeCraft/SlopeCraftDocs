@@ -6,7 +6,7 @@
 
 SlopeCraft is a project about generating (map) pixel arts in Minecraft, including following tools:
 
-|    名称     | 介绍                                                                                                                                          |
+|    Name     | Description                                                                                                                                   |
 | :---------: | :-------------------------------------------------------------------------------------------------------------------------------------------- |
 | SlopeCraft  | Generator for **map** pixel arts(including but not only 3D maps). **Not suitable for looking to directly**.                                   |
 | VisualCraft | Generator for traditional pixel arts, which is **suitable for looking to directly but not for maps**.   All viewing directions are supported. |

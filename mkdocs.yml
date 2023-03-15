@@ -49,7 +49,8 @@ markdown_extensions:
 
 # Navigation
 nav:
-  - 欢迎使用 MkDocs: index.md
+  - 欢迎使用 SlopeCraft: index.md
+  - VisualCraft 教程: VisualCraft-tutorial.md
 
 # Plugins
 plugins:
