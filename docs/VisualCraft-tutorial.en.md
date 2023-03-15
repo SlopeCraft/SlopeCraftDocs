@@ -12,7 +12,22 @@ VisualCraft composes half-transparent blocks to produce more colors. No greater 
 
 The great amount of colors makes GPU accleration necessary. Now OpenCL is supported, but it can also run on CPU only.
 
-## 1. Basic Attributes
+## Step 0. GPU settings
+
+This step is not compulsory. You can skip it, but if your image is huge, or you want to export a pixel art of 3 layers, this may help you make VisualCraft faster.
+
+![GPU Settings](assets/VisualCraft-tutorial-images/page-GPU-en.png)
+
+Uptil now there are 2 compute options: CPU threads and compute device.
+
+In the spin box you can set the cpu threads. By default the value is the logical thread number of you CPU, retrieved from `std::thread::hardware_concurrency()`. You can set it a little bit greater so that it may make a better use of CPU cores, but too many threads are extra burdern to thread scheduler, which will supress overall time and increase energy cost.
+
+The next combo box helps you to select a compute device. This device is only used during image convertion. All avaliable devices are listed in the right tree widget. Devices are classified by platforms. Now only OpenCL is supported. And for MacOS that has already discard OpenCL, I'm planning to support Metal, but it takes time.
+
+If VisualCraft is built without GPU API, only CPU is avaliable, and GPU boosting will not be accessable.
+
+
+## Step 1. Basic Attributes
 
 ![Basic Attributes](assets/VisualCraft-tutorial-images/page-basic-attributes-en.png)
 
@@ -37,8 +52,43 @@ Resource packs and BSL are represented in two list widgets. Click **Add** and yo
 
  If you have finished basic attributes, find **Resource** menu and click **Load resources** to load resources.
 
-## 2. Allowed Blocks
+## Step 2. Allowed Blocks
 
 ![Allowed Blocks](assets/VisualCraft-tutorial-images/page-blocks-en.png)
 
-After you load resources, all avaliable blocks will appear on the second page. Blocks are separated by classes. You can select or deselect any blocks and any classes.
+After you load resources, all avaliable blocks will appear on the second page. Blocks are separated by classes. You can select or deselect any block and any classe.
+
+### Hot Keys
+On the left there are several hot keys to help you select and deselect blocks.
+
+|          Key name          | Description                                                              |
+| :------------------------: | :----------------------------------------------------------------------- |
+|         Select all         | Select all blocks                                                        |
+|        Deselect all        | Deselect all blocks                                                      |
+|  Disable non-reproducible  | Deselect all non-reproducible blocks                                     |
+|    Disable rare blocks     | Deselect all rare blocks                                                 |
+| Select reversely classwise | Reverse the selection for each class, no block selection will be changed |
+| Select reversely blockwise | Reverse the selection for each block, no calss selection will be changed |
+|          Advanced          | Show a subwindow to select or deselect blocks according to custom rules  |
+
+![Set avaliable blocks](assets/VisualCraft-tutorial-images/page-basic-attributes-setall-en.png)
+
+After you finished this page, find **Resource** menu and click **Set avaliable blocks** to setup those selected blocks.
+
+## Step 3. Load images
+
+![Load images](assets/VisualCraft-tutorial-images/page-images-en.png)
+
+
+Acutally, for minialist operation, the least thing you need to do is to add images, and go the the next page. In this paragraph I will introduce widgets on this page.
+
+After you setup selected blocks, the number of colors will be shown after **Convert algorithms**.
+
+There are several algorithms that can convert images into pixel arts. VisualCraft and SlopeCraft share the same alogrithms implementation, so these options are the same. The only difference is that VisualCraft can be boosted by GPU since it may have to deal with more than 10 thousands of colors and much larger images.
+
+The logic of importing images are similiar than resource packs and BSLs. Click **+** to add images and **-** to remove selected images. VisualCraft is born to process multiple images, so all images are placed in a list. If you click a image, it will be displayed and converte.
+
+You can change the display options. Turn on **Original size** to force all images displayed by their original size, regardless of the size of label. Toogle **Display original** and **Display converted** to determine whether to show corresponding image or not.
+
+
+## Step 4. Export
