@@ -80,7 +80,7 @@ After you finished this page, find **Resource** menu and click **Set avaliable b
 ![Load images](assets/VisualCraft-tutorial-images/page-images-en.png)
 
 
-Acutally, for minialist operation, the least thing you need to do is to add images, and go the the next page. In this paragraph I will introduce widgets on this page.
+Acutally, for least operations, the only thing you need to do is to add images, and go the the next page. In this paragraph I will introduce widgets on this page.
 
 After you setup selected blocks, the number of colors will be shown after **Convert algorithms**.
 
