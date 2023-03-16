@@ -26,7 +26,6 @@ The next combo box helps you to select a compute device. This device is only use
 
 If VisualCraft is built without GPU API, only CPU is avaliable, and GPU boosting will not be accessable.
 
-
 ## Step 1. Basic Attributes
 
 ![Basic Attributes](assets/VisualCraft-tutorial-images/page-basic-attributes-en.png)
@@ -35,12 +34,11 @@ On the first page you can setup basical attributes. Pixel art directions and Min
 
 It is necessary to explain the last three options:
 
-1. **Max layers** refers to the maximum block layers of the pixel art, since VisualCraft supports superimposing transparent blocks on non-transparent blocks. 
+1. **Max layers** refers to the maximum block layers of the pixel art, since VisualCraft supports superimposing transparent blocks on non-transparent blocks.
    - Max layers should be a positive number, and no greater than 3, otherwise the number of blocks will exceed 65534, beyond the capacity of `uint16_t`.
 2. **Biome** refers to what biome the pixel art will be built in. In Minecraft, the colors of grass, leaves and vines differs in biomes, so it is necessary to input the biome.
-3. **Transparent leaves** refers to whether leaves are treated as transparent blocks. 
+3. **Transparent leaves** refers to whether leaves are treated as transparent blocks.
    - The apperaence of leaves are different by render options. If the graphics quality is not fast, leaves are transparent blocks that can be see through, otherwise they are not transparent, and transparent pixels in their textures are replaced with black(`0x000000`).
-
 
 Resource packs and block state list(BSL) jsons can be set on the right side. Resource packs are zips that Minecraft receives, and BSL are json files storing block informations. Only blocks recorded in BSL can be used by VisualCraft.
 
@@ -59,6 +57,7 @@ Resource packs and BSL are represented in two list widgets. Click **Add** and yo
 After you load resources, all avaliable blocks will appear on the second page. Blocks are separated by classes. You can select or deselect any block and any classe.
 
 ### Hot Keys
+
 On the left there are several hot keys to help you select and deselect blocks.
 
 |          Key name          | Description                                                              |
@@ -79,7 +78,6 @@ After you finished this page, find **Resource** menu and click **Set avaliable b
 
 ![Load images](assets/VisualCraft-tutorial-images/page-images-en.png)
 
-
 Acutally, for least operations, the only thing you need to do is to add images, and go the the next page. In this paragraph I will introduce widgets on this page.
 
 After you setup selected blocks, the number of colors will be shown after **Convert algorithms**.
@@ -89,7 +87,6 @@ There are several algorithms that can convert images into pixel arts. VisualCraf
 The logic of importing images are similiar than resource packs and BSLs. Click **+** to add images and **-** to remove selected images. VisualCraft is born to process multiple images, so all images are placed in a list. If you click a image, it will be displayed and converte.
 
 You can change the display options. Turn on **Original size** to force all images displayed by their original size, regardless of label size. Toogle **Display original** and **Display converted** to determine whether to show corresponding image or not.
-
 
 ## Step 4. Export
 
@@ -107,9 +104,9 @@ In this page you can tell VisualCraft how to export pixel arts and images. 5 exp
 
 Since VisualCraft are designed to execute batch operation, you can set which directory to put generated simply by choose a type in the combox and then click **Set export directory**. This operation will fill the related coloumn with exported filename.
 
-If you hope to change how to edit, just change the export table. From the third to the seventh coloumn are editable. 
+If you hope to change how to edit, just change the export table. From the third to the seventh coloumn are editable.
 
-When you click **Start**, VisualCraft will execute according to the table. If a cell is empty, it will be skipped; otherwise the filename in this cell will be parsed. If the extension name is incorrect, an error may occur. 
+When you click **Start**, VisualCraft will execute according to the table. If a cell is empty, it will be skipped; otherwise the filename in this cell will be parsed. If the extension name is incorrect, an error may occur.
 
 It's worth to note that flat diagram may consist of multiple images because a pixel art may have multiple layers. So the text in the cell is actually a list of filenames  seperated by semicolon '`;`'. For example :
 
