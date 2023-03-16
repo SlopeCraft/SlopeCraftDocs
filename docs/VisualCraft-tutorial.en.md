@@ -16,7 +16,7 @@ The great amount of colors makes GPU accleration necessary. Now OpenCL is suppor
 
 This step is not compulsory. You can skip it, but if your image is huge, or you want to export a pixel art of 3 layers, this may help you make VisualCraft faster.
 
-![GPU Settings](assets/VisualCraft-tutorial-images/page-GPU-en.png)
+![GPU Settings](./assets/VisualCraft-tutorial-images.en/page-GPU-en.png)
 
 Uptil now there are 2 compute options: CPU threads and compute device.
 
@@ -28,7 +28,7 @@ If VisualCraft is built without GPU API, only CPU is avaliable, and GPU boosting
 
 ## Step 1. Basic Attributes
 
-![Basic Attributes](assets/VisualCraft-tutorial-images/page-basic-attributes-en.png)
+![Basic Attributes](./assets/VisualCraft-tutorial-images.en/page-basic-attributes-en.png)
 
 On the first page you can setup basical attributes. Pixel art directions and Minecraft versions can be set on the left side, while **biome**, **max layers** and **transparent leaves** can be set below.
 
@@ -46,13 +46,13 @@ Resource packs and BSL are represented in two list widgets. Click **Add** and yo
 
  `Vanilla` and `Default` are special items that can not be removed, because they represent fundamental resource pack and BSL respectively. But you can still disable them, by turing off their checkbox.
 
-![Load resources](assets/VisualCraft-tutorial-images/page-basic-attributes-loadrp-en.png)
+![Load resources](./assets/VisualCraft-tutorial-images.en/page-basic-attributes-loadrp-en.png)
 
  If you have finished basic attributes, find **Resource** menu and click **Load resources** to load resources.
 
 ## Step 2. Allowed Blocks
 
-![Allowed Blocks](assets/VisualCraft-tutorial-images/page-blocks-en.png)
+![Allowed Blocks](./assets/VisualCraft-tutorial-images.en/page-blocks-en.png)
 
 After you load resources, all avaliable blocks will appear on the second page. Blocks are separated by classes. You can select or deselect any block and any classe.
 
@@ -70,13 +70,13 @@ On the left there are several hot keys to help you select and deselect blocks.
 | Select reversely blockwise | Reverse the selection for each block, no calss selection will be changed |
 |          Advanced          | Show a subwindow to select or deselect blocks according to custom rules  |
 
-![Set avaliable blocks](assets/VisualCraft-tutorial-images/page-basic-attributes-setall-en.png)
+![Set avaliable blocks](./assets/VisualCraft-tutorial-images.en/page-basic-attributes-setall-en.png)
 
 After you finished this page, find **Resource** menu and click **Set avaliable blocks** to setup those selected blocks.
 
 ## Step 3. Load images
 
-![Load images](assets/VisualCraft-tutorial-images/page-images-en.png)
+![Load images](./assets/VisualCraft-tutorial-images.en/page-images-en.png)
 
 Acutally, for least operations, the only thing you need to do is to add images, and go the the next page. In this paragraph I will introduce widgets on this page.
 
@@ -90,7 +90,7 @@ You can change the display options. Turn on **Original size** to force all image
 
 ## Step 4. Export
 
-![Export table](assets/VisualCraft-tutorial-images/page-export-en.png)
+![Export table](./assets/VisualCraft-tutorial-images.en/page-export-en.png)
 
 In this page you can tell VisualCraft how to export pixel arts and images. 5 export types are supported.
 
@@ -123,7 +123,7 @@ If the number of semicolons are incorrect, errors will occur.
 
 ### Export options
 
-![Export options](assets/VisualCraft-tutorial-images/page-export-settings-en.png)
+![Export options](./assets/VisualCraft-tutorial-images.en/page-export-settings-en.png)
 
 In this page you can set attributes of exported files. The options of Litematica, Vanilla structure and WE schem is same as that in SlopeCraft. While flat diagram options are worth to explain.
 
