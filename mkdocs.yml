@@ -69,4 +69,5 @@ plugins:
           build: true
       nav_translations:
         en:
-           欢迎使用 MkDocs: Welcome to MkDocs
+          欢迎使用 SlopeCraft: Welcome to SlopeCraft
+          VisualCraft 教程: VisualCraft Tutorial
