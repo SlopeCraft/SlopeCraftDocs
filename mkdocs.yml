@@ -50,8 +50,8 @@ markdown_extensions:
 # Navigation
 nav:
   - 欢迎使用 SlopeCraft: index.md
-  - VisualCraft 教程: VisualCraft-tutorial.md
   - SlopeCraft 教程: SlopeCraft-tutorial.md
+  - VisualCraft 教程: VisualCraft-tutorial.md
 
 # Plugins
 plugins:
@@ -71,5 +71,5 @@ plugins:
       nav_translations:
         en:
           欢迎使用 SlopeCraft: Welcome to SlopeCraft
-          VisualCraft 教程: VisualCraft Tutorial
           SlopeCraft 教程: SlopeCraft Tutorial
+          VisualCraft 教程: VisualCraft Tutorial
