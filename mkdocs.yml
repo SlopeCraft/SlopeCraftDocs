@@ -44,12 +44,15 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.tabbed:
       alternate_style: true 
+  - pymdownx.arithmatex:
+      generic: true
   - tables
   - footnotes
 
 # Navigation
 nav:
   - 欢迎使用 SlopeCraft: index.md
+  - 原理简介: principles-introduction.md
   - SlopeCraft 教程: SlopeCraft-tutorial.md
   - VisualCraft 教程: VisualCraft-tutorial.md
 
@@ -71,5 +74,11 @@ plugins:
       nav_translations:
         en:
           欢迎使用 SlopeCraft: Welcome to SlopeCraft
+          原理简介: Introduction of Principles
           SlopeCraft 教程: SlopeCraft Tutorial
           VisualCraft 教程: VisualCraft Tutorial
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
