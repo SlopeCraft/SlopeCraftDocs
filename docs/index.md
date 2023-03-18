@@ -14,6 +14,15 @@ SlopeCraft是一个Minecraft像素画/地图画生成器，包含如下几个工
 |               MapViewer                | 浏览 Minecraft 地图数据文件的辅助工具                                           |
 |                  vccl                  | 与 VisualCraft 功能相同的命令行工具                                             |
 
+## 现有文档
+
+1. [SlopeCraft 使用教程](./SlopeCraft-tutorial.md)
+2. [VisualCraft 使用教程](./VisualCraft-tutorial.md)
+3. [原理简介](./principles-introduction.md)
+4. 编译指南（施工中）
+5. 代码贡献指南（施工中）
+6. 文档贡献指南（施工中）
+
 ## 为什么要有 SlopeCraft？
 
 很多玩家在建造地图画之后，会习惯于用地图记录地图画，然后把地图挂在墙上。但这时候细心一点的人就会发现地图呈现的颜色与直接看到的差异很大。SlopeCraft 就是为了克服这种差异而诞生的，也因此，SlopeCraft 生成的地图画在设计之初就不是给玩家直接观看的。

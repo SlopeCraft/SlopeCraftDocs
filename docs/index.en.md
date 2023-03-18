@@ -8,11 +8,20 @@ SlopeCraft is a project about generating (map) pixel arts in Minecraft, includin
 
 |                   Name                    | Description                                                                                                                                   |
 | :---------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------- |
-|                SlopeCraft                 | Generator for **map** pixel arts(including but not only 3D maps). **Not suitable for looking to directly**.                                   |
+|  [SlopeCraft](SlopeCraft-tutorial.en.md)  | Generator for **map** pixel arts(including but not only 3D maps). **Not suitable for looking to directly**.                                   |
 | [VisualCraft](VisualCraft-tutorial.en.md) | Generator for traditional pixel arts, which is **suitable for looking to directly but not for maps**.   All viewing directions are supported. |
 |                imageCutter                | An assitant tool to seperate and resize images                                                                                                |
 |                 MapViewer                 | An assitant tool to browse Minecraft map data files                                                                                           |
 |                   vccl                    | Command line version of  VisualCraft.                                                                                                         |
+
+## Documents
+
+1. [SlopeCraft Tutorial](./SlopeCraft-tutorial.en.md)
+2. [VisualCraft Tutorial](./VisualCraft-tutorial.en.md)
+3. Princple introduction(Watting to be translated)
+4. Building guideline(in progress)
+5. Code contribution guide(in progress)
+6. Documentation contribution guide(in progress)
 
 ## Why SlopeCraft?
 
