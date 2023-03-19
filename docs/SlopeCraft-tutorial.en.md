@@ -1,8 +1,17 @@
 # SlopeCraft Tutorial
 
-This document will show you how to use SlopeCraft to create 3d, flat and file-only map art crafts.
+This document will show you how to use SlopeCraft to create 3d, flat and file-only maps.
 
 You can find the option to switch languages in the Languages drop-down menu in the menu bar.
+
+To eliminate ambiguity, the defination of serveral terms are listed.
+
+|     Term      | Meaning                                                                   |
+| :-----------: | :------------------------------------------------------------------------ |
+|   Map item    | The item in Minecraft, which id is `minecraft:filled_map`                 |
+|    Save(s)    | The game saves of Minecraft                                               |
+|      Map      | The image displayed in map item                                           |
+| Map data file | The nbt binary file that stores data of a "Map", named like `map_<i>.dat` |
 
 ## Step -1. Image preprocessing
 
@@ -27,7 +36,7 @@ Double click to start SlopeCraft.exe, you will see the following screen.
 Here you need to choose type of the map.
 
 - If you want **as colorful** and **as delicate** a map as possible, it is best to click the **Create 3D Map** on the left.
-- If you want a traditional flat map picture and don't care much about the quality of the map picture, then click the **Create Flat Map** in the middle.
+- If you want a traditional flat map and don't care much about the quality of the map, then click the **Create Flat Map** in the middle.
 - If you don't want the map to be in the game as blocks, but just want it to appear on the map and be able to be attached to the item display box, then click on the **Create File-only Map** on the right.
 
 Please note that this file-only map requires at least replacing the file in the archive and possibly a command to use it. It is generally only available for single player games, or if you are a server administrator.
@@ -38,7 +47,7 @@ Here I have chosen 3D map.
 
 ![avatar](./assets/SlopeCraft-tutorial-images.en/page1-load-image.en.png)
 
-On the second page, click **Import Image** to import the pre-processed image. ,
+On the second page, click **Import Image** to import the pre-processed image.
 
 However, if your original image has transparent or translucent pixels, then you should first click the **Settings** button to set the processing strategy for transparent pixels:
 
@@ -139,14 +148,14 @@ After selecting what you think is the best-looking map, it's time to move on to 
 
 There are 6 types of exports, and the following table documents the relationship between the various map types and the export types.
 
-|              Export Type              |  3D   | Flat Map | File-only Map |
-| :-----------------------------------: | :---: | :------: | :-----------: |
-|  Litematica schematic (\*.litematic)  |   ✔   |    ✔     |               |
-| Vanilla structure block file (\*.nbt) |   ✔   |    ✔     |               |
-|       WE schematics (\*.schem)        |   ✔   |    ✔     |
-|        Map data file (\*.dat)         |   ✔   |    ✔     |       ✔       | ✔ |
-|   Converted images (\*.png \*.jpg)    |   ✔   |    ✔     |       ✔       | ✔ |
-|     Flat diagram (\*.png \*.jpg)      |       |    ✔     |
+|              Export Type              | 3D Map | Flat Map | File-only Map |
+| :-----------------------------------: | :----: | :------: | :-----------: |
+|  Litematica schematic (\*.litematic)  |   ✔    |    ✔     |               |
+| Vanilla structure block file (\*.nbt) |   ✔    |    ✔     |               |
+|       WE schematics (\*.schem)        |   ✔    |    ✔     |
+|        Map data file (\*.dat)         |   ✔    |    ✔     |       ✔       | ✔ |
+|   Converted images (\*.png \*.jpg)    |   ✔    |    ✔     |       ✔       | ✔ |
+|     Flat diagram (\*.png \*.jpg)      |        |    ✔     |
 
 **Note: WE schematics (\*.schem) are only supported in version 1.13+. In 1.12, WE uses the old schematic format with the \*.schematic suffix, which is not currently supported by SlopeCraft.**
 
@@ -228,7 +237,7 @@ The WE schematics have slightly more attributes that are derived from reverse en
 
 #### Export as flat diagram
 
-Click **Export Flat Diagram** to export a planar map as a flat diagram, where each pixel is represented by a block.
+Click **Export Flat Diagram** to export a flat map as a flat diagram, where each pixel is represented by a block.
 
 ### Export converted image
 
@@ -240,13 +249,13 @@ After the color convertion is completed, the **Export as Map Data File** button 
 
 ![avatar](./assets/SlopeCraft-tutorial-images.en/page5-export-map-data-file.en.png)
 
-This page shows the number of rows and columns of the map corresponding to the map, the number of files and the file name of the map file to be exported.s
+This page shows the number of rows and columns of the map corresponding to the map, the number of files and the file name of the map data file to be exported.s
 
 #### Set initinal map serial number
 
-The file name of a map file is `map_i.dat`, where i is an integer greater than or equal to 0, such as `map_3.dat`. **`i` is the serial number of this map file. The serial number is actually the unique identifier of the map file**. Under normal circumstances, our generated map file should not overwrite unrelated map files, so we need to pay more attention to setting the initial serial number.
+The file name of a map data file is `map_i.dat`, where i is an integer greater than or equal to 0, such as `map_3.dat`. **`i` is the serial number of this map data file. The serial number is actually the unique identifier of the map data file**. Under normal circumstances, our generated map data file should not overwrite unrelated map data files, so we need to pay more attention to setting the initial serial number.
 
-Pressing F3+H in-game will allow you to view item details, **including the Id of the map item, which is the serial number of the corresponding map file**. The map item shown below corresponds to a map file named `map_6.dat`.
+Pressing F3+H in-game will allow you to view item details, **including the Id of the map item, which is the serial number of the corresponding map data file**. The map item shown below corresponds to a map data file named `map_6.dat`.
 
 ![avatar](./assets/SlopeCraft-tutorial-images.lang-indenpent/map-item.png)
 
@@ -278,14 +287,14 @@ The starting number can be set arbitrarily, as long as it does not overwrite an 
 - In 1.12, use `/give @s filled_map 1 i` to get a map with number i. In 1.13+, use `/give @s filled_map{map:i}` to get a map with number i.
 - In 1.13+, use `/give @s filled_map{map:i}` to get a map with number i.
 
-If you do not want to use the command, replace only the map file with following steps:
+If you do not want to use the command, replace only the map data file with following steps:
 
-1. First create `n` maps corresponding to the map drawing, n is the number of map files displayed by SlopeCraft, in this case 4.
-2. Press <kbd>F3</kbd> + <kbd>H</kbd> in Minecraft. Check the serial numbers corresponding to the map files. These maps should have serial numbers `a`~`(a+n-1)`, n in total.
+1. First create `n` maps corresponding to the map drawing, n is the number of map data files displayed by SlopeCraft, in this case 4.
+2. Press <kbd>F3</kbd> + <kbd>H</kbd> in Minecraft. Check the serial numbers corresponding to the map data files. These maps should have serial numbers `a`~`(a+n-1)`, n in total.
 3. Close the game and enter the value `a` in the **Map file start number** field of SlopeCraft.
 4. Click Export and select the data folder under Archive.
 5. Close SlopeCraft, open the game, and the `n` map should have been successfully replaced with a map.
-6. If you are worried about overwriting unrelated maps by entering the wrong map file number, you can create a temporary folder and select it when exporting. After confirming the map serial number is correct, then copy and paste the map file you want to replace.
+6. If you are worried about overwriting unrelated maps by entering the wrong map data file number, you can create a temporary folder and select it when exporting. After confirming the map serial number is correct, then copy and paste the map data file you want to replace.
 
 ## Batch Processing
 
@@ -370,6 +379,7 @@ You need to have the following information about the block.
    |   16    |       1.16        |
    |   17    |       1.17        |
    |   18    |       1.18        |
+   |   19    |       1.19        |
    |   255   |  Future Versions  |
 
    Normally you shouldn't use 255, it's just a reserved value. If you have to assign a block to a future version, then everything that results is an undefined feature -- I don't know what will happen.
@@ -382,7 +392,7 @@ You need to have the following information about the block.
    
    This is probably the easiest place to go wrong. For the original block, you can check the [Minecraft Wiki](ttps://wiki.biligame.com/mc/%E5%9C%B0%E5%9B%BE%E7%89%A9%E5%93%81%E6%A0%BC%E5%BC%8F#idcounts.dat_.E6.A0.BC.E5.BC.8F). If it's a mod custom block, either figure out how to measure it yourself or ask the mod developer.
 
-   If you don't know what the base color is, go to [principles of map drawing](./principles-introduction.md)
+   If you don't know what the base color is, go to [principles introduction](./principles-introduction.md)
 
 5. Chinese name of the block
 6. English name of the block

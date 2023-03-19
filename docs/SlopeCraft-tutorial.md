@@ -4,9 +4,18 @@
 
 在菜单栏的 Languages 下拉菜单中你可以找到切换语言的选项。
 
+为了消除歧义，这里规定几个术语的含义：
+
+|   术语   | 含义                                                 |
+| :------: | :--------------------------------------------------- |
+|   地图   | Minecraft中的物品，id为`minecraft:filled_map`        |
+|   存档   | Minecraft中的游戏存档                                |
+|  地图画  | 显示于地图物品中的图像                               |
+| 地图文件 | 存储地图数据的nbt二进制文件，文件名形如`map_<i>.dat` |
+
 ## Step -1. 图片预处理
 
-首先，准备好你想要制作成地图画的原图。这里使用的图像是[Lancet\_Corgi 画的图](https://t.bilibili.com/544583492149793294)，感谢刀哥的许可。
+首先，准备好你想要制作成地图画的原图。这里使用的图像是[Lancet_Corgi 画的图](https://t.bilibili.com/544583492149793294)，感谢刀哥的许可。
 
 用 ps 或者其他可以编辑图片的软件，**将它的长宽缩放到 128 像素的整倍数**。
 
@@ -22,7 +31,7 @@
 
 双击启动 SlopeCraft.exe，你将会看到如下的界面。
 
-   ![avatar](./assets/SlopeCraft-tutorial-images/page0-start.png)
+![avatar](./assets/SlopeCraft-tutorial-images/page0-start.png)
 
 这里需要你选择**地图画的类别**：
 
