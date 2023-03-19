@@ -55,6 +55,7 @@ nav:
   - 原理简介: principles-introduction.md
   - SlopeCraft 教程: SlopeCraft-tutorial.md
   - VisualCraft 教程: VisualCraft-tutorial.md
+  - 编译指南: compilation-guide.md
 
 # Plugins
 plugins:
@@ -77,6 +78,7 @@ plugins:
           原理简介: Introduction of Principles
           SlopeCraft 教程: SlopeCraft Tutorial
           VisualCraft 教程: VisualCraft Tutorial
+          编译指南: Compilation Guide
 
 extra_javascript:
   - javascripts/mathjax.js

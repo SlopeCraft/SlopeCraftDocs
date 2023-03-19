@@ -19,7 +19,7 @@ SlopeCraft is a project about generating (map) pixel arts in Minecraft, includin
 1. [SlopeCraft Tutorial](./SlopeCraft-tutorial.en.md)
 2. [VisualCraft Tutorial](./VisualCraft-tutorial.en.md)
 3. Princple introduction(Watting to be translated)
-4. Building guideline(in progress)
+4. [Compilation Guide](./compilation-guide.en.md)
 5. Code contribution guide(in progress)
 6. Documentation contribution guide(in progress)
 
