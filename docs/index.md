@@ -16,9 +16,9 @@ SlopeCraft是一个Minecraft像素画/地图画生成器，包含如下几个工
 
 ## 现有文档
 
-1. [SlopeCraft 使用教程](./SlopeCraft-tutorial.md)
-2. [VisualCraft 使用教程](./VisualCraft-tutorial.md)
-3. [原理简介](./principles-introduction.md)
+1. [原理简介](./principles-introduction.md)
+2. [SlopeCraft 使用教程](./SlopeCraft-tutorial.md)
+3. [VisualCraft 使用教程](./VisualCraft-tutorial.md)
 4. [编译指南](./compilation-guide.md)
 5. 代码贡献指南（施工中）
 6. 文档贡献指南（施工中）
