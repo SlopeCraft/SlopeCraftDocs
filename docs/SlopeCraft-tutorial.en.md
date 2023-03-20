@@ -359,42 +359,42 @@ You need to have the following information about the block.
 
 1. The **complete** id of the block, containing the **namespace prefix** and **all block attributes**.
 
-   If the upper half of the wax-coated copper block is tiled.
+      If the upper half of the wax-coated copper block is tiled.
 
-   ``` file
-   minecraft:waxed_copper_slab[type=top,waterlogged=false]
-   ```
+      ``` file
+      minecraft:waxed_copper_slab[type=top,waterlogged=false]
+      ```
 
-   In this ``minecraft:`` is the namespace prefix for the original block, and the contents of the brackets are all block attributes. To be on the safe side, you should set the corresponding value for each block attribute.
+      In this ``minecraft:`` is the namespace prefix for the original block, and the contents of the brackets are all block attributes. To be on the safe side, you should set the corresponding value for each block attribute.
 
 2. The earliest version of the game in which the block appeared
 
-   SlopeCraft has agreed on the following values in the block list to refer to major versions:
+      SlopeCraft has agreed on the following values in the block list to refer to major versions:
 
-   | Numbers |     Versions      |
-   | :-----: | :---------------: |
-   |    0    | Earlier than 1.12 |
-   |   12    |       1.12        |
-   |   13    |       1.13        |
-   |   14    |       1.14        |
-   |   15    |       1.15        |
-   |   16    |       1.16        |
-   |   17    |       1.17        |
-   |   18    |       1.18        |
-   |   19    |       1.19        |
-   |   255   |  Future Versions  |
+      | Numbers |     Versions      |
+      | :-----: | :---------------: |
+      |    0    | Earlier than 1.12 |
+      |   12    |       1.12        |
+      |   13    |       1.13        |
+      |   14    |       1.14        |
+      |   15    |       1.15        |
+      |   16    |       1.16        |
+      |   17    |       1.17        |
+      |   18    |       1.18        |
+      |   19    |       1.19        |
+      |   255   |  Future Versions  |
 
-   Normally you shouldn't use 255, it's just a reserved value. If you have to assign a block to a future version, then everything that results is an undefined feature -- I don't know what will happen.
+      Normally you shouldn't use 255, it's just a reserved value. If you have to assign a block to a future version, then everything that results is an undefined feature -- I don't know what will happen.
 
 3. The id of the block in 1.12
 
-   This property was added because Mojang changed the ids of quite a few blocks from 1.12 to 1.13. If the block you want to add was not added in 1.12, or if the id has not changed, you can fill in the empty string.
+      This property was added because Mojang changed the ids of quite a few blocks from 1.12 to 1.13. If the block you want to add was not added in 1.12, or if the id has not changed, you can fill in the empty string.
 
 4. Base color of the block
 
-   This is probably the easiest place to go wrong. For the original block, you can check the [Minecraft Wiki](ttps://wiki.biligame.com/mc/%E5%9C%B0%E5%9B%BE%E7%89%A9%E5%93%81%E6%A0%BC%E5%BC%8F#idcounts.dat_.E6.A0.BC.E5.BC.8F). If it's a mod custom block, either figure out how to measure it yourself or ask the mod developer.
+      This is probably the easiest place to go wrong. For the original block, you can check the [Minecraft Wiki](ttps://wiki.biligame.com/mc/%E5%9C%B0%E5%9B%BE%E7%89%A9%E5%93%81%E6%A0%BC%E5%BC%8F#idcounts.dat_.E6.A0.BC.E5.BC.8F). If it's a mod custom block, either figure out how to measure it yourself or ask the mod developer.
 
-   If you don't know what the base color is, go to [principles introduction](./principles-introduction.md)
+      If you don't know what the base color is, go to [principles introduction](./principles-introduction.md)
 
 5. Chinese name of the block
 6. English name of the block
