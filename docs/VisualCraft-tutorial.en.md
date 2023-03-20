@@ -1,5 +1,9 @@
 # VisualCraft Tutorial
 
+!!! warning "Warning"
+
+    VisualCraft is still under beta stage. If you want to test it or you found any bugs, please submit an issue on [GitHub](https://github.com/SlopeCraft/SlopeCraft).
+
 ## Description
 
 VisualCraft is a brand-new pixel art generator for Minecraft. It is developed by TokiNoBug, and is a subproject of SlopeCraft. Unlike other counterparts, VisualCraft aims to catch up with latest versions of Minecraft(from 1.12 to latest), providing greatest functions and supporting as much MC features as possible.

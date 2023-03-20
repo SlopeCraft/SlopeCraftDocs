@@ -1,5 +1,9 @@
 # VisualCraft 教程
 
+!!! warning "注意"
+
+    VisualCraft 仍处于测试阶段。如果你想测试它或者发现了任何问题，请在 [GitHub](https://github.com/SlopeCraft/SlopeCraft) 上提交 issue。
+
 ## 简介
 
 VisualCraft 是一款全新的 Minecraft 像素画生成器，由 MC 玩家 TokiNoBug 开发，是 SlopeCraft 的子项目。与其他类似的软件不同，VisualCraft 旨在跟进最新的 MC 版本 (1.12~最新版)、支持最多的 MC 特性，提供最强大的功能。

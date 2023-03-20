@@ -8,10 +8,10 @@
 
 |   术语   | 含义                                                 |
 | :------: | :--------------------------------------------------- |
-|   地图   | Minecraft中的物品，id为`minecraft:filled_map`        |
-|   存档   | Minecraft中的游戏存档                                |
+|   地图   | Minecraft 中的物品，id 为 `minecraft:filled_map`        |
+|   存档   | Minecraft 中的游戏存档                                |
 |  地图画  | 显示于地图物品中的图像                               |
-| 地图文件 | 存储地图数据的nbt二进制文件，文件名形如`map_<i>.dat` |
+| 地图文件 | 存储地图数据的 nbt 二进制文件，文件名形如`map_<i>.dat` |
 
 ## Step -1. 图片预处理
 
@@ -278,7 +278,6 @@ WE 原理图的属性略多，它们是对 WorldEdit 生成的原理图逆向工
 - 如果是一个 2×2 地图的地图画，那么你应当创建 2×2，即 4 个地图。
 - 如果你的游戏版本是 1.14 及以上，那么最好在制图台内用玻璃片将地图锁住。
 
-
 ### 导入地图文件
 
 如果你想通过/give命令来获得地图：
@@ -297,23 +296,21 @@ WE 原理图的属性略多，它们是对 WorldEdit 生成的原理图逆向工
 5. 关闭 SlopeCraft，打开游戏，这`n`个地图应当已经被成功的替换为地图画。
 6. 如果你担心输错地图文件序号，导致无关的地图被覆盖掉，你可以先新建一个临时的文件夹，在导出时选择这个临时文件夹。确认地图序号无误后，再复制黏贴替换掉你要替换的地图文件。
 
-
 ## 批量处理
 
 如果要将多个图像批量转为地图画，需要先在其他界面设置好地图画的属性，比如游戏版本、地图画类型、方块列表、转化算法、导出设置等。
 
-![](./assets/SlopeCraft-tutorial-images/page1-load-image.png)
+![page1-load-image](./assets/SlopeCraft-tutorial-images/page1-load-image.png)
 
 在导入图片的页面选择多个图像，会自动弹出批量处理的窗口。
 
-![](./assets/SlopeCraft-tutorial-images/page2-batch-op.png)
+![page2-batch-op](./assets/SlopeCraft-tutorial-images/page2-batch-op.png)
 
 在上方可以选择导出的格式，点击**开始执行**就可以开始批量处理。
 
-
 ## 高级功能
 
-![](./assets/SlopeCraft-tutorial-images/menu-advanced.png)
+![menu-advanced](./assets/SlopeCraft-tutorial-images/menu-advanced.png)
 
 在“高级”目录内可以看到一些高级操作。下面将逐一介绍。
 
@@ -327,7 +324,7 @@ WE 原理图的属性略多，它们是对 WorldEdit 生成的原理图逆向工
 
 下面的图显示了效果。由于投影很长，分成两段截图。
 
-| ![](./assets/SlopeCraft-tutorial-images.lang-indenpent/test-lite-left.png) | ![](./assets/SlopeCraft-tutorial-images.lang-indenpent/test-lite-right.png) |
+| ![test-lite-left](./assets/SlopeCraft-tutorial-images.lang-indenpent/test-lite-left.png) | ![test-lite-right](./assets/SlopeCraft-tutorial-images.lang-indenpent/test-lite-right.png) |
 | :------------------------------------------------------------------------: | :-------------------------------------------------------------------------: |
 |                                   左半段                                   |                                   右半段                                    |
 
@@ -347,7 +344,7 @@ SlopeCraft 允许将当前的方块列表设置导出为文件，或者加载一
 
 这个菜单项允许用户将当前的颜色表输出为一个$16\times 16$的 png 图像，包含了当前可以使用的所有颜色。
 
-| ![](./assets/SlopeCraft-tutorial-images.lang-indenpent/colormap_MC19_3d.png) | ![](./assets/SlopeCraft-tutorial-images.lang-indenpent/colormap_MC19_flat.png) | ![](./assets/SlopeCraft-tutorial-images.lang-indenpent/colormap_MC19_dataonly.png) |
+| ![colormap_MC19_3d](./assets/SlopeCraft-tutorial-images.lang-indenpent/colormap_MC19_3d.png) | ![colormap_MC19_flat](./assets/SlopeCraft-tutorial-images.lang-indenpent/colormap_MC19_flat.png) | ![colormap_MC19_dataonly](./assets/SlopeCraft-tutorial-images.lang-indenpent/colormap_MC19_dataonly.png) |
 | :--------------------------------------------------------------------------: | :----------------------------------------------------------------------------: | :--------------------------------------------------------------------------------: |
 |                                  1.19 立体                                   |                                   1.19 平面                                    |                                    1.19 纯文件                                     |
 
@@ -362,9 +359,11 @@ SlopeCraft 允许将当前的方块列表设置导出为文件，或者加载一
 1. 方块的**完整**id，包含**命名空间前缀**以及**所有方块属性**。
 
    如涂蜡铜块上半砖：
+
    ```file
    minecraft:waxed_copper_slab[type=top,waterlogged=false]
    ```
+
    这里面`minecraft:`是原版方块的命名空间前缀，中括号里的内容是所有方块属性。保险起见，你应当给每个方块属性都设置对应的值。
 2. 方块最早出现的游戏版本
 
@@ -390,7 +389,7 @@ SlopeCraft 允许将当前的方块列表设置导出为文件，或者加载一
    添加这个属性是因为 Mojang 从 1.12 更新到 1.13 修改了相当多方块的 id。如果你要添加的方块在 1.12 未添加，或者 id 没有改变，可以填空字符串。
 
 4. 方块的基色
-   
+
    这可能是最容易出错的地方。对于原版方块，你可以查询[Minecraft Wiki](ttps://wiki.biligame.com/mc/%E5%9C%B0%E5%9B%BE%E7%89%A9%E5%93%81%E6%A0%BC%E5%BC%8F#idcounts.dat_.E6.A0.BC.E5.BC.8F)。如果是 mod 自定义的方块，要么自己想办法测，要么去问 mod 开发者。
 
    如果不懂什么是基色，去看[地图画原理](./principles-introduction.md)
@@ -430,6 +429,7 @@ SlopeCraft 中，方块列表以 json 格式存储，相关的图片放在 Fixed
 **属性 wallUseable 已经被移除，因为墙面地图画已经被移除。**
 
 用 json 格式表示如下：
+
 ```json
 {
    "baseColor":11,
@@ -450,4 +450,3 @@ SlopeCraft 中，方块列表以 json 格式存储，相关的图片放在 Fixed
 4. 它的图片是一个名为“cobblestone.png”的图片，这个图片放在 CustomBlocks 文件夹下；
 5. 它最早出现的版本为 0，代表它在 1.12 之前就已经加入；
 6. 由于它的方块 id 在 1.13 发生了变化，它在 1.12 的方块 id 为 idOld 的值。
-

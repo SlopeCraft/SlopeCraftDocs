@@ -24,7 +24,7 @@ Only gcc is fully supported. MSVC and clang may not pass the compiling. Your com
       - You must compile and install it, and add the installation prefix to `CMAKE_PREFXI_PATH`.
 8. **fmtlib**
       - Can be download and compiled automatically.
-9.  **cli11**
+9. **cli11**
     - Can be downloaded automatically.
 10 **magic_enum**
     - Can be downloaded automatically.
@@ -48,16 +48,21 @@ Note that when SlopeCraftL links GAConverter, the link mode is **public**, for G
 ## Steps
 
 ### 1. Install Qt, libzip and libpng on your computer
-### 2. Clone this repo with:
+
+### 2. Clone SlopeCraft code repository
 
 ```bash
 git clone https://github.com/SlopeCraft/SlopeCraft.git
 ```
+
 ### 3. Configure
+
 Run cmake to configure this project. The command could be:
+
 ```bash
 cmake -S . -B ./build -G "MinGW Makefiles" -DCMAKE_CXX_COMPILER=gcc 
 ```
+
 You can use other generators like Ninja, but it may not work on windows, because `windres.exe` can not process spaces in including directories correctly, which will cause compilation errors. **This is a bug in GNU bintuils, and Ninja have no way to avoid this error, but mingw makefiles does.** On other platforms, `windres` is no longer used, so the bug is also avoided.
 
 You may need to pass other parameters to cmake. The cmake script of SlopeCraft recevies following parameters:
@@ -72,22 +77,24 @@ You may need to pass other parameters to cmake. The cmake script of SlopeCraft r
    |         `SlopeCraft_gprof`         |  BOOL  |            false            | Profile with gprof.                                                            |
 
 ### 4. Build all targets
-   
+
 ```bash
 cmake --build . --parallel
 ```
+
 ### 5. Install and delete
-   
+
 Run cmake --install to install all binaries and block files. By default the install directory is `${CMAKE_BINARY_DIR}/install`, where you can find all executables. There may also be a directory `please_delete_this_folder`, delete it.
 
 ### 6. Deploy
-   
+
 You may need to deploy shared libs for executables. For windows, run `windeployqt SlopeCraft.exe` in command line. And there should be similiar deployment commands on other platforms, like `macdeployqt` on MacOS.
 
 ## Notice
-1. If you meet any problem, draw me a new issue.
+
+1. If you meet any problem, submit a new issue.
 2. If you are building VisualCraftL on **linux**, some linking problems around libzip may occur. To fix this problem, there are 2 ways possible:
-   1. Use a **static archive of libzip** instead of shared lib. But this libzip.a should be compiled with argument **`-fPIC`**, because `libVisualCraftL.so`, a shared lib will link to it. 
+   1. Use a **static archive of libzip** instead of shared lib. But this libzip.a should be compiled with argument **`-fPIC`**, because `libVisualCraftL.so`, a shared lib will link to it.
       - If your libzip.a links other compress libs(for example, lzma), linking may fail. That is because libzip links to its dependents **privately regardless of whether libzip is built to be a shared lib**. I guess that this is a designing mistake in libzip. So it is **deprecated** to use a static libzip.
    2. Use shared libzip, and copy `libzip.so` and symlinks against it to `CMAKE_CURRENT_BINARY_DIR`. This is what I'm doing now.
 3. If you are building SlopeCraft with OpenCL as GPU API, **your first compilation is expected to meet a link failure**. This is because OpenCL C source code are embeded as resource file(not Windows .rc), so a 3rd party [resource file implementation(ResourceCreator.cmake)](https://github.com/isRyven/ResourceCreator.cmake.git) based on cmake is introduced to implement it. It doesn't work pretty well with qt, because "ResourceCreator.cmake" generates C code(**__rsc_ColorManip_cl_rc.c**) when cmake is building, however Qt requries all source files exist when cmake is configuring. Now the C source file is **touched**, but the correct code will not generate once the file exists. A perfect solution is not found out yet, so please fix it by following steps:

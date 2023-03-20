@@ -23,7 +23,7 @@
       - 你必须编译和安装它，并将安装路径添加到`CMAKE_PREFIX_PATH`。
 8. **fmtlib**
       - 可以下载并自动编译。
-9.  **cli11**
+9. **cli11**
     - 可以自动下载。
 10. **magic_enum**
     - 可以自动下载。
@@ -47,17 +47,21 @@
 ## 步骤
 
 ### 1. 在你的电脑上安装 Qt、libzip 和 libpng
-### 2. 用以下方法 clone 这个仓库：
+
+### 2. clone SlopeCraft 代码仓库
 
 ```bash
 git clone https://github.com/SlopeCraft/SlopeCraft.git
 ```
+
 ### 3. Configure
 
 运行 cmake 配置这个项目。命令行示例：
+
 ```bash
 cmake -S . -B ./build -G "MinGW Makefiles" -DCMAKE_CXX_COMPILER=gcc 
 ```
+
 你可以使用其他 Generator，如 Ninja，但在 windows 上可能无法工作，因为`windres.exe`不能正确处理包括目录中的空格，这将导致编译错误。**这是 GNU bintuils 的一个错误，Ninja 没有办法避免这个错误，但 mingw makefiles 可以。**在其他平台上，`windres`不再被使用，所以这个错误也被避免了。
 
 你可能需要向 cmake 传递其他参数。SlopeCraft 的 cmake 脚本会接收以下参数。
@@ -72,12 +76,13 @@ cmake -S . -B ./build -G "MinGW Makefiles" -DCMAKE_CXX_COMPILER=gcc
 |         `SlopeCraft_gprof`         |  BOOL  |            false            | 用 gprof 分析性能。                                                            |
 
 ### 4. 构建所有目标
-   
+
 ```bash
 cmake --build . --parallel
 ```
+
 ### 5. 安装，并删除不必要的文件
-   
+
 运行 `cmake --install` 来安装所有二进制文件和方块文件。默认情况下，安装目录是 `${CMAKE_BINARY_DIR}/install`，你可以在那里找到所有可执行文件。可能还有一个文件夹叫`please_delete_this_folder`，把它删除。
 
 ### 6. 部署 Qt

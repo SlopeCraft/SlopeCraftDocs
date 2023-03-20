@@ -91,6 +91,7 @@ Each of the base colors is shown in the slider. In the **Enable** box, you can c
 
 Below the enable box is the box **which corresponds to each color**. Only one block can be used for each color in the palette.
 structure void
+
 - You may think that many of the blocks in the diagram are different colors, but please note that **they are identical in the "eye of the map "** and the only basis for selection is whether the blocks are easy to mass-produce.
 - Some base colors are only available in one block, however the palette cannot be left blank, so this option is unchangeable, like the glass or emerald block in the picture, it must be selected.
 
@@ -300,18 +301,17 @@ If you do not want to use the command, replace only the map data file with follo
 
 If you want to batch convert multiple images to maps, you need to set the properties of maps in other interface first, such as game version, map type, block list, conversion algorithm, export settings, etc.
 
-![](./assets/SlopeCraft-tutorial-images.en/page1-load-image.en.png)
+![page1-load-image](./assets/SlopeCraft-tutorial-images.en/page1-load-image.en.png)
 
 Selecting multiple images on the import image page will automatically bring up the batch processing window.
 
-![](./assets/SlopeCraft-tutorial-images.en/page2-batch-op.en.png)
+![page2-batch-op](./assets/SlopeCraft-tutorial-images.en/page2-batch-op.en.png)
 
 At the top, you can choose the format of the export, and click **Start** to start batch processing.
 
-
 ## Advanced functions
 
-![](./assets/SlopeCraft-tutorial-images.en/menu-advanced.en.png)
+![menu-advanced](./assets/SlopeCraft-tutorial-images.en/menu-advanced.en.png)
 
 You can see some advanced operations in the "Advanced" menu. Each of them is described below.
 
@@ -325,7 +325,7 @@ If everything is fine, none of the blocks will be missing; if not, there is an i
 
 The following figure shows the effect. Due to the long projection, it is divided into two screenshots.
 
-| ![](./assets/SlopeCraft-tutorial-images.lang-indenpent/test-lite-left.png) | ![](./assets/SlopeCraft-tutorial-images.lang-indenpent/test-lite-right.png) |
+| ![test-lite-left](./assets/SlopeCraft-tutorial-images.lang-indenpent/test-lite-left.png) | ![test-lite-right](./assets/SlopeCraft-tutorial-images.lang-indenpent/test-lite-right.png) |
 | :------------------------------------------------------------------------: | :-------------------------------------------------------------------------: |
 |                                 Left half                                  |                                 Right half                                  |
 
@@ -345,7 +345,7 @@ This menu item allows the user to set the parameters of the GACvter, as describe
 
 This menu item allows the user to export the current color table as a $16\times 16$ png image, containing all the colors currently available.
 
-| ![](./assets/SlopeCraft-tutorial-images.lang-indenpent/colormap_MC19_3d.png) | ![](./assets/SlopeCraft-tutorial-images.lang-indenpent/colormap_MC19_flat.png) | ![](./assets/SlopeCraft-tutorial-images.lang-indenpent/colormap_MC19_dataonly.png) |
+| ![colormap_MC19_3d](./assets/SlopeCraft-tutorial-images.lang-indenpent/colormap_MC19_3d.png) | ![colormap_MC19_flat](./assets/SlopeCraft-tutorial-images.lang-indenpent/colormap_MC19_flat.png) | ![colormap_MC19_dataonly](./assets/SlopeCraft-tutorial-images.lang-indenpent/colormap_MC19_dataonly.png) |
 | :--------------------------------------------------------------------------: | :----------------------------------------------------------------------------: | :--------------------------------------------------------------------------------: |
 |                                   1.19 3D                                    |                                   1.19 Flat                                    |                                   1.19 File-only                                   |
 
@@ -360,9 +360,11 @@ You need to have the following information about the block.
 1. The **complete** id of the block, containing the **namespace prefix** and **all block attributes**.
 
    If the upper half of the wax-coated copper block is tiled.
-   ```file
+
+   ``` file
    minecraft:waxed_copper_slab[type=top,waterlogged=false]
    ```
+
    In this ``minecraft:`` is the namespace prefix for the original block, and the contents of the brackets are all block attributes. To be on the safe side, you should set the corresponding value for each block attribute.
 
 2. The earliest version of the game in which the block appeared
@@ -389,7 +391,7 @@ You need to have the following information about the block.
    This property was added because Mojang changed the ids of quite a few blocks from 1.12 to 1.13. If the block you want to add was not added in 1.12, or if the id has not changed, you can fill in the empty string.
 
 4. Base color of the block
-   
+
    This is probably the easiest place to go wrong. For the original block, you can check the [Minecraft Wiki](ttps://wiki.biligame.com/mc/%E5%9C%B0%E5%9B%BE%E7%89%A9%E5%93%81%E6%A0%BC%E5%BC%8F#idcounts.dat_.E6.A0.BC.E5.BC.8F). If it's a mod custom block, either figure out how to measure it yourself or ask the mod developer.
 
    If you don't know what the base color is, go to [principles introduction](./principles-introduction.md)
@@ -429,6 +431,7 @@ Each block has the following properties.
 **The property `wallUseable` has been removed because the wall ground drawing has been removed.**
 
 In json format, it is expressed as:
+
 ```json
 {
    "baseColor":11,
