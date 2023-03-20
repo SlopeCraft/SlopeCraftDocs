@@ -11,7 +11,7 @@
      - Qt 必须用 gcc 进行编译。
 2. **Eigen v3.4.0 或更高版本**用于线性代数
       - 可以自动下载。
-3. 用于现代优化算法的[**HeuristicFlow v1.6.2.1**](github.com/ToKiNoBug/HeuristicFlow.git)。
+3. 用于现代优化算法的 [**HeuristicFlow v1.6.2.1**](https://github.com/ToKiNoBug/HeuristicFlow)。
       - 可以自动下载。
 4. **zlib v1.12.11 或更高版本**用于 gzip 压缩
       - 通常它是和编译器一起安装的，所以你不需要去编译它。

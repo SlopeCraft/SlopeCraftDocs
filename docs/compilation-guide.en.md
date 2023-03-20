@@ -11,7 +11,7 @@ Only gcc is fully supported. MSVC and clang may not pass the compiling. Your com
      - Qt must be compiled with gcc.
 2. **Eigen v3.4.0 or later** for linear algebra
       - Can be downloaded automatically.
-3. [**HeuristicFlow v1.6.2.1**](github.com/ToKiNoBug/HeuristicFlow.git) for mordern optimization algorithms
+3. [**HeuristicFlow v1.6.2.1**](https://github.com/ToKiNoBug/HeuristicFlow) for mordern optimization algorithms
       - If the repo is not public, draw me an issue to get it.
       - Can be downloaded automatically.
 4. **zlib v1.12.11 or later** for gzip compression
