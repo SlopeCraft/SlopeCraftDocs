@@ -100,3 +100,10 @@ cmake --build . --parallel
     1. 构建，链接器将报错，报错信息可能是*undefined reference to`ColorManip_cl_rc_length` or `ColorManip_cl_rc`*。
     2. 删除`${CMAKE_BINARY_DIR}/utilities/GPUWrapper/OpenCL/__rsc_ColorManip_cl_rc.c`。你删除的是一个由 touch 生成的空文件，构建时将会生成正确的文件。
     3. 再次构建。**不要再运行 cmake configure！**此时的编译应该会成功。
+4. 在 macOS 中，你可能需要手动指定 gcc 的路径。如果你使用 homebrew 安装了 gcc，你可以使用以下参数来指定 gcc 的路径。
+
+      ```bash
+      cmake -DCMAKE_C_COMPILER=/usr/local/Cellar/gcc/12.2.0/bin/gcc-12 -DCMAKE_CXX_COMPILER=/usr/local/Cellar/gcc/12.2.0/bin/g++-12 ...
+      ```
+
+      请注意，这个路径可能会因为你的 gcc 版本不同而不同。你可以使用 `brew info gcc` 来查看 gcc 的安装路径。此外，二进制文件（`gcc-12`/`g++-12`）中的 `12` 是你的 gcc 的大版本号，你也需要根据你的 gcc 版本来修改。
