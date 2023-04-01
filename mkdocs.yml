@@ -32,6 +32,8 @@ theme:
   search_index_only: true
   features:
     - navigation.tabs
+  favicon: 'assets/favicon.ico'
+  logo: 'assets/logo.png'
 
 # Customization
 extra_css:
