@@ -56,7 +56,10 @@ nav:
   - SlopeCraft 教程: SlopeCraft-tutorial.md
   - VisualCraft 教程: VisualCraft-tutorial.md
   - 常见问题: faq.md
-  - 编译指南: compilation-guide.md
+  - 编译指南:
+    - 通用: compilation-guide/index.md
+    - Windows/Linux: compilation-guide/Windows-Linux.md
+    - macOS: compilation-guide/macOS.md
 
 # Plugins
 plugins:
@@ -81,6 +84,9 @@ plugins:
           VisualCraft 教程: VisualCraft Tutorial
           常见问题: FAQ
           编译指南: Compilation Guide
+          通用: General
+          Windows/Linux: Windows/Linux
+          macOS: macOS
 
 extra_javascript:
   - javascripts/mathjax.js
