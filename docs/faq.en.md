@@ -1,7 +1,6 @@
 # Frequently Asked Questions
 
 !!! warning
-
     Before submitting an issue, please make sure that the bug has been fixed in the latest version!
 
 1. Can I use it on Bedrock Edition/Netease version?

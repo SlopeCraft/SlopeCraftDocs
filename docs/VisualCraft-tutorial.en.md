@@ -1,7 +1,6 @@
 # VisualCraft Tutorial
 
 !!! warning "Warning"
-
     VisualCraft is still under beta stage. If you want to test it or you found any bugs, please submit an issue on [GitHub](https://github.com/SlopeCraft/SlopeCraft).
 
 ## Description

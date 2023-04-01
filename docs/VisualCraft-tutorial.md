@@ -1,7 +1,6 @@
 # VisualCraft 教程
 
 !!! warning "注意"
-
     VisualCraft 仍处于测试阶段。如果你想测试它或者发现了任何问题，请在 [GitHub](https://github.com/SlopeCraft/SlopeCraft) 上提交 issue。
 
 ## 简介

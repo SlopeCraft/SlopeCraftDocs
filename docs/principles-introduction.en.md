@@ -3,7 +3,6 @@
 This article will introduce the working principle of map pixel art in form of 3D map, 2D map and map data file. SlopeCraft was developed based on these mechanisms. By studying and using these mechanisms, people can make the map display custom images.
 
 !!! tip
-
     `Map` mentionned in this article refers to the map item in Minecraft rather than the saving file.
 
 ## Why are we using maps?
