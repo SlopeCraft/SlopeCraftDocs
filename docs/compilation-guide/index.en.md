@@ -1,10 +1,21 @@
 # Compilation Guide
 
+Welcome to compilation guide of SlopeCraft. This guide will help you compile SlopeCraft. Please read this general guide, and then read the detailed steps on your OS.
+
+
+
+!!! question "Questions"
+    If you have any difficulty when building SlopeCraft, do not hesitate to draw us an issue to our [Github repository](https://github.com/SlopeCraft/SlopeCraft/issues).
+
+
 ## Supported compilers
 
-Only gcc is fully supported. MSVC and clang may not pass the compiling. Your compiler must supports C++ 20 standard, so please use gcc12 or later(gcc13). Uptil now, SlopeCraft is compiled with gcc 12.2.0.
+Only gcc is fully supported. MSVC and clang may not pass the compilation. Your compiler must supports C++ 20 standard, so please use gcc12 or later(gcc13). Uptil now, SlopeCraft is compiled with gcc 12.2.0.
 
-## Library dependencies
+!!! warning "Warning"
+    Only gcc is fully supported. MSVC and clang may not pass the compilation. The clang compiler provided by Apple Xcode CommandLineTools **is not supported**.
+
+## Library dependents
 
 1. **Qt v6.2.4 or later** for gui
      - If your Qt kit is compiled and configured by yourself, make sure you have `QtBase` and `QtNetwork` installed.
@@ -19,15 +30,16 @@ Only gcc is fully supported. MSVC and clang may not pass the compiling. Your com
 5. **Nlohmann json**
       - Can be downloaded automatically.
 6. **libpng**
-      - You must compile and install it, and add the installation prefix to `CMAKE_PREFXI_PATH`.
+      - You must install it manually, and add the installation prefix to `CMAKE_PREFXI_PATH`.
 7. **libzip**
-      - You must compile and install it, and add the installation prefix to `CMAKE_PREFXI_PATH`.
+      - You must install it manually, and add the installation prefix to `CMAKE_PREFXI_PATH`.
 8. **fmtlib**
       - Can be download and compiled automatically.
 9.  **cli11**
     - Can be downloaded automatically.
 10 **magic_enum**
     - Can be downloaded automatically.
+
 
 ## Projects in SlopeCraft
 
@@ -43,43 +55,7 @@ Only gcc is fully supported. MSVC and clang may not pass the compiling. Your com
 |   `VisualCraft`    | Executable  | Qt base,  nlohmann json, magic_enum                                              | The gui executable of VisualCraft                        |
 |       `vccl`       | Executable  | Qt base, magic_enum, fmtlib, cli11                                               | The CLI executable of VisualCraft                        |
 
-Note that when SlopeCraftL links GAConverter, the link mode is **public**, for GAConverter uses global read-only variables implemented in SlopeCraftL.
-
-## Steps
-
-### 1. Install Qt, libzip and libpng on your computer
-
-#### Windows:
-
-Install Qt, libzip and libpng manually, or compile it by yourselfs.
-
-#### Linux (Ubuntu):
-```bash
-# For libpng, libzip and eigen
-sudo apt install libzip-dev zipcmp ziptool zipmerge libpng-dev libeigen3-dev
-
-# For Qt6.2.4
-sudo apt install libqt6widgets6 libqt6gui6 libqt6network6 libqt6concurrent6 qt6-base-dev qt6-tools-dev-tools qt6-tools-dev qt6-l10n-tools
-sudo apt install x11-utils libxcb-xinerama0 libxv1 libgl-dev
-```
-
-#### MacOS:
-```bash
-brew install ninja
-brew install qt@6
-```
-
-### 2. Clone this repo with:
-
-```bash
-git clone https://github.com/SlopeCraft/SlopeCraft.git
-```
-### 3. Configure
-Run cmake to configure this project. The command could be:
-```bash
-cmake -S . -B ./build -G "MinGW Makefiles" -DCMAKE_CXX_COMPILER=gcc 
-```
-You can use other generators like Ninja, but it may not work on windows, because `windres.exe` can not process spaces in including directories correctly, which will cause compilation errors. **This is a bug in GNU bintuils, and Ninja have no way to avoid this error, but mingw makefiles does.** On other platforms, `windres` is no longer used, so the bug is also avoided.
+## CMake arguments for SlopeCraft
 
 You may need to pass other parameters to cmake. The cmake script of SlopeCraft recevies following parameters:
 
@@ -92,24 +68,16 @@ You may need to pass other parameters to cmake. The cmake script of SlopeCraft r
    | `SlopeCraft_update_ts_no_obsolete` |  BOOL  |            false            | Remove obsolete translations from ts files.                                    |
    |         `SlopeCraft_gprof`         |  BOOL  |            false            | Profile with gprof.                                                            |
 
-### 4. Build all targets
-   
-```bash
-cmake --build . --parallel
-```
-### 5. Install and delete
-   
-Run cmake --install to install all binaries and block files. By default the install directory is `${CMAKE_BINARY_DIR}/install`, where you can find all executables. There may also be a directory `please_delete_this_folder`, delete it.
+## CMake generater for SlopeCraft
 
-### 6. Deploy
-   
-You may need to deploy shared libs for executables. For windows, run `windeployqt SlopeCraft.exe` in command line. And there should be similiar deployment commands on other platforms, like `macdeployqt` on MacOS.
+|    Generator    |      OS       | Description                                                                                                                                                                                                                                                                                        |
+| :-------------: | :-----------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|      Ninja      | macOS & Linux | N/A                                                                                                                                                                                                                                                                                                |
+| MinGW Makefiles |    Windows    | `windres.exe` can not process spaces in including directories correctly, which will cause compilation errors. **This is a bug in GNU bintuils, and Ninja have no way to avoid this error, but mingw makefiles does.** On other platforms, `windres` is no longer used, so the bug is also avoided. |
 
-**Now `windeployqt` and `1`macdeployqt` will be executed automatically during installation. So this step can be skipped.**
+## Compilation steps
 
-## Notice
-1. If you meet any problem, draw me a new issue.
-2. If you are building VisualCraftL on **linux**, some linking problems around libzip may occur. To fix this problem, there are 2 ways possible:
-   1. Use a **static archive of libzip** instead of shared lib. But this libzip.a should be compiled with argument **`-fPIC`**, because `libVisualCraftL.so`, a shared lib will link to it. 
-      - If your libzip.a links other compress libs(for example, lzma), linking may fail. That is because libzip links to its dependents **privately regardless of whether libzip is built to be a shared lib**. I guess that this is a designing mistake in libzip. So it is **deprecated** to use a static libzip.
-   2. Use shared libzip, and copy `libzip.so` and symlinks against it to `CMAKE_CURRENT_BINARY_DIR`. This is what I'm doing now.
+Now you have learned necessary informations about SlopeCraft. Click the following links to see compilation steps on different OS.
+
+- [Windows/Linux](Windows-Linux.en.md)
+- [macOS](macOS.en.md)

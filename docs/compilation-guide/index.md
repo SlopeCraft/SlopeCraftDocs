@@ -26,9 +26,9 @@
 5. **Nlohmann json**
      - 可以自动下载。
 6. **libpng**
-     - 你必须编译和安装它，并将安装路径添加到 `CMAKE_PREFIX_PATH`。
+     - 你必须安装它，并将安装路径添加到 `CMAKE_PREFIX_PATH`。
 7. **libzip**
-     - 你必须编译和安装它，并将安装路径添加到 `CMAKE_PREFIX_PATH`。
+     - 你必须安装它，并将安装路径添加到 `CMAKE_PREFIX_PATH`。
 8. **fmtlib**
      - 可以下载并自动编译。
 9. **cli11**
@@ -50,8 +50,6 @@
 |   `VisualCraft`    | 可执行文件 | Qt base, nlohmann json, magic_enum                                             | VisualCraft 的 GUI 界面                 |
 |       `vccl`       | 可执行文件 | Qt base, magic_enum, fmtlib, cli11                                             | VisualCraft 的命令行                    |
 
-注意，当 SlopeCraftL 链接 GAConverter 时，链接模式是 **public**，因为 GAConverter 使用 SlopeCraftL 中实现的全局只读变量。
-
 ## SlopeCraft 接受的 CMake 参数
 
 |                参数                |  类型  |           默认值            | 说明                                                                           |
@@ -65,9 +63,9 @@
 
 ## SlopeCraft 使用的 CMake 生成器
 
-|     生成器      |   操作系统    | 说明 |
-| :-------------: | :-----------: | :--- |
-|      Ninja      | macOS & Linux | N/A  |
+|     生成器      |   操作系统    | 说明                                                                                                                                                                                                                          |
+| :-------------: | :-----------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|      Ninja      | macOS & Linux | N/A                                                                                                                                                                                                                           |
 | MinGW Makefiles |    Windows    | 由于 GNU bintuils 中的一个错误，`windres.exe` 不能正确处理包含空格的目录，而 Ninja 无法避免这个错误，所以 Windows 上需要使用 MinGW Makefiles。但在其他平台上，`windres` 不再被使用，所以 Ninja 可以在 macOS 和 Linux 上工作。 |
 
 ## 编译步骤
