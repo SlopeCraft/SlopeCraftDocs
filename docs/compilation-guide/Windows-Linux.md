@@ -10,12 +10,21 @@
 
 手动安装，或者自己编译
 
+或者使用 vcpkg：
+```bash
+# 使用 msvc 或 clang-cl 编译
+vcpkg install --triplet=x64-windows zlib libzip eigen3 libpng
+
+# 使用 gcc 编译
+vcpkg install --triplet=x64-mingw-dynamic zlib libzip eigen3 libpng
+```
+
 #### Linux (Ubuntu):
 ```bash
 #安装libzip， libpng， Eigen3
 sudo apt install libzip-dev zipcmp ziptool zipmerge libpng-dev libeigen3-dev
 
-# 安装 Qt6.2.4
+# 安装 Qt6.2.4，ubuntu。其他Linux发行版同理
 sudo apt install libqt6widgets6 libqt6gui6 libqt6network6 libqt6concurrent6 qt6-base-dev qt6-tools-dev-tools qt6-tools-dev qt6-l10n-tools
 sudo apt install x11-utils libxcb-xinerama0 libxv1 libgl-dev
 ```
@@ -34,8 +43,15 @@ sudo apt install x11-utils libxcb-xinerama0 libxv1 libgl-dev
       - Windows
 
          ```bash
-         cmake -S . -B ./build -G "MinGW Makefiles" -DCMAKE_CXX_COMPILER=gcc
+         # 使用 clang-cl 编译
+         .../vcvars64.bat
+         cmake -S . -B ./build -G Ninja -DCMAKE_CXX_COMPILER=clang-cl -DCMAKE_PREFIX_PATH=...
+         # 使用 gcc 编译
+         cmake -S . -B ./build -G "MinGW Makefiles" -DCMAKE_CXX_COMPILER=gcc -DCMAKE_PREFIX_PATH=...
          ```
+         使用 clang-cl 编译时，应当先调用 vcvars64.bat 设置 msvc 所需的环境变量（clang-cl 是模仿 msvc 编译器的）。这个文件在可以在 VS 的安装目录里找到。默认的位置可能是*C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvars64.bat*
+         
+         应当把 Qt、zlib、libpng 和 libzip 的安装目录输入到 CMAKE_PREFIX_PATH 中。如果有多个路径，用半角分号`;`连接。
       - Linux
 
          ```bash
@@ -57,11 +73,3 @@ sudo apt install x11-utils libxcb-xinerama0 libxv1 libgl-dev
       你可能需要为可执行文件部署 Qt 动态库。对于 Windows，在命令行中运行 `windeployqt SlopeCraft.exe`。Linux 平台上不需要部署，用户应当通过包管理器安装 Qt、libpng 和 libzip。
 
 **现在安装时已经可以自动执行 `windeployqt` 或 `macdeployqt`，因此这一步可以省略。**
-
-## 注意事项
-
-1. 如果你在**linux**上构建 VisualCraftL，可能会出现一些围绕 libzip 的链接问题。为了解决这个问题，有 2 种可能的方法。
-
-    1. 使用 libzip 的**静态库，而不是动态库**。但是这个 libzip.a 应该用参数 **`-fPIC`** 编译，因为 `libVisualCraftL.so` 这个共享库会链接到它。
-        - 如果你的 libzip.a 链接了其他压缩库（例如 lzma），链接可能会失败。这是因为 libzip 链接到它的依赖项时是 PRIVATE 链接，不管 libzip 是不是静态库。我猜这是 libzip 的一个设计错误。所以使用静态的 libzip 是不可取的。
-    2. 使用动态的 libzip，并将 `libzip.so` 和指向它的符号链接复制到 `CMAKE_CURRENT_BINARY_DIR`。这就是我现在的方案。
