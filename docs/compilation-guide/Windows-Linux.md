@@ -40,8 +40,8 @@ sudo apt install x11-utils libxcb-xinerama0 libxv1 libgl-dev
 2. 配置 CMake
 
       运行 CMake 配置这个项目。命令行示例：
-      - Windows
 
+      - Windows
          ```bash
          # 使用 clang-cl 编译
          .../vcvars64.bat
@@ -50,10 +50,10 @@ sudo apt install x11-utils libxcb-xinerama0 libxv1 libgl-dev
          cmake -S . -B ./build -G "MinGW Makefiles" -DCMAKE_CXX_COMPILER=gcc -DCMAKE_PREFIX_PATH=...
          ```
          使用 clang-cl 编译时，应当先调用 vcvars64.bat 设置 msvc 所需的环境变量（clang-cl 是模仿 msvc 编译器的）。这个文件在可以在 VS 的安装目录里找到。默认的位置可能是*C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvars64.bat*
-         
-         应当把 Qt、zlib、libpng 和 libzip 的安装目录输入到 CMAKE_PREFIX_PATH 中。如果有多个路径，用半角分号`;`连接。
-      - Linux
 
+         应当把 Qt、zlib、libpng 和 libzip 的安装目录输入到 CMAKE_PREFIX_PATH 中。如果有多个路径，用半角分号`;`连接。
+
+      - Linux
          ```bash
          cmake -S . -B ./build -G "Ninja" -DCMAKE_CXX_COMPILER=gcc
          ```
