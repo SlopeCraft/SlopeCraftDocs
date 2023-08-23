@@ -37,7 +37,7 @@
 
 |        名称        | 二进制类型 | 依赖项 (外部依赖库)                                                            | 描述                                    |
 | :----------------: | :--------: | :----------------------------------------------------------------------------- | :-------------------------------------- |
-|   `imageCutter`    | 可执行文件 | Qt base                                                                        | 一个不必要的图像预处理程序。            |
+|   `imageCutter`    | 可执行文件 | Qt base                                                                        | 一个简单的图像预处理程序。              |
 |    `MapViewer`     | 可执行文件 | Qt base，Eigen，zlib                                                           | 一个浏览 Minecraft 地图数据文件的工具。 |
 | `BlockListManager` |   静态库   | Qt base                                                                        | 管理地图画可用方块的类                  |
 |   `GAConverter`    |   静态库   | Eigen, HeuristicFlow                                                           | 一个基于遗传算法的转换器                |
@@ -49,17 +49,17 @@
 
 ## SlopeCraft 接受的 CMake 参数
 
-|                  参数                  |  类型  |                      默认值                       | 说明                                                                           |
-| :------------------------------------: | :----: | :-----------------------------------------------: | :----------------------------------------------------------------------------- |
-|          `CMAKE_PREFIX_PATH`           |  PATH  |                        ""                         | 告诉 cmake 在哪里可以找到 Qt、zlib、libpng、libzip 和 GPU api sdk（如 OpenCL） |
-|         `CMAKE_INSTALL_PREFIX`         |  PATH  |            ${CMAKE_BINARY_DIR}/install            | 在哪里安装 SlopeCraft。                                                        |
-|          `SlopeCraft_GPU_API`          | STRING |                     "OpenCL"                      | 用于计算的显卡 API。有效值 : OpenCL, None. 可能支持 Metal。                    |
-|         `SlopeCraft_vectorize`         |  BOOL  |                       true                        | 启用 AVX 和 AVX2 指令集，这可以提高允运行速度，但在较老的电脑上将不能使用      |
-|      `SlopeCraft_update_ts_files`      |  BOOL  |                       false                       | 是否在构建前更新 ts 文件。                                                     |
-|   `SlopeCraft_update_ts_no_obsolete`   |  BOOL  |                       false                       | 从 ts 文件中删除过时的翻译。                                                   |
-|           `SlopeCraft_gprof`           |  BOOL  |                       false                       | 用 gprof 分析性能。                                                            |
-| `SlopeCraft_windeployqt_flags_install` | STRING |                "--no-translations"                | 安装时传递给 windeployqt 的参数（仅 windows 有效）                             |
-|  `SlopeCraft_windeployqt_flags_build`  | STRING | "${SlopeCraft_windeployqt_flags_install};--force" | 在编译之后，传递给 windeployqt 的参数（仅用于调试，仅 windows 有效）           |
+|                  参数                  |  类型  |                      默认值                       | 说明                                                                              |
+| :------------------------------------: | :----: | :-----------------------------------------------: | :-------------------------------------------------------------------------------- |
+|          `CMAKE_PREFIX_PATH`           |  PATH  |                        ""                         | 告诉 cmake 在哪里可以找到 Qt、zlib、libpng、libzip 和 GPU api sdk（如 OpenCL）    |
+|         `CMAKE_INSTALL_PREFIX`         |  PATH  |            ${CMAKE_BINARY_DIR}/install            | 在哪里安装 SlopeCraft。                                                           |
+|          `SlopeCraft_GPU_API`          | STRING |                     "OpenCL"                      | 用于计算的显卡 API。有效值 : OpenCL, None. 可能支持 Metal。                       |
+|         `SlopeCraft_vectorize`         |  BOOL  |                       true                        | 启用 AVX 和 AVX2 指令集，这可以提高允运行速度，但在较老的电脑和虚拟机中将不能使用 |
+|      `SlopeCraft_update_ts_files`      |  BOOL  |                       false                       | 是否在构建前更新 ts 文件。                                                        |
+|   `SlopeCraft_update_ts_no_obsolete`   |  BOOL  |                       false                       | 从 ts 文件中删除过时的翻译。                                                      |
+|           `SlopeCraft_gprof`           |  BOOL  |                       false                       | 用 gprof 分析性能。                                                               |
+| `SlopeCraft_windeployqt_flags_install` | STRING |                "--no-translations"                | 安装时传递给 windeployqt 的参数（仅 windows 有效）                                |
+|  `SlopeCraft_windeployqt_flags_build`  | STRING | "${SlopeCraft_windeployqt_flags_install};--force" | 在编译之后，传递给 windeployqt 的参数（仅用于调试，仅 windows 有效）              |
 
 ## SlopeCraft 使用的 CMake 生成器
 

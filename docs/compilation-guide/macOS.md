@@ -86,12 +86,12 @@
 2. 配置 CMake
 
     !!! warning "注意"
-        在 macOS 下，CMake 会默认使用系统自带的 Clang 编译器，而 SlopeCraft 仅支持使用 GCC 编译器进行编译。因此，我们需要在配置 CMake 时使用 GCC 编译器路径指定使用 GCC 编译器。
+        在 macOS 下，CMake 会默认使用系统自带的 Clang 编译器，而 SlopeCraft 还不能在 macOS 上被 clang 编译。因此，我们需要在配置 CMake 时使用 GCC 编译器路径指定使用 GCC 编译器。
 
     使用以下命令配置 CMake：
 
     ```bash
-    cmake -S . -B ./build -G "Ninja" -DCMAKE_C_COMPILER=/usr/local/Cellar/gcc/12.2.0/bin/gcc-12 -DCMAKE_CXX_COMPILER=/usr/local/Cellar/gcc/12.2.0/bin/g++-12 -DCMAKE_INSTALL_PREFIX=./build/install -DSlopeCraft_GPU_API="None"
+    cmake -S . -B ./build -G "Ninja" -DCMAKE_C_COMPILER=/usr/local/Cellar/gcc/12.2.0/bin/gcc-12 -DCMAKE_CXX_COMPILER=/usr/local/Cellar/gcc/12.2.0/bin/g++-12 -DCMAKE_INSTALL_PREFIX=./build/install -DSlopeCraft_GPU_API="None" -DSlopeCraft_vectorize=false
     ```
 
     在上面的命令中，我们指定了几个参数：
@@ -100,6 +100,7 @@
     - `-DCMAKE_CXX_COMPILER` 指定 C++ 编译器路径，你可能需要将 `=` 后面的路径参数替换为你自己的路径。C++ 编译器为我们在安装 GCC 时找到的路径（在本文中为 `/usr/local/Cellar/gcc/12.2.0/bin`）后面加上 `/g++-12`
     - `-DCMAKE_INSTALL_PREFIX` 指定安装路径，本指南中我们将安装路径设置为 `./build/install`，你可以根据自己的需要进行修改
     - `-DSlopeCraft_GPU_API` 指定 SlopeCraft 使用的计算 API，由于我们在 macOS 下编译 SlopeCraft，而 OpenCL 在 macOS 下的支持有一些问题，所以我们需要将其设置为 `"None"`，表示 SlopeCraft 不使用任何 GPU 计算 API 使用 CPU 进行计算
+    - `SlopeCraft_vectorize` 表示采用向量化指令集（目前只支持 avx 和 avx2），但由于 MacOS 设备在使用 M2 芯片时不能翻译这两个指令集，有必要关闭向量化。
 
 3. 切换到 build 目录并编译 SlopeCraft
 
