@@ -100,7 +100,7 @@
     - `-DCMAKE_CXX_COMPILER` 指定 C++ 编译器路径，你可能需要将 `=` 后面的路径参数替换为你自己的路径。C++ 编译器为我们在安装 GCC 时找到的路径（在本文中为 `/usr/local/Cellar/gcc/12.2.0/bin`）后面加上 `/g++-12`
     - `-DCMAKE_INSTALL_PREFIX` 指定安装路径，本指南中我们将安装路径设置为 `./build/install`，你可以根据自己的需要进行修改
     - `-DSlopeCraft_GPU_API` 指定 SlopeCraft 使用的计算 API，由于我们在 macOS 下编译 SlopeCraft，而 OpenCL 在 macOS 下的支持有一些问题，所以我们需要将其设置为 `"None"`，表示 SlopeCraft 不使用任何 GPU 计算 API 使用 CPU 进行计算
-    - `SlopeCraft_vectorize` 表示采用向量化指令集（目前只支持 avx 和 avx2），但由于 MacOS 设备在使用 M2 芯片时不能翻译这两个指令集，有必要关闭向量化。
+    - `SlopeCraft_vectorize` 表示采用向量化指令集（目前只支持 avx 和 avx2），但由于 macOS 设备在使用 Apple Silicon 芯片 (ARM 架构的 M1/M2 等) 时不能使用 Rosetta 转译这两个指令集，有必要关闭向量化。
 
 3. 切换到 build 目录并编译 SlopeCraft
 
