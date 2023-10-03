@@ -96,12 +96,9 @@
 
     - `-DCMAKE_C_COMPILER` 指定 C 编译器路径，你可能需要将 `=` 后面的路径参数替换为你自己的路径。C 编译器为我们在安装 GCC 时找到的路径（在本文中为 `/usr/local/Cellar/gcc/12.2.0/bin`）后面加上 `/gcc-12`
     - `-DCMAKE_CXX_COMPILER` 指定 C++ 编译器路径，你可能需要将 `=` 后面的路径参数替换为你自己的路径。C++ 编译器为我们在安装 GCC 时找到的路径（在本文中为 `/usr/local/Cellar/gcc/12.2.0/bin`）后面加上 `/g++-12`
-    - `-DCMAKE_INSTALL_PREFIX` 指定安装路径，本指南中我们将安装路径设置为 `./build/install`，你可以根据自己的需要进行修改。
-
-
-    这里使用的是 gcc 编译器，如果想使用 clang，可以通过 brew 安装 clang 编译器，并指定 brew 安装的 clang。请一定指定编译器，否则 cmake 会用 mac 自带的 apple clang，而它通常是比较老的版本（14），SlopeCraft 不支持。
-
-    这里不需要指定 `SlopeCraft_GPU_API` 和`SlopeCraft_vectorize`，因为现在 SlopeCraft 在 macos 下默认关闭了显卡加速和向量化，以适应 mac OpenCL 支持不完善、M2 芯片不支持 AVX 指令集的情况。
+    - `-DCMAKE_INSTALL_PREFIX` 指定安装路径，本指南中我们将安装路径设置为 `./build/install`，你可以根据自己的需要进行修改
+    - `-DSlopeCraft_GPU_API` 指定 SlopeCraft 使用的计算 API，由于我们在 macOS 下编译 SlopeCraft，而 OpenCL 在 macOS 下的支持有一些问题，所以我们需要将其设置为 `"None"`，表示 SlopeCraft 不使用任何 GPU 计算 API 使用 CPU 进行计算
+    - `SlopeCraft_vectorize` 表示采用向量化指令集（目前只支持 avx 和 avx2），但由于 MacOS 设备在使用 M2 芯片时不能翻译这两个指令集，有必要关闭向量化。
 
 3. 切换到 build 目录并编译 SlopeCraft
 
