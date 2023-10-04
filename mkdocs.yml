@@ -73,7 +73,7 @@ plugins:
           name: 中文
           default: true
           site_name: SlopeCraft 文档
-          build: false
+          build: true
         - locale: en
           name: English
           site_name: SlopeCraft Documentation
