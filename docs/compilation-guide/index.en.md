@@ -2,11 +2,8 @@
 
 Welcome to compilation guide of SlopeCraft. This guide will help you compile SlopeCraft. Please read this general guide, and then read the detailed steps on your OS.
 
-
-
 !!! question "Questions"
     If you have any difficulty when building SlopeCraft, do not hesitate to draw us an issue to our [Github repository](https://github.com/SlopeCraft/SlopeCraft/issues).
-
 
 ## Supported compilers
 
@@ -35,7 +32,7 @@ Only gcc is fully supported. MSVC and clang may not pass the compilation. Your c
       - You must install it manually, and add the installation prefix to `CMAKE_PREFXI_PATH`.
 8. **fmtlib**
       - Can be download and compiled automatically.
-9.  **cli11**
+9. **cli11**
     - Can be downloaded automatically.
 10 **magic_enum**
     - Can be downloaded automatically.

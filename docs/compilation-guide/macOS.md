@@ -88,7 +88,7 @@
     使用以下命令配置 CMake：
 
     ```bash
-    cmake -S . -B ./build -G "Ninja" -DCMAKE_C_COMPILER=/usr/local/Cellar/gcc/12.2.0/bin/gcc-12 -DCMAKE_CXX_COMPILER=/usr/local/Cellar/gcc/12.2.0/bin/g++-12 -DCMAKE_INSTALL_PREFIX=./build/install -DCMAKE_BUILD_TYPE=Debug
+    cmake -S . -B ./build -G "Ninja" -DCMAKE_C_COMPILER=/usr/local/Cellar/gcc/12.2.0/bin/gcc-12 -DCMAKE_CXX_COMPILER=/usr/local/Cellar/gcc/12.2.0/bin/g++-12 -DCMAKE_INSTALL_PREFIX=./build/install -DCMAKE_BUILD_TYPE=Debug -DCMAKE_OSX_DEPLOYMENT_TARGET=12.0
     ```
 
 
@@ -98,9 +98,11 @@
     - `-DCMAKE_CXX_COMPILER` 指定 C++ 编译器路径，你可能需要将 `=` 后面的路径参数替换为你自己的路径。C++ 编译器为我们在安装 GCC 时找到的路径（在本文中为 `/usr/local/Cellar/gcc/12.2.0/bin`）后面加上 `/g++-12`
     - `-DCMAKE_INSTALL_PREFIX` 指定安装路径，本指南中我们将安装路径设置为 `./build/install`，你可以根据自己的需要进行修改
     - `-DCMAKE_BUILD_TYPE` 指定编译类型，如 Debug 或 Release
+    - `-DCMAKE_OSX_DEPLOYMENT_TARGET` 指定最低的 macOS 版本，建议：
+      - 对于 Apple Silicon 设备，设置为 `12.0` (macOS Monterey)
+      - 对于 Intel 设备，设置为 `10.13` (macOS High Sierra)
 
-    虽然你可以通过`SlopeCraft_GPU_API`和`SlopeCraft_vectorize`指定显卡加速和向量化，但目前 SlopeCraft 还只支持 OpenCL 和 AVX 的加速手段，而它们在 mac 上都不能完善使用（OpenCL 在 macOS 下的支持有一些问题，M1 和 M2 芯片的 MacOS 设备不能翻译 AVX 指令），所以非常不建议修改这两个选项，目前默认关闭显卡加速和向量化，打开也没有作用。
-
+    虽然你可以通过 `SlopeCraft_GPU_API` 和 `SlopeCraft_vectorize` 设置显卡加速和向量化，但目前 SlopeCraft 还只支持 OpenCL 和 AVX 的加速手段，而它们在 mac 上都不能完善使用（OpenCL 在 macOS 下的支持有一些问题，而 M1 和 M2 芯片的 MacOS 设备不支持 AVX 指令），所以非常不建议修改这两个选项，目前默认关闭显卡加速和向量化，打开也没有作用。
 
 3. 切换到 build 目录并编译 SlopeCraft
 
