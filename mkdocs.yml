@@ -67,14 +67,14 @@ nav:
 plugins:
   - search
   - i18n:
-      default_language: zh
       docs_structure: suffix
       languages:
-        zh:
+        - locale: zh
           name: 中文
+          default: true
           site_name: SlopeCraft 文档
-          build: false
-        en:
+          build: true
+        - locale: en
           name: English
           site_name: SlopeCraft Documentation
           build: true

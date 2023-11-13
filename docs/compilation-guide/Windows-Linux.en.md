@@ -6,11 +6,12 @@ This document tells you how to build SlopeCraft on Windows or Linux.
 
 ### Install Dependencies
 
-#### Windows:
+#### Windows
 
 Install Qt, libzip and libpng manually, or compile it by yourselfs.
 
-#### Linux (Ubuntu):
+#### Linux (Ubuntu)
+
 ```bash
 # For libpng, libzip and eigen
 sudo apt install libzip-dev zipcmp ziptool zipmerge libpng-dev libeigen3-dev
@@ -66,7 +67,6 @@ sudo apt install x11-utils libxcb-xinerama0 libxv1 libgl-dev
 
 1. If you meet any problem, draw me a new issue.
 2. If you are building VisualCraftL on **linux**, some linking problems around libzip may occur. To fix this problem, there are 2 ways possible:
-      1. Use a **static archive of libzip** instead of shared lib. But this libzip.a should be compiled with argument **`-fPIC`**, because `libVisualCraftL.so`, a shared lib will link to it. 
+      1. Use a **static archive of libzip** instead of shared lib. But this libzip.a should be compiled with argument **`-fPIC`**, because `libVisualCraftL.so`, a shared lib will link to it.
          - If your libzip.a links other compress libs(for example, lzma), linking may fail. That is because libzip links to its dependents **privately regardless of whether libzip is built to be a shared lib**. I guess that this is a designing mistake in libzip. So it is **deprecated** to use a static libzip.
       2. Use shared libzip, and copy `libzip.so` and symlinks against it to `CMAKE_CURRENT_BINARY_DIR`. This is what I'm doing now.
-

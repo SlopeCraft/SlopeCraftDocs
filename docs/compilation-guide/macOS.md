@@ -113,7 +113,7 @@
     使用以下命令配置 CMake：
 
     ```bash
-    cmake -S . -B ./build -G "Ninja" -DCMAKE_C_COMPILER=/opt/homebrew/opt/llvm/bin/clang -DCMAKE_CXX_COMPILER=/opt/homebrew/opt/llvm/bin/clang++ -DCMAKE_INSTALL_PREFIX=./build/install -DCMAKE_BUILD_TYPE=Debug
+    cmake -S . -B ./build -G "Ninja" -DCMAKE_C_COMPILER=/opt/homebrew/opt/llvm/bin/clang -DCMAKE_CXX_COMPILER=/opt/homebrew/opt/llvm/bin/clang++ -DCMAKE_INSTALL_PREFIX=./build/install -DCMAKE_BUILD_TYPE=Debug -DCMAKE_OSX_DEPLOYMENT_TARGET=12.0
     ```
 
 
@@ -123,6 +123,9 @@
     - `-DCMAKE_CXX_COMPILER` 指定 C++ 编译器路径，可以为`/opt/homebrew/opt/llvm/bin/clang++`或者`clang++`，前者是标准 LLVM 中的 clang++ 编译器，后者是 MacOS 上默认的 AppleClang 编译器。请注意，无论使用哪个编译器，C 编译器和 C++ 编译器都应当是同一套，请不要混合使用不同来源的编译器。
     - `-DCMAKE_INSTALL_PREFIX` 指定安装路径，本指南中我们将安装路径设置为 `./build/install`，你可以根据自己的需要进行修改
     - `-DCMAKE_BUILD_TYPE` 指定编译类型，如 Debug 或 Release
+    - `-DCMAKE_OSX_DEPLOYMENT_TARGET` 指定最低的 macOS 版本，建议：
+      - 对于 Apple Silicon 设备，设置为 `12.0` (macOS Monterey)
+      - 对于 Intel 设备，设置为 `10.13` (macOS High Sierra)
 
     **如果想使用静态编译的 Qt，需要手动指定`-DCMAKE_PREFIX_PATH`为 Qt 的安装目录，否则 CMake 会找不到 Qt，或者找到另一个 Qt。**
 
