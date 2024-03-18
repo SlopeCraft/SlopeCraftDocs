@@ -1,5 +1,9 @@
 # SlopeCraft Tutorial
 
+> ![avatar](https://zh.minecraft.wiki/images/Clock_JE3_BE3.gif?3e186&format=original)
+> <span style="display:block;color:orangered;">This entry needs to be updated.</span>
+> <span style="display:block;color:orangered;">Some information in the entry no longer matches the current version.</span>
+
 This document will show you how to use SlopeCraft to create 3d, flat and file-only maps.
 
 You can find the option to switch languages in the Languages drop-down menu in the menu bar.
@@ -102,7 +106,7 @@ In the upper left corner there is a list of four preset blocks to choose from.
 - Elegant is to try to choose the "**most elegant block**" if it is possible to survive the actual installation, for example, try to choose the block that can't be stolen by Blackie, which is both beautiful and not too difficult to mass-produce. This is the default option.
 - Shiny **is made for light and shadow**, it tries to choose glowing blocks, and tries to be gorgeous enough in light and shadow.
 - Custom means you use a list of **custom** blocks.
-  
+
 The bottom left corner of the **priority to use concrete** and other buttons to facilitate bulk operation, the meaning is obvious, no more explanation.
 
 When you are done with these settings, click Confirm. **On the left side of the Next button, it will show you how many colors you can use for this map.** If you disable some of the base colors, then this number will be reduced a bit. **So the richer the color palette and the larger the size of the map, the better the picture quality.**
