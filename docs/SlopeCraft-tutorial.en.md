@@ -1,13 +1,9 @@
 # SlopeCraft Tutorial
 
-!!! warning "Warning"
-    ![avatar](https://zh.minecraft.wiki/images/Clock_JE3_BE3.gif?3e186&format=original)
-    <span style="display:block;color:orangered;">This entry needs to be updated.</span>
-    <span style="display:block;color:orangered;">Some information in the entry no longer matches the current version.</span>
+!!! info "info"
+	This document partly utilizes ChatGPT for translation.
 
 This document will show you how to use SlopeCraft to create 3d, flat and file-only maps.
-
-You can find the option to switch languages in the Languages drop-down menu in the menu bar.
 
 To eliminate ambiguity, the defination of serveral terms are listed.
 
@@ -18,7 +14,10 @@ To eliminate ambiguity, the defination of serveral terms are listed.
 |      Map      | The image displayed in map item                                           |
 | Map data file | The nbt binary file that stores data of a "Map", named like `map_<i>.dat` |
 
-## Step -1. Image preprocessing
+!!! tip "tip"
+	You can find the option to switch languages in the Languages drop-down menu in the menu bar.
+
+## Step 0. Image preprocessing
 
 First, prepare the original image that you want to make into a map. The image used here is the one [drawn by Lancet_Corgi](https://t.bilibili.com/544583492149793294), thanks to the permission of him.
 
@@ -32,75 +31,62 @@ Here I scaled the image to 256 x 256 pixels, which is exactly the size of a 2 x 
 
 Save this image well.
 
-## Step 0. Set the map of type
+## Step 1. Map Configuration
 
-Double click to start SlopeCraft.exe, you will see the following screen.
+Double-click to launch SlopeCraft.exe, and you will see the following interface.
 
-![avatar](./assets/SlopeCraft-tutorial-images.en/page0-start.en.png)
+![Map Configuration](./assets/SlopeCraft-tutorial-images/page1-MapConfiguration.png)
 
-Here you need to choose type of the map.
+The three tabs at the top represent the three steps of creating a map drawing:
 
-- If you want **as colorful** and **as delicate** a map as possible, it is best to click the **Create 3D Map** on the left.
-- If you want a traditional flat map and don't care much about the quality of the map, then click the **Create Flat Map** in the middle.
-- If you don't want the map to be in the game as blocks, but just want it to appear on the map and be able to be attached to the item display box, then click on the **Create File-only Map** on the right.
+1. Map Configurations
+2. Load image and convert
+3. Export
 
-Please note that this file-only map requires at least replacing the file in the archive and possibly a command to use it. It is generally only available for single player games, or if you are a server administrator.
+Outside of this software, there is a fourth step: importing files into the game.
 
-Here I have chosen 3D map.
+At this point, you should be on the Map Configuration interface. In this interface, you need to complete three small steps, which are explained below separately:
 
-## Step 1. Importing images
+### 1.1 Select Game Version
 
-![avatar](./assets/SlopeCraft-tutorial-images.en/page1-load-image.en.png)
+You need to set the map to correspond to game version.
 
-On the second page, click **Import Image** to import the pre-processed image.
-
-However, if your original image has transparent or translucent pixels, then you should first click the **Settings** button to set the processing strategy for transparent pixels:
-
-![avatar](./assets/SlopeCraft-tutorial-images.en/page1-tp-strategy.en.png)
-
-Transparent pixel handling strategies have different ways to handle pure transparent pixels (alpha=0) and semi-transparent pixels (alpha>0). A pure transparent pixel can either be replaced with the background color or set to air; a semi-transparent pixel can either be replaced with the background color or overlaid and blended with the background color, or its transparency property can be ignored and treated directly as an opaque pixel. Alternatively the background color can be set, the default background color is a light gray when the snow block is tiled, or you can choose pure white, or any custom color.
-
-Please note: **If you want to import images containing fully/translucent pixels according to a custom strategy, be sure to set the transparent pixel processing strategy first, then import the image! Otherwise the images will only be processed according to the default processing strategy! If you have already imported the image before resetting the processing strategy, please re-import the image.**
-
-Click **Import Image** and find the image you just converted in the file selection box that pops up. Look at the **Image Size** shown in the orange box below and make sure you didn't select the wrong image.
-
-If there are no bugs, then this image will be shown on the left side.
-
-Once the image is successfully imported, click **Next**.
-
-The **go to next button is fixed in the upper right corner and will not be specifically marked in future images.**
-
-## Step 2. Select the version and confirm the map type
-
-![avater](./assets/SlopeCraft-tutorial-images.en/page2-attributes.en.png)
-
-On this page, you need to set the map to correspond to **game version**.
-
-At the moment from 1.12 to 1.19 are supported, I will continue to follow the updated version, but will not support the boss book before 1.12.
+At the moment from 1.12 to 1.20 are supported, I will continue to follow the updated version, but will not support the boss book before 1.12.
 
 Note that there is no difference between 1.12 and 1.15 in the "picture quality" of the maps, as the flat map has **51 colors** and the 3D map has **153 colors**. 1.16 adds 7 basic colors to the netherworld tree, so the flat map can use **58 colors** and the 3D map can use **174 colors**. 1.16 adds 7 basic colors to the netherworld tree, so the flat map can use **58 colors** and the 3D map can use **174 colors**. 1.17 added colors for deep slate, pig iron blocks and glowing lichen, so you can use **61 colors** for flat maps and **183 colors** for 3D map.
 
-_Tweets: Mojang Why give so many colors to the netherworld tree? Wouldn't it be good to have more flesh colors?_
+> *Tweets: Mojang Why give so many colors to the netherworld tree? Wouldn't it be good to have more flesh colors?*
 
-Click next after confirming that there are no errors.
+### 1.2 Set the map of type
 
-## Step 3. Set block list
+Here you need to choose **type of the map**:
+
+- **3D Map**: It can achieve **rich colors** and **exquisite quality**, but it is more difficult to build.
+- **Flat Map**: A traditional type of map drawing with **average quality**, easier to build.
+- **File-only Map**: The **ultimate quality** achievable by original map drawings, cannot be built directly and usually obtained through commands. If you don't want the map to be in the game as blocks, but just want it to appear on the map and be able to be attached to the item display box, then select this option.
+
+    Please note that this type of File-only Map requires at least file replacement in the game save and may also require commands. It is generally only suitable for single-player games. If you are a server administrator, you can also use it.
+
+Here, I chose the 3D map.
+
+### 1.3 Set Block List
 
 The list of blocks is actually the "**Materials List**", or "**Palette**" of a map. **It determines which colors are in the palette of the map, and which blocks correspond to each color.**
 
 This page is a bit more complicated, so I'll cover each section in turn. **(Actually, in general, the list of blocks doesn't need much convertion by itself)**
 
-![avatar](./assets/SlopeCraft-tutorial-images.en/page3-blocks.en.png)
+![Block List](./assets/SlopeCraft-tutorial-images/page1-MapConfiguration-blocks.png)
 
-Each of the base colors is shown in the slider. In the **Enable** box, you can check **Whether to allow SlopeCraft to use this color**. By default, each base color will be checked (except for colors added in 1.16 in lower versions)
+Each of the base colors is shown in the slider. In the **Enable** box, you can check **Whether to allow SlopeCraft to use this color**. By default, except for **water**, each available base color is selected (some colors are not available in lower versions).
 
 Below the enable box is the box **which corresponds to each color**. Only one block can be used for each color in the palette.
-structure void
 
 - You may think that many of the blocks in the diagram are different colors, but please note that **they are identical in the "eye of the map "** and the only basis for selection is whether the blocks are easy to mass-produce.
-- Some base colors are only available in one block, however the palette cannot be left blank, so this option is unchangeable, like the glass or emerald block in the picture, it must be selected.
+- Some base colors are only available in one block, however the palette cannot be left blank, so this option is unchangeable, like the glass or *emerald block(not shown in the image)* in the picture, it must be selected.
 
-In the upper left corner there is a list of four preset blocks to choose from.
+![Block List Presets](./assets/SlopeCraft-tutorial-images/page1-MapConfiguration-blocks-preset.png)
+
+There are list of four preset blocks at the top:
 
 - Vanilla is the "**original**" one, trying to use the "original blocks" of each color. It is more suitable for creation mode, not for survival.
 - Cheap is the **cheapest block**, making sure that every block is mass-produced. It is suitable for pre-survival.
@@ -108,49 +94,82 @@ In the upper left corner there is a list of four preset blocks to choose from.
 - Shiny **is made for light and shadow**, it tries to choose glowing blocks, and tries to be gorgeous enough in light and shadow.
 - Custom means you use a list of **custom** blocks.
 
-The bottom left corner of the **priority to use concrete** and other buttons to facilitate bulk operation, the meaning is obvious, no more explanation.
+**The block list presets will show you how many colors you can use for this map.** If you disable some of the base colors, then this number will be reduced a bit. **So the richer the color palette and the larger the size of the map, the better the picture quality.**
 
-When you are done with these settings, click Confirm. **On the left side of the Next button, it will show you how many colors you can use for this map.** If you disable some of the base colors, then this number will be reduced a bit. **So the richer the color palette and the larger the size of the map, the better the picture quality.**
+The buttons like **priority to use concrete** in the upper right corner are for batch operations, the meaning is obvious, no more explanation.
 
-Click Confirm and go to the next step.
+#### Blocklist preset
 
-## Step 4. Convert Image
+SlopeCraft allows to export the current block list settings to a file, or to load a preset file. The file is stored in json and has the suffix `.sc_preset_json`.
+
+______________________________________________________________________________________________________________
+
+After completing these settings, click on the "**Load image and convert**" menu at the top to proceed to the next step.
+
+## Step 2. Load image and convert
+
+On this interface, you need to complete two small steps: import the image and convert it into a map.
+
+![Load image and convert](./assets/SlopeCraft-tutorial-images/page2-Load&Convert.png)
+
+### 2.1 Import Images
+
+??? question "What is the "Task Pool"?"  
+    SlopeCraft introduced a new feature in version 5.10: the "**Task Pool**".  
+    Each image you import will be created as a Task by the program, and various conversion operations will add data to the Task.  
+
+    The operation logic of the Task pool is similar to the system file manager: select a single image, preview, or perform corresponding operations.
+
+    In simple terms, you can now easily perform batch operations!  
+    **Note: The same batch of images can only use one conversion algorithm. It is recommended to process images with significant style and color differences separately!**
+
+In the Task pool, click **Add** to import **one or more** preprocessed images.
+
+If your original image has transparent or semi-transparent pixels, the interface for setting the **transparent pixel processing strategy** will automatically appear. Details are as follows:
+
+![transparent pixel processing strategy](./assets/SlopeCraft-tutorial-images.en/page1-tp-strategy.png)
+
+Transparent pixel handling strategies have different ways to handle pure transparent pixels (alpha=0) and semi-transparent pixels (alpha>0). A pure transparent pixel can either be replaced with the background color or set to air; a semi-transparent pixel can either be replaced with the background color or overlaid and blended with the background color, or its transparency property can be ignored and treated directly as an opaque pixel. Alternatively the background color can be set, the default background color is a light gray when the snow block is tiled, or you can choose pure white, or any custom color.
+
+**Please note: Transparent pixels will be processed upon import. If you are not satisfied with the processing results, please delete the Task in the Task pool and re-import the image.**
+
+After importing the images, the corresponding Tasks will be displayed in the Task pool on the left. Select the appropriate Task for preview.
+
+### 2.2 Convert Image
 
 After completing the above preliminaries, it's time to move on to the main meal: converting the image into a map.
 
-![avatar](./assets/SlopeCraft-tutorial-images.en/page4-convert.en.png)
+![Convert Image](./assets/SlopeCraft-tutorial-images/page2-Load&Convert-convert.png)
 
-The **Convert Image** button will adjust the color of the image to the color available in the palette of the ground picture, while the **Show Original Image** and **Show Converted Image** below show the original image and the converted ground picture respectively, so you can easily compare them.
+#### Select Conversion Algorithm
 
-The color space above has 7 options, **represents 7 ways to adjust the color.** Dithering then uses the Floyd-Steinberg algorithm, which tries to blend with several similar colors to try to fit the original image better.
+The **Convert Current Image** button adjusts the colors of the image to the colors available in the map's palette. The **Original** and **Converted** images displayed above the preview box show the original image and the adjusted map drawing, respectively, making it easy for you to compare.
 
-Each of the first six conversion algorithms corresponds to six different color difference formulas. The algorithms RGB+ is the most recommended, RGB and XYZ are the fastest, Lab94 and Lab00 are better but slower, HSV has been less satisfactory and less recommended, GACvter is the slowest, but if the first 6 algorithms are not satisfactory, try it.
+The color space above has 6 options, **represents 6 ways to adjust the color.** **Dithering** then uses the Floyd-Steinberg algorithm, which tries to blend with several similar colors to try to fit the original image better.
 
-The first 6 algorithms only consider the color of the pixel, not the spatial location of the pixel, and they are called traditional algorithms. The seventh algorithm, GACvter, uses the results generated by the first 6 algorithms as "seeds" on which to find solutions with edge contours that are closer to the original image. This new algorithm is intelligent, considering both pixel color and position.
+Each of the first five conversion algorithms corresponds to five different color difference formulas. The algorithms RGB+ is the most recommended, RGB and XYZ are the fastest, Lab94 and Lab00 are better but slower. GACvter is the slowest, but if the first 5 algorithms are not satisfactory, you can try it.
 
-Each of these 7 convertions has a different effect on the same image.
+The first 5 algorithms only consider the color of pixels, not their spatial positions; they are called traditional algorithms. The 6th algorithm, GACvter, uses the results generated by the first 5 algorithms as "seeds" to find a solution that is closer to the original image by searching for edge contours. This new algorithm considers both the color and position of pixels and is an intelligent algorithm.
+
+Each of these 6 convertions has a different effect on the same image.
 
 We all want the ground picture to be as close to the original as possible, so you can try each convertion in turn and compare them back and forth with two buttons to choose the one that works best.
 
-| ![original](./assets/SlopeCraft-tutorial-images.lang-indenpent/img-raw.png) | ![original](./assets/SlopeCraft-tutorial-images.lang-indenpent/img-converted.png) |
+| ![original](./assets/SlopeCraft-tutorial-images.lang-indenpent/img-raw.png) | ![converted](./assets/SlopeCraft-tutorial-images.lang-indenpent/img-converted.png) |
 | :-------------------------------------------------------------------------: | :-------------------------------------------------------------------------------: |
 |                              Before convertion                              |                                 After convertion                                  |
 
 The process of converting images may be slow, especially for larger images. **If the progress bar suddenly stalls or even the window is not responding, please don't close the window, don't do anything, just wait patiently.** The process of converting images has a lot of calculation tasks, and it is normal to get stuck.
 
-### GACter
+#### Convert All Images (Batch Processing with Special Operations)
 
-GACter uses a Genetic Algorithm (GA) and you can set its parameters by simply clicking on **Ai converter parameters** under the **Advanced Features** menu.
+After you have selected your favorite algorithm, please click the **Convert All** button to convert all tasks in the task pool. When the conversion is complete, there should be a ✔ in the lower right corner of each task.
 
-![GA Converter Parameters](./assets/SlopeCraft-tutorial-images.en/page4-convert-aicvter-args.en.png)
+______________________________________________________________________________________________________________
 
-If you understand GA, then these parameters don't need to be explained. If you don't understand it, just google it, or just leave it alone.
+After converting all images **(make sure there is a ✔ in the lower right corner of each task)**, you will proceed to the final step of generating the map drawing: **Export**.
 
-The only parameter that needs to be explained is the **maximum early convergence generations**, which refers to the maximum number of consecutive generations of failed merit search allowed. For example, if its value is 50 generations, then the algorithm terminates when it does not find a better solution for 50 consecutive generations, saving time. A larger **maximum early convergence generation** will prevent the algorithm from maturing prematurely, but will make it slower.
-
-After selecting what you think is the best-looking map, it's time to move on to the final step of generating the map: **export**.
-
-## Step 5. Export
+## Step 3. Export
 
 There are 6 types of exports, and the following table documents the relationship between the various map types and the export types.
 
@@ -165,23 +184,16 @@ There are 6 types of exports, and the following table documents the relationship
 
 **Note: WE schematics (\*.schem) are only supported in version 1.13+. In 1.12, WE uses the old schematic format with the \*.schematic suffix, which is not currently supported by SlopeCraft.**
 
-### Export as Litematica schematic / Vanilla structure block file / WE schematic / Flat diagram
+Select the type of export you need on the export interface and make the corresponding settings.
 
-After the color convertion is completed, the **Export as litematic** button lights up.
+Because the [first four export types](#3a-export-as-litematica-vanilla-structure-we-schem-flat-diagram "Jump to the corresponding section") involve three-dimensional structures and settings, they are significantly different from [map data file types](#3b-export-as-map-data-files "Jump to the corresponding section"), so they will be introduced separately below.  
+(Click on the export type name to jump to the corresponding section)
 
-Click **Export as litematic** to jump to the corresponding screen.
+### 3.a Export as Litematica / Vanilla structure / WE schem / Flat diagram
 
-![avatar](./assets/SlopeCraft-tutorial-images.en/page5-export.en.png)
+![Export](./assets/SlopeCraft-tutorial-images/page3-Export.png)
 
-#### Build 3D structure
-
-Click on Build 3D Structure and SlopeCraft will build the map into a 3D structure, displaying the projected dimensions and the total number of blocks.
-
-**Please note that if the schematic y size exceeds 256 / 384, then never, ever continue exporting. A schematic that exceeds the height limit is meaningless!**
-
-Here are the options that can be set when building a 3D structure.
-
-#### Compress
+#### Compress (Not applicable to flat maps)
 
 SlopeCraft supports two types of compression: lossy and lossless.
 
@@ -207,118 +219,190 @@ There are many scattered blocks in each horizontal section of the three-dimensio
 
 There is no doubt that bridging consumes additional glass, so it is not recommended to perform bridging on every level of the diorama. By default, bridges are built every 4 levels, but you can modify this interval. If the interval is too large, the effect of bridge building will be reduced; if the interval is too small, the glass will be wasted.
 
-For more information on map compression and bridging, you can read [Principle Introduction](https://github.com/ToKiNoBug/SlopeCraftTutorial/blob/main/BasicPrinciple/Principle%20of%20map%20pixel%20arts.md)。
+For more information on map compression and bridging, you can read [Principle Introduction](./principles-introduction.md)。
 
 [AbrasiveBoar902](https://github.com/AbrasiveBoar902) has been of great help in optimizing the performance of the hitch, and his help is appreciated.
 
-#### Fire proof / Enderman proof
+#### Other Options
 
-As the name implies, this is to protect the combustible blocks and avoid the little black steal something. The specific method is to wrap each of these blocks with glass exposed surface, pro-tested effective. But this will also consume a lot of glass at the same time, need to choose carefully.
+- **Fire proof / Enderman proof:**  As the name implies, this is to protect the combustible blocks and avoid the little black steal something. The specific method is to wrap each of these blocks with glass exposed surface, pro-tested effective. But this will also consume a lot of glass at the same time, need to choose carefully.
 
-After building the 3D structure, SlopeCraft will automatically bring up a preview window to view the transformed map and materials list. The transformed map is shown here because lossy compression may further change the image and it is necessary to re-present the state of the image.
+- **Connect Mushroom Blocks:** The map drawings generated by SlopeCraft may contain multiple adjacent mushroom blocks (including red mushroom blocks, brown mushroom blocks, and mushroom stem blocks). The surfaces where they contact each other should be pore surfaces, but they are not in the generated projection. This feature will search for all adjacent mushroom blocks and correct the surfaces where they contact each other to pore surfaces.
+
+#### Additional Export Options
+
+The first four export methods each allow you to enter additional export options, attach additional meta information, and are described below in turn.
+
+=== "Litematica"
+
+	You can enter information about the projection file in the "Projection Name" and "Projection Area Name" fields, but this is not mandatory.
+
+	![Litematica options](./assets/SlopeCraft-tutorial-images/page3-Export-extra_set-litematica.png)
+
+=== "Vanilla structure"
+
+	The original structure block file is stored using a sparse matrix, where areas that are not stored represent air blocks. This storage method makes the structure block file the format with the best compatibility with the original version but the worst compression ratio.
+
+	![Structure options](./assets/SlopeCraft-tutorial-images/page3-Export-extra_set-structure.png)
+
+	Therefore, there are two options for storing air blocks in the structure block file: treat them as structure vacancies or store them as they are. Treating them as structure vacancies can greatly save space, but when pasting the structure block, it cannot overwrite other non-air blocks; storing them as air blocks can overcome this problem, but the file size will be large.
+
+=== "WE schematic"
+
+	WorldEdit schematic has a few attributes, which are reverse-engineered from the schematics generated by WorldEdit and directly correspond to the same-named nbt tags.
+
+	![WE options](./assets/SlopeCraft-tutorial-images/page3-Export-extra_set-WE.png)
+
+	I am not sure how these attributes affect the schematic, as I hardly use WorldEdit.
+
+=== "Flat Diagram"
+
+	Set whether the exported diagram contains dividing lines and the spacing of dividing lines.
+
+	![Flat Diagram options](./assets/SlopeCraft-tutorial-images/page3-Export-extra_set-flat_diagram.png)
+
+#### Pre-build 3D Structure for Preview (Optional)
+
+Clicking **Construct 3d structure** will use the current settings to pre-build the map into a 3D structure, and display the dimensions and total number of blocks of the projection.
+
+**The pre-built 3D structure is only used for preview and is not used for export.**
+
+**Please note that if the projection's y dimension exceeds 256 / 384 [^height], do not continue with the export. A schematic that exceeds the height limit is meaningless!**
+
+[^height]: Buildings in different versions and dimensions have different heights. For details, please refer to the [Wiki](https://minecraft.wiki/w/Altitude)
+
+After pre-building the 3D structure, you can perform the following two detailed previews:
+
+- Map preview: Lossy compression may further change the image, and you can check the status of the image here.
+- Material list: Preview the quantity information of materials
 
 | ![page5-preview-converted](./assets/SlopeCraft-tutorial-images.en/page5-preview-converted.en.png) | ![page5-preview-material](./assets/SlopeCraft-tutorial-images.en/page5-preview-material.en.png) |
 | :-----------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------: |
 |                                            Map preview                                            |                                          Material list                                          |
 
-The first three export methods each allow you to enter additional export options, attach additional meta information, and are described below in turn.
+#### Export All
 
-#### Litematica options
+After confirming that the settings are correct, you can click **Export all** and select the appropriate **folder** to export all files (it is recommended to use an empty folder for batch operations).
 
-In the fields **Litematic name**, **Litematic author** and **Litematic area name** , you can fill in the information of the litematic file. However, it is not mandatory.
+______________________________________________________________________________________________________________
 
-#### Vanilla structure option
+### 3.b Export as map data files
 
-The original structured block files are stored in a sparse 3d matrix, with structure void where they are not stored. This storage method makes structured block files the most compatible but least compressed format of the original.
+Click on the **Map data file** option to navigate to the corresponding page.
 
-![Structure options](./assets/SlopeCraft-tutorial-images.en/page5-export-nbt-options.en.png)
+![Export as map data files](./assets/SlopeCraft-tutorial-images/page3-Export-map_data_file.png)
 
-Thus structural kettle block files have two options for storing air : as structure void, or as-is. Storing as structure void can be a great space saver, but it cannot overwrite other non-air  when pasted out in structural ; storing as air  can overcome this problem, but the file size will be large.
-
-#### WE schematic options
-
-![WE options](./assets/SlopeCraft-tutorial-images.en/page5-export-schem-options.en.png)
-
-The WE schematics have slightly more attributes that are derived from reverse engineering the schematics generated by WorldEdit and correspond directly to the nbt tag of the same name. I'm not sure how these meta-attributes affect the schematic, since I hardly ever use WE.
-
-#### Export as flat diagram
-
-Click **Export Flat Diagram** to export a flat map as a flat diagram, where each pixel is represented by a block.
-
-### Export converted image
-
-After Step 4. is completed, click **Show Converted Image** and then click **Save Current Image** to save the transformed image as a flat schematic.
-
-### Export as map data files
-
-After the color convertion is completed, the **Export as Map Data File** button lights up. Click **Export as Map Data File** to jump to the corresponding screen.
-
-![avatar](./assets/SlopeCraft-tutorial-images.en/page5-export-map-data-file.en.png)
-
-This page shows the number of rows and columns of the map corresponding to the map, the number of files and the file name of the map data file to be exported.s
+This page shows the number of rows and columns of the map corresponding to the map, the number of files and the file name of the map data file to be exported.
 
 #### Set initinal map serial number
 
 The file name of a map data file is `map_i.dat`, where i is an integer greater than or equal to 0, such as `map_3.dat`. **`i` is the serial number of this map data file. The serial number is actually the unique identifier of the map data file**. Under normal circumstances, our generated map data file should not overwrite unrelated map data files, so we need to pay more attention to setting the initial serial number.
 
-Pressing F3+H in-game will allow you to view item details, **including the Id of the map item, which is the serial number of the corresponding map data file**. The map item shown below corresponds to a map data file named `map_6.dat`.
+Pressing <kbd>F3</kbd> + <kbd>H</kbd> (enable advanced tooltips) in-game will allow you to view item details, **including the Id of the map item, which is the serial number of the corresponding map data file**. The map item shown below corresponds to a map data file named `map_6.dat`.
 
 ![avatar](./assets/SlopeCraft-tutorial-images.lang-indenpent/map-item.png)
 
-## Step 6. Import map to Minecraft
+There are two ways to obtain the map, choose the one you prefer. Note that the method you choose will affect the way you import into the game, so pay attention!
 
-### Import Litematica schematic / Vanilla structure file / WE schematic
+- If you want to obtain the map through the /give command:
 
-Click **Finish** to jump to the last page.
+    The starting number can be set arbitrarily, as long as it does not overwrite an unrelated map.
 
-![avatar](./assets/SlopeCraft-tutorial-images.en/page6-finish.en.png)
+- If you do not want to use commands, only replace the map files:
 
-Click **View Exported Files** and it will help you to display the projection file you just generated directly in the folder. Click **Exit** to exit the program.
+    **1.** First create `n` maps corresponding to the map drawing, n is the number of map data files displayed by SlopeCraft, in this case 4.
 
-Next, move the exported projection file to the .minecraft/schematic folder. Then open Minecraft, go to the archive/server, and import this projection in the place where you want to create the map drawing.
+    **2.** In the game, check the index corresponding to each map file. These maps should be indexed from `a` to `(a+n-1)`, a total of n maps.
 
-When placing the projection, please note that **the x and z coordinates of the projection origin must be `-65+k×128`, where k is any integer**. y coordinates are arbitrary. For example, (63,62,-65). Only then can the **ground drawing be aligned with the map's grid**.
+    **3.** Exit the world, and enter the value `a` in the **Map file start number** field of SlopeCraft.
 
-Then start realizing this projection or just paste the schematic. Once this is done, create a new map inside the map. Each map should be unscaled, as each pixel point corresponds to a block. Place them in order inside the item display box and you're done.
+After confirming the settings, you can click **Export all**, and select the appropriate **folder** to export all files (it is recommended to use an empty folder).
 
-- If it is a 2×2 map map, then you should create 2×2, i.e. 4 maps.
-- If your game version is 1.14 and above, then it is better to lock the map with a glass sheet inside the cartography table.
+______________________________________________________________________________________________________________
 
-### Import map data files
+## Step 4. Importing Maps into the Game
 
-If you want to get the map with the `/give` command.
+=== "Litematica schematic"
 
-The starting number can be set arbitrarily, as long as it does not overwrite an unrelated map.
+    Open the folder where you just exported the files and move the exported files to the **schematic directory** (1).Then open Minecraft, go to the archive/server, and import this projection in the place where you want to create the map drawing.
+    { .annotate }
 
-- In 1.12, use `/give @s filled_map 1 i` to get a map with number i. In 1.13+, use `/give @s filled_map{map:i}` to get a map with number i.
-- In 1.13+, use `/give @s filled_map{map:i}` to get a map with number i.
+    1. The directory for projection files is .minecraft[^mcdir]/schematics
 
-If you do not want to use the command, replace only the map data file with following steps:
+	When placing the projection, please note: **the x and z coordinates of the projection origin must be `-65+k×128`, where k is any integer**. y coordinates are arbitrary. For example, (63,62,-65). Only then can the **ground drawing be aligned with the map's grid**.
 
-1. First create `n` maps corresponding to the map drawing, n is the number of map data files displayed by SlopeCraft, in this case 4.
-2. Press <kbd>F3</kbd> + <kbd>H</kbd> in Minecraft. Check the serial numbers corresponding to the map data files. These maps should have serial numbers `a`~`(a+n-1)`, n in total.
-3. Close the game and enter the value `a` in the **Map file start number** field of SlopeCraft.
-4. Click Export and select the data folder under Archive.
-5. Close SlopeCraft, open the game, and the `n` map should have been successfully replaced with a map.
-6. If you are worried about overwriting unrelated maps by entering the wrong map data file number, you can create a temporary folder and select it when exporting. After confirming the map serial number is correct, then copy and paste the map data file you want to replace.
+	Then start realizing this projection or just paste the schematic. Once this is done, create a new map inside the map. Each map should be unscaled, as each pixel point corresponds to a block. Place them in order inside the item display box and you're done.
 
-## Batch Processing
+    - If it is a 2×2 map map, then you should create 2×2, i.e. 4 maps.
+	- If your game version is 1.14 and above, then it is better to lock the map with a glass sheet inside the cartography table.
 
-If you want to batch convert multiple images to maps, you need to set the properties of maps in other interface first, such as game version, map type, block list, conversion algorithm, export settings, etc.
+=== "Vanilla structure file"
 
-![page1-load-image](./assets/SlopeCraft-tutorial-images.en/page1-load-image.en.png)
+    Open the folder where you just exported the files and move the exported files to the **Vanilla structure directory** (1).Then open Minecraft, enter your save/server, and load this structure at the desired location.
+    { .annotate }
 
-Selecting multiple images on the import image page will automatically bring up the batch processing window.
+    1. The directory for Vanilla structure file is .minecraft[^mcdir]/saves/<your_world_name>/generated/minecraft/structures
 
-![page2-batch-op](./assets/SlopeCraft-tutorial-images.en/page2-batch-op.en.png)
+    If you cannot find this directory, it means that the game has not created it yet. You can manually create this directory and copy the files into it.
 
-At the top, you can choose the format of the export, and click **Start** to start batch processing.
+    When loading the structure, please note: **the x and z coordinates of the projection origin must be `-65+k×128`, where k is any integer**. y coordinates are arbitrary. For example, (63,62,-65). Only then can the **ground drawing be aligned with the map's grid**.
 
-## Advanced functions
+    The use of structure blocks is relatively complicated, and it will not be repeated here. Please check out the tutorials yourself.
 
-![menu-advanced](./assets/SlopeCraft-tutorial-images.en/menu-advanced.en.png)
+=== "WE schematic Files"
+
+    Open the folder where you just exported the files and move the exported files to the **WE schematic directory** (1).
+    { .annotate }
+
+    1. The directory for World Edit schematics is .minecraft[^mcdir]/config/worldedit/schematics
+
+    If the directory does not exist, it means that the game has not created it yet. You can manually create this directory and copy the files into it.
+
+    After that, you can import the schematic into the game using the command `//schem load <schematic_name>`. For specific operations, please refer to the World edit tutorial, Please check out the tutorials yourself.
+
+=== "Map data files"
+
+    Open the folder where you just exported the files and move the exported files to the **map data file directory** (1).
+    { .annotate }
+
+    1. The directory for map files is .minecraft[^mcdir]/saves/<your_world_name>/data
+
+    You may encounter a "Replace or Skip Files" window. If you are worried that unrelated map files will be overwritten, you can temporarily not select them and continue reading.
+
+    - To obtain the map through the /give command:
+
+        This method **should not** prompt a "Replace or Skip Files" window. If it does, close the window and check if there is a conflict with the map index.
+
+        - In 1.12, use `/give @s filled_map 1 i` to obtain the map with index i.
+        - In 1.13+, use `/give @s filled_map{map:i}` to obtain the map with index i.
+
+    - If you do not want to use commands, only replace the map files:
+
+        **1.** When you move the files, a "Replace or Skip Files" window **should** appear. Click "Replace the files in the destination" to replace the files.
+
+        **2.** Open the game, and these `n` maps should have been successfully replaced with map drawings.
+
+	[^mcdir]: Game saves and configurations are not necessarily stored directly in the .minecraft folder, and the specific path depends on the version isolation. Taking the `saves` folder location as an example: if version isolation is disabled, the saves directory is in `.minecraft/saves`, otherwise, it is in `.minecraft/versions/<your_game_version>/saves`.
+
+## 🛠 Advanced functions
+
+![menu-advanced](./assets/SlopeCraft-tutorial-images/menu-advanced.png)
 
 You can see some advanced operations in the "Advanced" menu. Each of them is described below.
+
+### GACvter parameters
+
+This menu item allows the user to set the parameters of the GACvter, as described above.
+
+![GA Converter Parameters](./assets/SlopeCraft-tutorial-images.en/page4-convert-aicvter-args.en.png)
+
+If you understand GA, then these parameters don't need to be explained. If you don't understand it, just google it, or just leave it alone.
+
+The only parameter that needs to be explained is the **maximum early convergence generations**, which refers to the maximum number of consecutive generations of failed merit search allowed. For example, if its value is 50 generations, then the algorithm terminates when it does not find a better solution for 50 consecutive generations, saving time. A larger **maximum early convergence generation** will prevent the algorithm from maturing prematurely, but will make it slower.
+
+### Cache
+
+SlopeCraft uses caching to reduce memory usage when converting multiple images. Normally, the cache on disk will be automatically cleared when SlopeCraft exits, and users don't need to worry about the cache. However, SlopeCraft also allows users to manually clear the cache files.
 
 ### Test block list
 
@@ -334,18 +418,6 @@ The following figure shows the effect. Due to the long projection, it is divided
 | :------------------------------------------------------------------------: | :-------------------------------------------------------------------------: |
 |                                 Left half                                  |                                 Right half                                  |
 
-### Batch operation
-
-Batch operations have been described above, and this menu is simply designed to bypass the interface logic and jump to the page where the export is set up before the image is entered. I have to admit that the interface logic of SlopeCraft is not as well designed as VisualCraft.
-
-### Blocklist preset
-
-SlopeCraft allows to export the current block list settings to a file, or to load a preset file. The file is stored in json and has the suffix `.sc_preset_json`.
-
-### GACvter parameters
-
-This menu item allows the user to set the parameters of the GACvter, as described above.
-
 ### Export current colorset
 
 This menu item allows the user to export the current color table as a $16\times 16$ png image, containing all the colors currently available.
@@ -354,7 +426,21 @@ This menu item allows the user to export the current color table as a $16\times 
 | :--------------------------------------------------------------------------: | :----------------------------------------------------------------------------: | :--------------------------------------------------------------------------------: |
 |                                   1.19 3D                                    |                                   1.19 Flat                                    |                                   1.19 File-only                                   |
 
-## Customize blocklist
+??? question "What is it for?"
+    Outputting the color map is essentially exporting the "palette" for pixel art creation.
+
+    If you want to create your own art and use it in the game, follow these steps to avoid unexpected errors:
+
+    1. First, complete the settings on the "Map Drawing Configuration" page so that you can output the color map you want.
+    2. Export the color map in the advanced settings.
+    3. Import the color map into the corresponding image processing software, create your artwork, and export the image.
+    4. Complete the settings on the "Map Drawing Configuration" page again (if you have closed the software), and import the image.
+    5. When converting the image, select the RGB+ algorithm and **do not** check dithering.
+    6. The remaining export steps are the same as the normal process, see [above](#step-3-export).
+
+______________________________________________________________________________________________________________
+
+## 🛠 Customize blocklist
 
 If you are not satisfied with my preset blocks and want to add other original blocks or even mod blocks yourself, this chapter will show you how to add and use custom blocks in SlopeCraft.
 
@@ -387,6 +473,7 @@ You need to have the following information about the block.
       |   17    |       1.17        |
       |   18    |       1.18        |
       |   19    |       1.19        |
+      |   20    |       1.20        |
       |   255   |  Future Versions  |
 
       Normally you shouldn't use 255, it's just a reserved value. If you have to assign a block to a future version, then everything that results is an undefined feature -- I don't know what will happen.
@@ -397,7 +484,7 @@ You need to have the following information about the block.
 
 4. Base color of the block
 
-      This is probably the easiest place to go wrong. For the original block, you can check the [Minecraft Wiki](ttps://wiki.biligame.com/mc/%E5%9C%B0%E5%9B%BE%E7%89%A9%E5%93%81%E6%A0%BC%E5%BC%8F#idcounts.dat_.E6.A0.BC.E5.BC.8F). If it's a mod custom block, either figure out how to measure it yourself or ask the mod developer.
+      This is probably the easiest place to go wrong. For the original block, you can check the [Minecraft Wiki](https://minecraft.wiki/w/Map_item_format). If it's a mod custom block, either figure out how to measure it yourself or ask the mod developer.
 
       If you don't know what the base color is, go to [principles introduction](./principles-introduction.md)
 
@@ -441,9 +528,9 @@ In json format, it is expressed as:
 {
    "baseColor":11,
    "id":"minecraft:cobblestone_slab[type=top,waterlogged=false]",
-   "nameZH":"圆石上半砖",
+   "nameZH":"圆石台阶",
    "nameEN":"Cobblestone slab",
-   "icon":"cobblestone.png",
+   "icon":"cobblestone_slab.png",
    "version":0,
    "idOld":"minecraft:stone_slab[half=top,variant=cobblestone]"
 }
@@ -453,7 +540,30 @@ The above json message shows the information of a block with half a tile on a ro
 
 1. Its base color is 11, which is also the base color of round stone, stone tile, and stone.
 2. Its block id is "minecraft:cobblestone\_slab[type=top,waterlogged=false]", the status of the block in brackets indicates that it is a top half brick and does not contain water.
-3. Its Chinese name is "圆石上半砖" and its English name is "Cobblestone slab".
-4. Its image is a picture named "cobblestone.png", which is placed under the CustomBlocks folder.
+3. Its Chinese name is "圆石台阶" and its English name is "Cobblestone slab".
+4. Its image is a picture named "cobblestone_slab.png", which is placed under the CustomBlocks folder.
 5. Its earliest appearance is version 0, which means it was added before 1.12.
 6. Since its block id changed in 1.13, its block id in 1.12 is the value of idOld.
+
+<!-- https://cdn.jsdelivr.net/npm/sakana-widget@2.7.0/lib/sakana.min.css -->
+<!-- https://cdn.jsdelivr.net/npm/sakana-widget@2.7.0/lib/sakana.min.js -->
+<!-- https://cdnjs.cloudflare.com/ajax/libs/sakana-widget/2.7.0/sakana.min.css -->
+<!-- https://cdnjs.cloudflare.com/ajax/libs/sakana-widget/2.7.0/sakana.min.js -->
+
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/sakana-widget@2.7.0/lib/sakana.min.css"
+/>
+<div id="sakana-widget"></div>
+<script>
+  function initSakanaWidget() {
+    new SakanaWidget().mount('#sakana-widget');
+  }
+</script>
+<script
+  async
+  onload="initSakanaWidget()"
+  src="https://cdn.jsdelivr.net/npm/sakana-widget@2.7.0/lib/sakana.min.js"
+></script>
+
+*(=・ω・=)*
