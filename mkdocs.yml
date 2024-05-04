@@ -32,6 +32,7 @@ theme:
   search_index_only: true
   features:
     - navigation.tabs
+    - content.tooltips
   favicon: 'assets/favicon.ico'
   logo: 'assets/logo.png'
 
@@ -50,6 +51,10 @@ markdown_extensions:
       generic: true
   - tables
   - footnotes
+  - pymdownx.tilde
+  - attr_list
+  - md_in_html
+  - pymdownx.superfences
 
 # Navigation
 nav:
