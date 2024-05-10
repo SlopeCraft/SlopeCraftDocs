@@ -83,17 +83,16 @@ plugins:
           name: English
           site_name: SlopeCraft Documentation
           build: true
-      nav_translations:
-        en:
-          欢迎使用 SlopeCraft: Welcome to SlopeCraft
-          原理简介: Introduction of Principles
-          SlopeCraft 教程: SlopeCraft Tutorial
-          VisualCraft 教程: VisualCraft Tutorial
-          常见问题: FAQ
-          编译指南: Compilation Guide
-          通用: General
-          Windows/Linux: Windows/Linux
-          macOS: macOS
+          nav_translations:
+            欢迎使用 SlopeCraft: Welcome to SlopeCraft
+            原理简介: Introduction of Principles
+            SlopeCraft 教程: SlopeCraft Tutorial
+            VisualCraft 教程: VisualCraft Tutorial
+            常见问题: FAQ
+            编译指南: Compilation Guide
+            通用: General
+            Windows/Linux: Windows/Linux
+            macOS: macOS
 
 extra_javascript:
   - javascripts/mathjax.js
