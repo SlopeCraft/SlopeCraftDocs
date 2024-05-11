@@ -35,7 +35,7 @@ Save this image well.
 
 Double-click to launch SlopeCraft.exe, and you will see the following interface.
 
-![Map Configuration](./assets/SlopeCraft-tutorial-images/page1-MapConfiguration.png)
+![Map Configuration](./assets/SlopeCraft-tutorial-images.en/page1-MapConfiguration.png)
 
 The three tabs at the top represent the three steps of creating a map drawing:
 
@@ -75,7 +75,7 @@ The list of blocks is actually the "**Materials List**", or "**Palette**" of a m
 
 This page is a bit more complicated, so I'll cover each section in turn. **(Actually, in general, the list of blocks doesn't need much convertion by itself)**
 
-![Block List](./assets/SlopeCraft-tutorial-images/page1-MapConfiguration-blocks.png)
+![Block List](./assets/SlopeCraft-tutorial-images.en/page1-MapConfiguration-blocks.png)
 
 Each of the base colors is shown in the slider. In the **Enable** box, you can check **Whether to allow SlopeCraft to use this color**. By default, except for **water**, each available base color is selected (some colors are not available in lower versions).
 
@@ -84,7 +84,7 @@ Below the enable box is the box **which corresponds to each color**. Only one bl
 - You may think that many of the blocks in the diagram are different colors, but please note that **they are identical in the "eye of the map "** and the only basis for selection is whether the blocks are easy to mass-produce.
 - Some base colors are only available in one block, however the palette cannot be left blank, so this option is unchangeable, like the glass or *emerald block(not shown in the image)* in the picture, it must be selected.
 
-![Block List Presets](./assets/SlopeCraft-tutorial-images/page1-MapConfiguration-blocks-preset.png)
+![Block List Presets](./assets/SlopeCraft-tutorial-images.en/page1-MapConfiguration-blocks-preset.png)
 
 There are list of four preset blocks at the top:
 
@@ -110,7 +110,7 @@ After completing these settings, click on the "**Load image and convert**" menu 
 
 On this interface, you need to complete two small steps: import the image and convert it into a map.
 
-![Load image and convert](./assets/SlopeCraft-tutorial-images/page2-Load&Convert.png)
+![Load image and convert](./assets/SlopeCraft-tutorial-images.en/page2-Load&Convert.png)
 
 ### 2.1 Import Images
 
@@ -127,7 +127,7 @@ In the Task pool, click **Add** to import **one or more** preprocessed images.
 
 If your original image has transparent or semi-transparent pixels, the interface for setting the **transparent pixel processing strategy** will automatically appear. Details are as follows:
 
-![transparent pixel processing strategy](./assets/SlopeCraft-tutorial-images.en/page1-tp-strategy.png)
+![transparent pixel processing strategy](./assets/SlopeCraft-tutorial-images.en/page2-tp-strategy.png)
 
 Transparent pixel handling strategies have different ways to handle pure transparent pixels (alpha=0) and semi-transparent pixels (alpha>0). A pure transparent pixel can either be replaced with the background color or set to air; a semi-transparent pixel can either be replaced with the background color or overlaid and blended with the background color, or its transparency property can be ignored and treated directly as an opaque pixel. Alternatively the background color can be set, the default background color is a light gray when the snow block is tiled, or you can choose pure white, or any custom color.
 
@@ -139,7 +139,7 @@ After importing the images, the corresponding Tasks will be displayed in the Tas
 
 After completing the above preliminaries, it's time to move on to the main meal: converting the image into a map.
 
-![Convert Image](./assets/SlopeCraft-tutorial-images/page2-Load&Convert-convert.png)
+![Convert Image](./assets/SlopeCraft-tutorial-images.en/page2-Load&Convert-convert.png)
 
 #### Select Conversion Algorithm
 
@@ -191,7 +191,7 @@ Because the [first four export types](#3a-export-as-litematica-vanilla-structure
 
 ### 3.a Export as Litematica / Vanilla structure / WE schem / Flat diagram
 
-![Export](./assets/SlopeCraft-tutorial-images/page3-Export.png)
+![Export](./assets/SlopeCraft-tutorial-images.en/page3-Export.png)
 
 #### Compress (Not applicable to flat maps)
 
@@ -237,13 +237,13 @@ The first four export methods each allow you to enter additional export options,
 
 	You can enter information about the projection file in the "Projection Name" and "Projection Area Name" fields, but this is not mandatory.
 
-	![Litematica options](./assets/SlopeCraft-tutorial-images/page3-Export-extra_set-litematica.png)
+	![Litematica options](./assets/SlopeCraft-tutorial-images.en/page3-Export-extra_set-litematica.png)
 
 === "Vanilla structure"
 
 	The original structure block file is stored using a sparse matrix, where areas that are not stored represent air blocks. This storage method makes the structure block file the format with the best compatibility with the original version but the worst compression ratio.
 
-	![Structure options](./assets/SlopeCraft-tutorial-images/page3-Export-extra_set-structure.png)
+	![Structure options](./assets/SlopeCraft-tutorial-images.en/page3-Export-extra_set-structure.png)
 
 	Therefore, there are two options for storing air blocks in the structure block file: treat them as structure vacancies or store them as they are. Treating them as structure vacancies can greatly save space, but when pasting the structure block, it cannot overwrite other non-air blocks; storing them as air blocks can overcome this problem, but the file size will be large.
 
@@ -251,7 +251,7 @@ The first four export methods each allow you to enter additional export options,
 
 	WorldEdit schematic has a few attributes, which are reverse-engineered from the schematics generated by WorldEdit and directly correspond to the same-named nbt tags.
 
-	![WE options](./assets/SlopeCraft-tutorial-images/page3-Export-extra_set-WE.png)
+	![WE options](./assets/SlopeCraft-tutorial-images.en/page3-Export-extra_set-WE.png)
 
 	I am not sure how these attributes affect the schematic, as I hardly use WorldEdit.
 
@@ -259,7 +259,7 @@ The first four export methods each allow you to enter additional export options,
 
 	Set whether the exported diagram contains dividing lines and the spacing of dividing lines.
 
-	![Flat Diagram options](./assets/SlopeCraft-tutorial-images/page3-Export-extra_set-flat_diagram.png)
+	![Flat Diagram options](./assets/SlopeCraft-tutorial-images.en/page3-Export-extra_set-flat_diagram.png)
 
 #### Pre-build 3D Structure for Preview (Optional)
 
@@ -276,7 +276,7 @@ After pre-building the 3D structure, you can perform the following two detailed 
 - Map preview: Lossy compression may further change the image, and you can check the status of the image here.
 - Material list: Preview the quantity information of materials
 
-| ![page5-preview-converted](./assets/SlopeCraft-tutorial-images.en/page5-preview-converted.en.png) | ![page5-preview-material](./assets/SlopeCraft-tutorial-images.en/page5-preview-material.en.png) |
+| ![page3-preview-converted](./assets/SlopeCraft-tutorial-images.en/page3-Export-preview-converted.png) | ![page3-preview-material](./assets/SlopeCraft-tutorial-images.en/page3-Export-preview-material.png) |
 | :-----------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------: |
 |                                            Map preview                                            |                                          Material list                                          |
 
@@ -290,7 +290,7 @@ ________________________________________________________________________________
 
 Click on the **Map data file** option to navigate to the corresponding page.
 
-![Export as map data files](./assets/SlopeCraft-tutorial-images/page3-Export-map_data_file.png)
+![Export as map data files](./assets/SlopeCraft-tutorial-images.en/page3-Export-map_data_file.png)
 
 This page shows the number of rows and columns of the map corresponding to the map, the number of files and the file name of the map data file to be exported.
 
@@ -386,7 +386,7 @@ ________________________________________________________________________________
 
 ## 🛠 Advanced functions
 
-![menu-advanced](./assets/SlopeCraft-tutorial-images/menu-advanced.png)
+![menu-advanced](./assets/SlopeCraft-tutorial-images.en/menu-advanced.png)
 
 You can see some advanced operations in the "Advanced" menu. Each of them is described below.
 
@@ -394,7 +394,7 @@ You can see some advanced operations in the "Advanced" menu. Each of them is des
 
 This menu item allows the user to set the parameters of the GACvter, as described above.
 
-![GA Converter Parameters](./assets/SlopeCraft-tutorial-images.en/page4-convert-aicvter-args.en.png)
+![GA Converter Parameters](./assets/SlopeCraft-tutorial-images.en/Advanced-aicvter-args.png)
 
 If you understand GA, then these parameters don't need to be explained. If you don't understand it, just google it, or just leave it alone.
 
