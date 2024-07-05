@@ -327,8 +327,12 @@ ________________________________________________________________________________
     Open the folder where you just exported the files and move the exported files to the **schematic directory** (1).Then open Minecraft, go to the archive/server, and import this projection in the place where you want to create the map drawing.
     { .annotate }
 
-    1. The directory for projection files is .minecraft[^mcdir]/schematics
-
+    1. The directory for projection files is:  
+	`.minecraft(1)/schematics`
+		{ .annotate }
+		
+		1. Game saves and configurations are not necessarily stored directly in the `.minecraft` folder, and the specific path depends on the version isolation. Taking the `saves` folder location as an example: if version isolation is disabled, the saves directory is in `.minecraft/saves`, otherwise, it is in `.minecraft/versions/<your_game_version>/saves`.
+		
 	When placing the projection, please note: **the x and z coordinates of the projection origin must be `-65+k×128`, where k is any integer**. y coordinates are arbitrary. For example, (63,62,-65). Only then can the **ground drawing be aligned with the map's grid**.
 
 	Then start realizing this projection or just paste the schematic. Once this is done, create a new map inside the map. Each map should be unscaled, as each pixel point corresponds to a block. Place them in order inside the item display box and you're done.
@@ -341,8 +345,12 @@ ________________________________________________________________________________
     Open the folder where you just exported the files and move the exported files to the **Vanilla structure directory** (1).Then open Minecraft, enter your save/server, and load this structure at the desired location.
     { .annotate }
 
-    1. The directory for Vanilla structure file is .minecraft[^mcdir]/saves/<your_world_name>/generated/minecraft/structures
-
+    1. The directory for Vanilla structure file is:  
+	`.minecraft(1)/saves/<your_world_name>/generated/minecraft/structures`
+		{ .annotate }
+		
+		1. Game saves and configurations are not necessarily stored directly in the `.minecraft` folder, and the specific path depends on the version isolation. Taking the `saves` folder location as an example: if version isolation is disabled, the saves directory is in `.minecraft/saves`, otherwise, it is in `.minecraft/versions/<your_game_version>/saves`.
+		
     If you cannot find this directory, it means that the game has not created it yet. You can manually create this directory and copy the files into it.
 
     When loading the structure, please note: **the x and z coordinates of the projection origin must be `-65+k×128`, where k is any integer**. y coordinates are arbitrary. For example, (63,62,-65). Only then can the **ground drawing be aligned with the map's grid**.
@@ -354,7 +362,11 @@ ________________________________________________________________________________
     Open the folder where you just exported the files and move the exported files to the **WE schematic directory** (1).
     { .annotate }
 
-    1. The directory for World Edit schematics is .minecraft[^mcdir]/config/worldedit/schematics
+    1. The directory for World Edit schematics is:  
+	`.minecraft(1)/config/worldedit/schematics`
+		{ .annotate }
+		
+		1. Game saves and configurations are not necessarily stored directly in the `.minecraft` folder, and the specific path depends on the version isolation. Taking the `saves` folder location as an example: if version isolation is disabled, the saves directory is in `.minecraft/saves`, otherwise, it is in `.minecraft/versions/<your_game_version>/saves`.
 
     If the directory does not exist, it means that the game has not created it yet. You can manually create this directory and copy the files into it.
 
@@ -365,7 +377,11 @@ ________________________________________________________________________________
     Open the folder where you just exported the files and move the exported files to the **map data file directory** (1).
     { .annotate }
 
-    1. The directory for map files is .minecraft[^mcdir]/saves/<your_world_name>/data
+    1. The directory for map files is:  
+	`.minecraft(1)/saves/<your_world_name>/data`
+		{ .annotate }
+		
+		1. Game saves and configurations are not necessarily stored directly in the `.minecraft` folder, and the specific path depends on the version isolation. Taking the `saves` folder location as an example: if version isolation is disabled, the saves directory is in `.minecraft/saves`, otherwise, it is in `.minecraft/versions/<your_game_version>/saves`.
 
     You may encounter a "Replace or Skip Files" window. If you are worried that unrelated map files will be overwritten, you can temporarily not select them and continue reading.
 
@@ -381,8 +397,6 @@ ________________________________________________________________________________
         **1.** When you move the files, a "Replace or Skip Files" window **should** appear. Click "Replace the files in the destination" to replace the files.
 
         **2.** Open the game, and these `n` maps should have been successfully replaced with map drawings.
-
-	[^mcdir]: Game saves and configurations are not necessarily stored directly in the .minecraft folder, and the specific path depends on the version isolation. Taking the `saves` folder location as an example: if version isolation is disabled, the saves directory is in `.minecraft/saves`, otherwise, it is in `.minecraft/versions/<your_game_version>/saves`.
 
 ## 🛠 Advanced functions
 
