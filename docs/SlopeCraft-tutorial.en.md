@@ -389,9 +389,9 @@ ________________________________________________________________________________
 
         This method **should not** prompt a "Replace or Skip Files" window. If it does, close the window and check if there is a conflict with the map index.
 
-        - In 1.12, use `/give @s filled_map 1 i` to obtain the map with index i.
-        - In 1.13-1.19, use `/give @s filled_map{map:i}` to obtain the map with index i.
-	- In 1.20+, use `/give @s filled_map[map_id=i]` to obtain the map with index i.
+		- In 1.12, use `/give @s filled_map 1 i` to obtain the map with index i.
+		- In 1.13-1.20.4, use `/give @s filled_map{map:i}` to obtain the map with index i.
+		- In 1.20.5+, use `/give @s filled_map[map_id=i]` to obtain the map with index i.
 
     - If you do not want to use commands, only replace the map files:
 
