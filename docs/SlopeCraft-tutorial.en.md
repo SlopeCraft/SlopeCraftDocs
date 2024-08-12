@@ -65,7 +65,7 @@ Here you need to choose **type of the map**:
 - **Flat Map**: A traditional type of map drawing with **average quality**, easier to build.
 - **File-only Map**: The **ultimate quality** achievable by original map drawings, cannot be built directly and usually obtained through commands. If you don't want the map to be in the game as blocks, but just want it to appear on the map and be able to be attached to the item display box, then select this option.
 
-    Please note that this type of File-only Map requires at least file replacement in the game save and may also require commands. It is generally only suitable for single-player games. If you are a server administrator, you can also use it.
+	Please note that this type of File-only Map requires at least file replacement in the game save and may also require commands. It is generally only suitable for single-player games. If you are a server administrator, you can also use it.
 
 Here, I chose the 3D map.
 
@@ -115,13 +115,13 @@ On this interface, you need to complete two small steps: import the image and co
 ### 2.1 Import Images
 
 ??? question "What is the "Task Pool"?"  
-    SlopeCraft introduced a new feature in version 5.10: the "**Task Pool**".  
-    Each image you import will be created as a Task by the program, and various conversion operations will add data to the Task.  
+	SlopeCraft introduced a new feature in version 5.10: the "**Task Pool**".  
+	Each image you import will be created as a Task by the program, and various conversion operations will add data to the Task.  
 
-    The operation logic of the Task pool is similar to the system file manager: select a single image, preview, or perform corresponding operations.
+	The operation logic of the Task pool is similar to the system file manager: select a single image, preview, or perform corresponding operations.
 
-    In simple terms, you can now easily perform batch operations!  
-    **Note: The same batch of images can only use one conversion algorithm. It is recommended to process images with significant style and color differences separately!**
+	In simple terms, you can now easily perform batch operations!  
+	**Note: The same batch of images can only use one conversion algorithm. It is recommended to process images with significant style and color differences separately!**
 
 In the Task pool, click **Add** to import **one or more** preprocessed images.
 
@@ -306,15 +306,15 @@ There are two ways to obtain the map, choose the one you prefer. Note that the m
 
 - If you want to obtain the map through the /give command:
 
-    The starting number can be set arbitrarily, as long as it does not overwrite an unrelated map.
+	The starting number can be set arbitrarily, as long as it does not overwrite an unrelated map.
 
 - If you do not want to use commands, only replace the map files:
 
-    **1.** First create `n` maps corresponding to the map drawing, n is the number of map data files displayed by SlopeCraft, in this case 4.
+	**1.** First create `n` maps corresponding to the map drawing, n is the number of map data files displayed by SlopeCraft, in this case 4.
 
-    **2.** In the game, check the index corresponding to each map file. These maps should be indexed from `a` to `(a+n-1)`, a total of n maps.
+	**2.** In the game, check the index corresponding to each map file. These maps should be indexed from `a` to `(a+n-1)`, a total of n maps.
 
-    **3.** Exit the world, and enter the value `a` in the **Map file start number** field of SlopeCraft.
+	**3.** Exit the world, and enter the value `a` in the **Map file start number** field of SlopeCraft.
 
 After confirming the settings, you can click **Export all**, and select the appropriate **folder** to export all files (it is recommended to use an empty folder).
 
@@ -324,80 +324,80 @@ ________________________________________________________________________________
 
 === "Litematica schematic"
 
-    Open the folder where you just exported the files and move the exported files to the **schematic directory** (1).Then open Minecraft, go to the archive/server, and import this projection in the place where you want to create the map drawing.
-    { .annotate }
+	Open the folder where you just exported the files and move the exported files to the **schematic directory** (1).Then open Minecraft, go to the archive/server, and import this projection in the place where you want to create the map drawing.
+	{ .annotate }
 
-    1. The directory for projection files is:  
+	1. The directory for projection files is:  
 	`.minecraft(1)/schematics`
 		{ .annotate }
-		
+
 		1. Game saves and configurations are not necessarily stored directly in the `.minecraft` folder, and the specific path depends on the version isolation. Taking the `saves` folder location as an example: if version isolation is disabled, the saves directory is in `.minecraft/saves`, otherwise, it is in `.minecraft/versions/<your_game_version>/saves`.
-		
+
 	When placing the projection, please note: **the x and z coordinates of the projection origin must be `-65+k×128`, where k is any integer**. y coordinates are arbitrary. For example, (63,62,-65). Only then can the **ground drawing be aligned with the map's grid**.
 
 	Then start realizing this projection or just paste the schematic. Once this is done, create a new map inside the map. Each map should be unscaled, as each pixel point corresponds to a block. Place them in order inside the item display box and you're done.
 
-    - If it is a 2×2 map map, then you should create 2×2, i.e. 4 maps.
+	- If it is a 2×2 map map, then you should create 2×2, i.e. 4 maps.
 	- If your game version is 1.14 and above, then it is better to lock the map with a glass sheet inside the cartography table.
 
 === "Vanilla structure file"
 
-    Open the folder where you just exported the files and move the exported files to the **Vanilla structure directory** (1).Then open Minecraft, enter your save/server, and load this structure at the desired location.
-    { .annotate }
+	Open the folder where you just exported the files and move the exported files to the **Vanilla structure directory** (1).Then open Minecraft, enter your save/server, and load this structure at the desired location.
+	{ .annotate }
 
-    1. The directory for Vanilla structure file is:  
+	1. The directory for Vanilla structure file is:  
 	`.minecraft(1)/saves/<your_world_name>/generated/minecraft/structures`
 		{ .annotate }
-		
+
 		1. Game saves and configurations are not necessarily stored directly in the `.minecraft` folder, and the specific path depends on the version isolation. Taking the `saves` folder location as an example: if version isolation is disabled, the saves directory is in `.minecraft/saves`, otherwise, it is in `.minecraft/versions/<your_game_version>/saves`.
-		
-    If you cannot find this directory, it means that the game has not created it yet. You can manually create this directory and copy the files into it.
 
-    When loading the structure, please note: **the x and z coordinates of the projection origin must be `-65+k×128`, where k is any integer**. y coordinates are arbitrary. For example, (63,62,-65). Only then can the **ground drawing be aligned with the map's grid**.
+	If you cannot find this directory, it means that the game has not created it yet. You can manually create this directory and copy the files into it.
 
-    The use of structure blocks is relatively complicated, and it will not be repeated here. Please check out the tutorials yourself.
+	When loading the structure, please note: **the x and z coordinates of the projection origin must be `-65+k×128`, where k is any integer**. y coordinates are arbitrary. For example, (63,62,-65). Only then can the **ground drawing be aligned with the map's grid**.
+
+	The use of structure blocks is relatively complicated, and it will not be repeated here. Please check out the tutorials yourself.
 
 === "WE schematic Files"
 
-    Open the folder where you just exported the files and move the exported files to the **WE schematic directory** (1).
-    { .annotate }
+	Open the folder where you just exported the files and move the exported files to the **WE schematic directory** (1).
+	{ .annotate }
 
-    1. The directory for World Edit schematics is:  
+	1. The directory for World Edit schematics is:  
 	`.minecraft(1)/config/worldedit/schematics`
 		{ .annotate }
-		
+
 		1. Game saves and configurations are not necessarily stored directly in the `.minecraft` folder, and the specific path depends on the version isolation. Taking the `saves` folder location as an example: if version isolation is disabled, the saves directory is in `.minecraft/saves`, otherwise, it is in `.minecraft/versions/<your_game_version>/saves`.
 
-    If the directory does not exist, it means that the game has not created it yet. You can manually create this directory and copy the files into it.
+	If the directory does not exist, it means that the game has not created it yet. You can manually create this directory and copy the files into it.
 
-    After that, you can import the schematic into the game using the command `//schem load <schematic_name>`. For specific operations, please refer to the World edit tutorial, Please check out the tutorials yourself.
+	After that, you can import the schematic into the game using the command `//schem load <schematic_name>`. For specific operations, please refer to the World edit tutorial, Please check out the tutorials yourself.
 
 === "Map data files"
 
-    Open the folder where you just exported the files and move the exported files to the **map data file directory** (1).
-    { .annotate }
+	Open the folder where you just exported the files and move the exported files to the **map data file directory** (1).
+	{ .annotate }
 
-    1. The directory for map files is:  
+	1. The directory for map files is:  
 	`.minecraft(1)/saves/<your_world_name>/data`
 		{ .annotate }
-		
+
 		1. Game saves and configurations are not necessarily stored directly in the `.minecraft` folder, and the specific path depends on the version isolation. Taking the `saves` folder location as an example: if version isolation is disabled, the saves directory is in `.minecraft/saves`, otherwise, it is in `.minecraft/versions/<your_game_version>/saves`.
 
-    You may encounter a "Replace or Skip Files" window. If you are worried that unrelated map files will be overwritten, you can temporarily not select them and continue reading.
+	You may encounter a "Replace or Skip Files" window. If you are worried that unrelated map files will be overwritten, you can temporarily not select them and continue reading.
 
-    - To obtain the map through the /give command:
+	- To obtain the map through the /give command:
 
-        This method **should not** prompt a "Replace or Skip Files" window. If it does, close the window and check if there is a conflict with the map index.
+		This method **should not** prompt a "Replace or Skip Files" window. If it does, close the window and check if there is a conflict with the map index.
 
 		- In 1.12, use `/give @s filled_map 1 i` to obtain the map with index i.
 		- In 1.13-1.20.4, use `/give @s filled_map{map:i}` to obtain the map with index i.
 		- In 1.20.5+, use `/give @s filled_map[map_id=i]` to obtain the map with index i.
 
-    - If you do not want to use commands, only replace the map files:
+	- If you do not want to use commands, only replace the map files:
 
-        **1.** When you move the files, a "Replace or Skip Files" window **should** appear. Click "Replace the files in the destination" to replace the files.
+		**1.** When you move the files, a "Replace or Skip Files" window **should** appear. Click "Replace the files in the destination" to replace the files.
 
-        **2.** Open the game, and these `n` maps should have been successfully replaced with map drawings.
+		**2.** Open the game, and these `n` maps should have been successfully replaced with map drawings.
 
 ## 🛠 Advanced functions
 
@@ -442,16 +442,16 @@ This menu item allows the user to export the current color table as a $16\times 
 |                                   1.19 3D                                    |                                   1.19 Flat                                    |                                   1.19 File-only                                   |
 
 ??? question "What is it for?"
-    Outputting the color map is essentially exporting the "palette" for pixel art creation.
+	Outputting the color map is essentially exporting the "palette" for pixel art creation.
 
-    If you want to create your own art and use it in the game, follow these steps to avoid unexpected errors:
+	If you want to create your own art and use it in the game, follow these steps to avoid unexpected errors:
 
-    1. First, complete the settings on the "Map Drawing Configuration" page so that you can output the color map you want.
-    2. Export the color map in the advanced settings.
-    3. Import the color map into the corresponding image processing software, create your artwork, and export the image.
-    4. Complete the settings on the "Map Drawing Configuration" page again (if you have closed the software), and import the image.
-    5. When converting the image, select the RGB+ algorithm and **do not** check dithering.
-    6. The remaining export steps are the same as the normal process, see [above](#step-3-export).
+	1. First, complete the settings on the "Map Drawing Configuration" page so that you can output the color map you want.
+	2. Export the color map in the advanced settings.
+	3. Import the color map into the corresponding image processing software, create your artwork, and export the image.
+	4. Complete the settings on the "Map Drawing Configuration" page again (if you have closed the software), and import the image.
+	5. When converting the image, select the RGB+ algorithm and **do not** check dithering.
+	6. The remaining export steps are the same as the normal process, see [above](#step-3-export).
 
 ______________________________________________________________________________________________________________
 
@@ -465,43 +465,43 @@ You need to have the following information about the block.
 
 1. The **complete** id of the block, containing the **namespace prefix** and **all block attributes**.
 
-      If the upper half of the wax-coated copper block is tiled.
+	If the upper half of the wax-coated copper block is tiled.
 
-      ``` file
-      minecraft:waxed_copper_slab[type=top,waterlogged=false]
-      ```
+	``` file
+	minecraft:waxed_copper_slab[type=top,waterlogged=false]
+	```
 
-      In this ``minecraft:`` is the namespace prefix for the original block, and the contents of the brackets are all block attributes. To be on the safe side, you should set the corresponding value for each block attribute.
+	In this ``minecraft:`` is the namespace prefix for the original block, and the contents of the brackets are all block attributes. To be on the safe side, you should set the corresponding value for each block attribute.
 
 2. The earliest version of the game in which the block appeared
 
-      SlopeCraft has agreed on the following values in the block list to refer to major versions:
+	SlopeCraft has agreed on the following values in the block list to refer to major versions:
 
-      | Numbers |     Versions      |
-      | :-----: | :---------------: |
-      |    0    | Earlier than 1.12 |
-      |   12    |       1.12        |
-      |   13    |       1.13        |
-      |   14    |       1.14        |
-      |   15    |       1.15        |
-      |   16    |       1.16        |
-      |   17    |       1.17        |
-      |   18    |       1.18        |
-      |   19    |       1.19        |
-      |   20    |       1.20        |
-      |   255   |  Future Versions  |
+	| Numbers |     Versions      |
+	| :-----: | :---------------: |
+	|    0    | Earlier than 1.12 |
+	|   12    |       1.12        |
+	|   13    |       1.13        |
+	|   14    |       1.14        |
+	|   15    |       1.15        |
+	|   16    |       1.16        |
+	|   17    |       1.17        |
+	|   18    |       1.18        |
+	|   19    |       1.19        |
+	|   20    |       1.20        |
+	|   255   |  Future Versions  |
 
-      Normally you shouldn't use 255, it's just a reserved value. If you have to assign a block to a future version, then everything that results is an undefined feature -- I don't know what will happen.
+	Normally you shouldn't use 255, it's just a reserved value. If you have to assign a block to a future version, then everything that results is an undefined feature -- I don't know what will happen.
 
 3. The id of the block in 1.12
 
-      This property was added because Mojang changed the ids of quite a few blocks from 1.12 to 1.13. If the block you want to add was not added in 1.12, or if the id has not changed, you can fill in the empty string.
+	This property was added because Mojang changed the ids of quite a few blocks from 1.12 to 1.13. If the block you want to add was not added in 1.12, or if the id has not changed, you can fill in the empty string.
 
 4. Base color of the block
 
-      This is probably the easiest place to go wrong. For the original block, you can check the [Minecraft Wiki](https://minecraft.wiki/w/Map_item_format). If it's a mod custom block, either figure out how to measure it yourself or ask the mod developer.
+	This is probably the easiest place to go wrong. For the original block, you can check the [Minecraft Wiki](https://minecraft.wiki/w/Map_item_format). If it's a mod custom block, either figure out how to measure it yourself or ask the mod developer.
 
-      If you don't know what the base color is, go to [principles introduction](./principles-introduction.md)
+	If you don't know what the base color is, go to [principles introduction](./principles-introduction.md)
 
 5. Chinese name of the block
 6. English name of the block
