@@ -1,6 +1,7 @@
 # SlopeCraft Tutorial
 
 !!! info "info"
+
 	This document partly utilizes ChatGPT for translation.
 
 This document will show you how to use SlopeCraft to create 3d, flat and file-only maps.
@@ -15,6 +16,7 @@ To eliminate ambiguity, the defination of serveral terms are listed.
 | Map data file | The nbt binary file that stores data of a "Map", named like `map_<i>.dat` |
 
 !!! tip "tip"
+
 	You can find the option to switch languages in the Languages drop-down menu in the menu bar.
 
 ## Step 0. Image preprocessing
@@ -115,6 +117,7 @@ On this interface, you need to complete two small steps: import the image and co
 ### 2.1 Import Images
 
 ??? question "What is the "Task Pool"?"  
+
 	SlopeCraft introduced a new feature in version 5.10: the "**Task Pool**".  
 	Each image you import will be created as a Task by the program, and various conversion operations will add data to the Task.  
 
@@ -333,7 +336,11 @@ ________________________________________________________________________________
 
 		1. Game saves and configurations are not necessarily stored directly in the `.minecraft` folder, and the specific path depends on the version isolation. Taking the `saves` folder location as an example: if version isolation is disabled, the saves directory is in `.minecraft/saves`, otherwise, it is in `.minecraft/versions/<your_game_version>/saves`.
 
-	When placing the projection, please note: **the x and z coordinates of the projection origin must be `-65+k×128`, where k is any integer**. y coordinates are arbitrary. For example, (63,62,-65). Only then can the **ground drawing be aligned with the map's grid**.
+	!!! tip "Note"
+
+		When placing the projection, please note: **the x and z coordinates of the structure origin must be `-65+k×128`, where k is any integer**. y coordinates are arbitrary. For example, (63,62,-65). Only then can the **ground drawing be aligned with the map's grid**.
+
+		**Note:** The origin in the above formula refers to the coordinates of the "non-air block in the northwest corner (corresponding to the top-left corner of the map)", which may not necessarily coincide with the projection's origin.
 
 	Then start realizing this projection or just paste the schematic. Once this is done, create a new map inside the map. Each map should be unscaled, as each pixel point corresponds to a block. Place them in order inside the item display box and you're done.
 
@@ -353,7 +360,11 @@ ________________________________________________________________________________
 
 	If you cannot find this directory, it means that the game has not created it yet. You can manually create this directory and copy the files into it.
 
-	When loading the structure, please note: **the x and z coordinates of the projection origin must be `-65+k×128`, where k is any integer**. y coordinates are arbitrary. For example, (63,62,-65). Only then can the **ground drawing be aligned with the map's grid**.
+	!!! tip "Note"
+
+		When loading the structure, please note: **the x and z coordinates of the structure origin must be `-65+k×128`, where k is any integer**. y coordinates are arbitrary. For example, (63,62,-65). Only then can the **ground drawing be aligned with the map's grid**.
+
+		**Note:** The origin in the above formula refers to the coordinates of the "non-air block in the northwest corner (corresponding to the top-left corner of the map)", which may not necessarily coincide with the structure's origin.
 
 	The use of structure blocks is relatively complicated, and it will not be repeated here. Please check out the tutorials yourself.
 
@@ -371,6 +382,12 @@ ________________________________________________________________________________
 	If the directory does not exist, it means that the game has not created it yet. You can manually create this directory and copy the files into it.
 
 	After that, you can import the schematic into the game using the command `//schem load <schematic_name>`. For specific operations, please refer to the World edit tutorial, Please check out the tutorials yourself.
+
+	!!! tip "Note"
+
+		When pasting the schematic, please note: **the x and z coordinates of the structure origin must be `-65+k×128`, where k is any integer**. y coordinates are arbitrary. For example, (63,62,-65). Only then can the **ground drawing be aligned with the map's grid**.
+
+		**Note:** The origin in the above formula refers to the coordinates of the "non-air block in the northwest corner (corresponding to the top-left corner of the map)", which may not necessarily coincide with the schematic's origin.
 
 === "Map data files"
 
@@ -398,6 +415,12 @@ ________________________________________________________________________________
 		**1.** When you move the files, a "Replace or Skip Files" window **should** appear. Click "Replace the files in the destination" to replace the files.
 
 		**2.** Open the game, and these `n` maps should have been successfully replaced with map drawings.
+
+??? question "Why are there smooth stones at the edge of the map art?"
+
+    ![Smooth stones on the north side](./assets/SlopeCraft-tutorial-images.lang-indenpent/smooth_stone-in-north.png)
+
+    This is to ensure that the northernmost pixels have the correct shading. It is essential, so please do not remove or ignore it.
 
 ## 🛠 Advanced functions
 
@@ -442,6 +465,7 @@ This menu item allows the user to export the current color table as a $16\times 
 |                                   1.19 3D                                    |                                   1.19 Flat                                    |                                   1.19 File-only                                   |
 
 ??? question "What is it for?"
+
 	Outputting the color map is essentially exporting the "palette" for pixel art creation.
 
 	If you want to create your own art and use it in the game, follow these steps to avoid unexpected errors:
