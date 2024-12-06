@@ -338,9 +338,16 @@ ________________________________________________________________________________
 
 	!!! tip "Note"
 
-		When placing the projection, please note: **the x and z coordinates of the structure origin must be `-65+k×128`, where k is any integer**. y coordinates are arbitrary. For example, (63,62,-65). Only then can the **ground drawing be aligned with the map's grid**.
+		When placing the projection, please note: **the x and z coordinates of the projection origin must be `-65+k×128`, where k is any integer**. y coordinates are arbitrary. For example, (63,62,-65). Only then can the **ground drawing be aligned with the map's grid**.
 
-		**Note:** The origin in the above formula refers to the coordinates of the "non-air block in the northwest corner (corresponding to the top-left corner of the map)", which may not necessarily coincide with the projection's origin.
+		??? example "Details about the Origin"
+			The origin in the formula refers to the **"northwest corner of the entire structure (including 'air blocks')."**
+
+			Since the northern side of the map art must reserve space for potential smooth stone borders, the x and z coordinates of the entire structure are extended outward by one block beyond the main body of the map art. This formula is a unique design of SlopeCraft and may not be universally applicable.
+
+			**In most cases, you don't need to worry too much. Simply align the default origin of your structure with the formula.**
+
+			***(Unless you are very familiar with the principles of map art, manual alignment is not recommended.)***
 
 	Then start realizing this projection or just paste the schematic. Once this is done, create a new map inside the map. Each map should be unscaled, as each pixel point corresponds to a block. Place them in order inside the item display box and you're done.
 
@@ -364,7 +371,14 @@ ________________________________________________________________________________
 
 		When loading the structure, please note: **the x and z coordinates of the structure origin must be `-65+k×128`, where k is any integer**. y coordinates are arbitrary. For example, (63,62,-65). Only then can the **ground drawing be aligned with the map's grid**.
 
-		**Note:** The origin in the above formula refers to the coordinates of the "non-air block in the northwest corner (corresponding to the top-left corner of the map)", which may not necessarily coincide with the structure's origin.
+		??? example "Details about the Origin"
+			The origin in the formula refers to the **"northwest corner of the entire structure (including 'air blocks')."**
+
+			Since the northern side of the map art must reserve space for potential smooth stone borders, the x and z coordinates of the entire structure are extended outward by one block beyond the main body of the map art. This formula is a unique design of SlopeCraft and may not be universally applicable.
+
+			**In most cases, you don't need to worry too much. Simply align the default origin of your structure with the formula.**
+
+			***(Unless you are very familiar with the principles of map art, manual alignment is not recommended.)***
 
 	The use of structure blocks is relatively complicated, and it will not be repeated here. Please check out the tutorials yourself.
 
@@ -387,7 +401,14 @@ ________________________________________________________________________________
 
 		When pasting the schematic, please note: **the x and z coordinates of the structure origin must be `-65+k×128`, where k is any integer**. y coordinates are arbitrary. For example, (63,62,-65). Only then can the **ground drawing be aligned with the map's grid**.
 
-		**Note:** The origin in the above formula refers to the coordinates of the "non-air block in the northwest corner (corresponding to the top-left corner of the map)", which may not necessarily coincide with the schematic's origin.
+		??? example "Details about the Origin"
+			The origin in the formula refers to the **"northwest corner of the entire structure (including 'air blocks')."**
+
+			Since the northern side of the map art must reserve space for potential smooth stone borders, the x and z coordinates of the entire structure are extended outward by one block beyond the main body of the map art. This formula is a unique design of SlopeCraft and may not be universally applicable.
+
+			**In most cases, you don't need to worry too much. Simply align the default origin of your structure with the formula.**
+
+			***(Unless you are very familiar with the principles of map art, manual alignment is not recommended.)***
 
 === "Map data files"
 
