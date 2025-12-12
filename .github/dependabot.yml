@@ -9,10 +9,10 @@ updates:
       time: "00:00"
     # Add assignees
     assignees:
-      - "Cubik65536"
+      - "Qubik65536"
     # Add reviewers
     reviewers:
-      - "Cubik65536"
+      - "Qubik65536"
     # Include a list of updated dependencies
     # with a prefix determined by the dependency group
     commit-message:
