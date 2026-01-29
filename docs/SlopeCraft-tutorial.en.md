@@ -383,6 +383,18 @@ ________________________________________________________________________________
 
 			***(Unless you are very familiar with the principles of map art, manual alignment is not recommended.)***
 
+		!!! info "Additional Notes"
+
+			Due to certain features of structure blocks, please pay special attention to the following points when importing map art:
+
+			- Importing extremely large structures may cause the game to become unresponsive; please make sure to back up your world in advance.
+			- When importing structures larger than a certain size (1), they **must** be loaded using a redstone signal; loading via the GUI is not possible.
+				{ .annotate }
+
+				1. `48×48×48` in 1.16+, `32×32×32` in 1.15 and below
+
+			- The entire loading area of the structure must already be generated; any ungenerated chunks will cause the loading to fail.
+
 	The use of structure blocks is relatively complicated, and it will not be repeated here. Please check out the tutorials yourself.
 
 === "WE schematic Files"
