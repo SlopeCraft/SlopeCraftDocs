@@ -214,6 +214,8 @@ There is no significant change before and after compression, and the damage to t
 
 Lossy and lossless compression can be used together or separately. However, in general, if lossy compression is enabled, it makes no sense not to enable lossless compression. Pure lossy compression requires more pixels to be modified, which will cause more damage to the image quality, while lossless compression can complete the compression task with fewer pixels to be modified, largely reducing the damage to the image quality.
 
+***Note: While this is true in theory, in actual use, if lossy compression is enabled, be sure to enable lossless compression at the same time. Otherwise, the compression result may be unsatisfactory (the height may exceed expectations).***
+
 You can turn on both options for flat maps, but it **will not play any role**.
 
 #### Glass bridge
@@ -270,7 +272,8 @@ Clicking **Construct 3d structure** will use the current settings to pre-build t
 
 **The pre-built 3D structure is only used for preview and is not used for export.**
 
-**Please note that if the projection's y dimension exceeds 256 / 384 [^height], do not continue with the export. A schematic that exceeds the height limit is meaningless!**
+**Please note that if the projection's y dimension exceeds 256 / 384 [^height], do not continue with the export. A schematic that exceeds the height limit is meaningless!**  
+**(If the structure exceeds the height limit, try enabling both lossless and lossy compression at the same time, or split the image into separate sections and export them individually.)**
 
 [^height]: Buildings in different versions and dimensions have different heights. For details, please refer to the [Wiki](https://minecraft.wiki/w/Altitude)
 
@@ -379,6 +382,18 @@ ________________________________________________________________________________
 			**In most cases, you don't need to worry too much. Simply align the default origin of your structure with the formula.**
 
 			***(Unless you are very familiar with the principles of map art, manual alignment is not recommended.)***
+
+		!!! info "Additional Notes"
+
+			Due to certain features of structure blocks, please pay special attention to the following points when importing map art:
+
+			- Importing extremely large structures may cause the game to become unresponsive; please make sure to back up your world in advance.
+			- When importing structures larger than a certain size (1), they **must** be loaded using a redstone signal; loading via the GUI is not possible.
+				{ .annotate }
+
+				1. `48×48×48` in 1.16+, `32×32×32` in 1.15 and below
+
+			- The entire loading area of the structure must already be generated; any ungenerated chunks will cause the loading to fail.
 
 	The use of structure blocks is relatively complicated, and it will not be repeated here. Please check out the tutorials yourself.
 
