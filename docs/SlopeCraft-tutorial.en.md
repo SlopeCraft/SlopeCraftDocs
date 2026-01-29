@@ -214,6 +214,8 @@ There is no significant change before and after compression, and the damage to t
 
 Lossy and lossless compression can be used together or separately. However, in general, if lossy compression is enabled, it makes no sense not to enable lossless compression. Pure lossy compression requires more pixels to be modified, which will cause more damage to the image quality, while lossless compression can complete the compression task with fewer pixels to be modified, largely reducing the damage to the image quality.
 
+***Note: While this is true in theory, in actual use, if lossy compression is enabled, be sure to enable lossless compression at the same time. Otherwise, the compression result may be unsatisfactory (the height may exceed expectations).***
+
 You can turn on both options for flat maps, but it **will not play any role**.
 
 #### Glass bridge
@@ -270,7 +272,8 @@ Clicking **Construct 3d structure** will use the current settings to pre-build t
 
 **The pre-built 3D structure is only used for preview and is not used for export.**
 
-**Please note that if the projection's y dimension exceeds 256 / 384 [^height], do not continue with the export. A schematic that exceeds the height limit is meaningless!**
+**Please note that if the projection's y dimension exceeds 256 / 384 [^height], do not continue with the export. A schematic that exceeds the height limit is meaningless!**  
+**(If the structure exceeds the height limit, try enabling both lossless and lossy compression at the same time, or split the image into separate sections and export them individually.)**
 
 [^height]: Buildings in different versions and dimensions have different heights. For details, please refer to the [Wiki](https://minecraft.wiki/w/Altitude)
 
