@@ -1,0 +1,1125 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="SlopeCraft Team, Cubik65536, ToKiNoBug and Contributors">
+      
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../SlopeCraft-tutorial/">
+      
+      
+        
+          <link rel="alternate" href="./" hreflang="zh">
+        
+          <link rel="alternate" href="../en/principles-introduction/" hreflang="en">
+        
+      
+      
+      <link rel="icon" href="../assets/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>原理简介 - SlopeCraft 文档</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../_static/css/extra.css?v=14">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="red">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href=".." title="SlopeCraft 文档" class="md-header__button md-logo" aria-label="SlopeCraft 文档" data-md-component="logo">
+      
+  <img src="../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SlopeCraft 文档
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              原理简介
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="red"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="选择当前语言">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="zh" class="md-select__link">
+              中文
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../en/principles-introduction/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/SlopeCraft/SlopeCraftDocs" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    SlopeCraft/SlopeCraftDocs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  欢迎使用 SlopeCraft
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  原理简介
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../SlopeCraft-tutorial/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  SlopeCraft 教程
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../VisualCraft-tutorial/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  VisualCraft 教程
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../faq/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  常见问题
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../compilation-guide/" class="md-tabs__link">
+          
+  
+  
+  编译指南
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="SlopeCraft 文档" class="md-nav__button md-logo" aria-label="SlopeCraft 文档" data-md-component="logo">
+      
+  <img src="../assets/logo.png" alt="logo">
+
+    </a>
+    SlopeCraft 文档
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/SlopeCraft/SlopeCraftDocs" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    SlopeCraft/SlopeCraftDocs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    欢迎使用 SlopeCraft
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    原理简介
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    原理简介
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        为什么用地图？
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        地图如何显示方块？
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        地图画工作原理
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        什么是高度压缩
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        立体地图画中的玻璃桥
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SlopeCraft-tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SlopeCraft 教程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VisualCraft-tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VisualCraft 教程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    常见问题
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    编译指南
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    编译指南
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../compilation-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    通用
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../compilation-guide/Windows-Linux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Windows/Linux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../compilation-guide/macOS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    macOS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        为什么用地图？
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        地图如何显示方块？
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        地图画工作原理
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        什么是高度压缩
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        立体地图画中的玻璃桥
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="_1">地图画原理</h1>
+<p>这篇文章将会仔细介绍地图画工作原理，包括立体地图画、平板地图画和纯文件地图画。SlopeCraft 正是基于这些机制开发出来的。通过研究并利用这些机制，人们可以让地图显示出自定义的图像。</p>
+<h2 id="_2">为什么用地图？</h2>
+<p>Minecraft 地图画可以分为两类：视觉型和地图型。视觉型地图画顾名思义，是建造出来直接用眼睛看的，它们可以是水平平板，也可以是垂直墙面。视觉型地图画简单直接，但往往体积巨大，不是很方便观看。然而地图可以放进物品展示框里，显示在地板或者墙上。多张地图甚至可以拼成一张更大的画面。这就是地图的优势。</p>
+<p>在视觉型地图画中，方块直接显示它们材质贴图的颜色，每个方块都是不一样的。但地图型地图画并非如此。地图显示的颜色与方块的材质贴图可能有细微差别，很多方块拥有完全一样的颜色，比如雪块和白色混凝土。此外，对于绝大多数方块，地图显示的颜色和眼睛看到的颜色都会有细微但可察觉的差异，这导致很多视觉型的地图画在地图上表现的不太好。所以第一件事情就是弄明白 Minecraft 地图的机制。</p>
+<h2 id="_3">地图如何显示方块？</h2>
+<p><strong>每个地图的分辨率都是 128 × 128 像素，与缩放尺度无关。</strong> 地图对应的区域由缩放尺度 <code>scale</code> 决定，<code>scale</code> 是一个整数，取值范围在 0 到 4 之间（包含 0 和 4）。地图对应的区域是正方形，长宽均为 <span class="arithmatex">\(128\times 2^{Scale}\)</span>。当 <code>scale</code> 为 0 时，地图对应着 128 × 128 范围的方块，其中每个像素都代表一个方块；否则每个像素代表 <span class="arithmatex">\(2^{Scale}\)</span> 个方块。<code>scale</code> 大于 0 的地图对地图画而言没有意义，我不会再讨论它们，不过下文会告诉你为什么它们没有意义。</p>
+<p>为了让地图更容易拼接，每个地图都会与一个网格自动对齐。地图起始坐标（西北角）为 <span class="arithmatex">\((128\times 2^{Scale}-64,y,128\times 2^{Scale}-64)\)</span>。</p>
+<p>坐标轴和东西南北的关系表：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">方向</th>
+<th style="text-align: center;">地图方向</th>
+<th style="text-align: center;">坐标轴方向</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">北</td>
+<td style="text-align: center;">上</td>
+<td style="text-align: center;">z-</td>
+</tr>
+<tr>
+<td style="text-align: center;">南</td>
+<td style="text-align: center;">下</td>
+<td style="text-align: center;">z+</td>
+</tr>
+<tr>
+<td style="text-align: center;">西</td>
+<td style="text-align: center;">左</td>
+<td style="text-align: center;">x-</td>
+</tr>
+<tr>
+<td style="text-align: center;">东</td>
+<td style="text-align: center;">右</td>
+<td style="text-align: center;">x+</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>
+<p>Minecraft 怎样存储地图数据？</p>
+<p>在 Java 版中，地图的内容并没有存储在每个地图物品里，而是存储在 <strong>data</strong> 文件夹下。它们的文件名形如 <strong>map_i.dat</strong>，<code>i</code> 为不超过 2,147,483,647（1.12 中是 32767）的自然数。<code>i</code> 称为地图序号，游戏中每个地图物品都只是存储了对应的地图序号。</p>
+<p>比如，如果玩家拿着一个序号为 114 的地图，存档加载时 Minecraft 会寻找名为 <em><code>map_114.dat</code></em> 的地图数据文件并加载它。然后它的内容就会显示在地图上。因此，地图的本质不是物品，而是地图数据文件。</p>
+<p>地图几乎所有信息都存储在地图数据文件里，包括但不限于每个像素。地图画最重要的就是地图数据的存储方式。</p>
+</li>
+<li>
+<p>地图像素与地图色（MapColor）</p>
+<p>地图的每个像素都是一个 8 位无符号整数，取值范围为 0 到 255。由于地图数据文件是压缩 NBT 格式，地图像素都存储在一个包含了 16384 个元素的字节数组（byte array）里（虽然 NBT 格式中的 byte 是有符号整数，但不妨当做是无符号）。这个 128 × 128 的像素矩阵以行优先方式存储。</p>
+<p>这决定了每个像素最多可能有 256 种颜色，每个值对应着不同的颜色。<strong>这个 8 位无符号整数称为地图色。</strong> 我们可以说地图是一个颜色表固定的 8 位索引图像。</p>
+</li>
+<li>
+<p>基色（BaseColor）与阴影（Shadow）</p>
+<p>如上文所述，地图色是 8 位无符号整数。它的高 6 位形成了 6 位无符号整数，称之为基色 (BaseColor)，余下 2 位形成了 2 位无符号整数，称为阴影。地图色、基色和阴影的关系如下：</p>
+<div class="arithmatex">\[
+地图色=4 \times 基色 + 阴影
+\]</div>
+<p>基色取决于方块类型。游戏中最多可能有 64 种基色。截止最新版（在本文撰写时为 1.17），游戏中有 62 个基色已经被使用；在 1.16，有 59 个基色被使用，每个基色都有对应的基色颜色（RGB）；从 1.12 到 1.15，有 52 个基色被使用。未使用的基色没有相应的颜色，它们对地图画没有意义。</p>
+<p>wiki 上有基色和方块的对照表：<a href="https://minecraft.fandom.com/zh/wiki/%E5%9C%B0%E5%9B%BE%E7%89%A9%E5%93%81%E6%A0%BC%E5%BC%8F">地图物品格式</a>.</p>
+<p>但基色颜色不等于地图色的颜色。基色颜色的 R、G、B 三个分量要分别乘一个因子，再除以 255（向下取整）才能得到地图色的颜色。这个因子由阴影值决定。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">阴影值</th>
+<th style="text-align: center;">因子</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">180</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">220</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">255</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">135</td>
+</tr>
+</tbody>
+</table>
+<p>可见，阴影值为 <code>2</code> 的地图色颜色等于基色颜色，阴影值 <code>1</code> 稍暗，阴影值 <code>0</code> 更暗，阴影值 <code>3</code> 最暗。</p>
+<p>阴影有什么意义？阴影表示一个方块与周边方块的相对高度。如果方块 A 的坐标为 <span class="arithmatex">\((x,y_A,z)\)</span>，它北侧方块 B 的坐标 <span class="arithmatex">\((x,y_B,z-1)\)</span>，则 A 的阴影值</p>
+<div class="arithmatex">\[
+Shadow(A)=\left\{
+\begin{aligned}
+    0\quad,&amp;\quad \text{如果 } y_A&lt;y_B \\
+    1\quad,&amp;\quad \text{如果 } y_A=y_B \\
+    2\quad,&amp;\quad \text{如果 } y_A&gt;y_B
+\end{aligned}
+\right.
+\]</div>
+<p>在所有基色中，水（<code>12</code>）是最特殊的。<strong>水的阴影值与相对高度无关，只由水深决定。</strong> 水深 1 格时阴影值为 <code>2</code>；水深 6 格时阴影值为 <code>1</code>；水深等于或超过 11 格时阴影值为 <code>0</code>。</p>
+<p>若一个方块比它北侧的方块高，那么它会表现的更亮；（水越浅越亮），<strong>这让地图可以展示出地势的高低起伏</strong>。</p>
+<p><strong>需要注意，阴影是 2 位无符号整数，可以有 4 种取值，却只使用了前 3 个。剩下的那个阴影值 3 可以在地图上正常工作，但不可能在原版生存里获得。</strong> 我很纳闷 Mojang 在想什么。</p>
+</li>
+<li>
+<p><code>0</code> 也是个特殊的基色</p>
+<p>基色 <code>0</code> 代表<strong>空气</strong>或者<strong>未探索</strong>，与其他所有基色都截然不同。基色 <code>0</code> 对应的颜色是全透明，看到的只有地图物品的背景色（或物品展示框的材质）。很多透明方块都属于基色 <code>0</code>，如玻璃、下界门、火把等。很奇怪的是，红石灯也属于基色 <code>0</code>。</p>
+</li>
+<li>
+<p>为什么说缩放地图是没有意义的？</p>
+<p>根据地图机制，缩放地图既不能提高地图分辨率，也不能带来更多颜色。所以按缩放后的尺寸建造更大的地图画，纯粹是浪费方块、浪费空间。</p>
+</li>
+</ol>
+<h2 id="_4">地图画工作原理</h2>
+<ol>
+<li>
+<p>立体地图画机制</p>
+<p>立体地图画中，方块按照特定位置放置，形成立体地图画。每个方块都有两个作用：</p>
+<ul>
+<li>显示本身的基色</li>
+<li>决定南侧方块的阴影</li>
+</ul>
+<p>可见，每个方块的高度不是胡来的，而是地图色决定的。</p>
+</li>
+<li>
+<p>平板地图画机制</p>
+<p>如果你限定地图画只能由阴影为 <code>1</code> 的基色组成（或阴影为 <code>2</code> 的水），你就得到了平板地图画。每个方块都有相同的高度。</p>
+</li>
+<li>
+<p>纯文件地图画机制</p>
+<p>原版地图画（立体和平板）都是先建造，再用地图记录，这也的确是原版生存中唯一的办法。但如果你不要求这么香草，直接替换地图数据文件也是不错的选择。纯文件地图画直接把地图数据文件放进存档里，或者用生成的替换现有的地图数据文件，然后再用命令获得对应的地图物品。<strong>这是使用第三种阴影的唯一方法。</strong></p>
+</li>
+</ol>
+<h2 id="_5">什么是高度压缩</h2>
+<p>高度压缩是一种新技术，可以降低立体地图画的最大高度。鉴于大尺寸地图画很容易超过限高，压缩是很有意义的。目前压缩有两种方式：<strong>无损压缩</strong>和<strong>有损压缩</strong>。</p>
+<ol>
+<li>
+<p>无损压缩</p>
+<p>无损压缩保持地图显示效果完全不变。它尝试将地图的某些片段下沉。</p>
+<p>压缩时，SlopeCraft 依次独立处理地图画的每一列。</p>
+<div class="arithmatex">\[
+\displaylines{
+    \Delta H_i=\left\{
+        \begin{aligned}
+            Shadow_i-1\quad &amp;,\quad \text{如果 }BaseColor_i\neq 0,12 \\
+            0 \quad &amp;,\quad \text{其他情况}
+        \end{aligned}
+    \right.
+    \newline
+    H_i=\sum_{j=0}^i \Delta H_j
+    \newline
+    maxHeight=\max H
+}
+\]</div>
+<p>上式中，<span class="arithmatex">\(\Delta H\)</span> 是每个方块与自己北侧方块的高度差，<span class="arithmatex">\(H\)</span> 是每个方块的高度。这个公式与实际源代码略有差别，但基本原理一致。</p>
+<p>上面的公式限定了高度差必须为 <code>-1</code>，<code>0</code> 或者 <code>1</code>，但这种限制不是必须的。例如，阴影 <code>2</code> 的方块只要求自己与北侧方块的高度差大于 <code>0</code>，但不一定是 <code>1</code>。这就提供了无损压缩的机会。</p>
+<p>无损压缩还会特殊处理水和空气方块，因为它们的阴影值与高度差无关。虽然这让代码实现难度高了不少，但压缩效果会更好。</p>
+<p><strong>请注意，无损压缩不能绝对保证把高度压缩到 256 以内。有时候地图画的一列甚至可能是单调递增/递减，根本就不可压缩。</strong></p>
+</li>
+<li>
+<p>有损压缩</p>
+<p>显然，无损压缩没有彻底解决问题。为了把地图画总高度压缩到任何值以内，微调一些像素的颜色也是可以接受的。有损压缩算法会细微调整一些像素的地图色来压缩总高度，并保证色差尽量小。</p>
+<p><strong>有损压缩可以把地图画压缩到任何高度以内。</strong> 介于是用遗传算法实现，有损压缩的表现有些随机，且相对缓慢。</p>
+<p>尽管理论上可以把总高度压缩到任意值，但我<strong>不建议你把最大允许高度设为小于 <code>14</code> 的值</strong>，否则遗传算法需要相当长长长长长的时间来压缩————甚至可能压缩失败。</p>
+<p><strong>遗传算法，永远滴神！</strong></p>
+<p>值得一提的是，上述两种方法是平行的，你可以同时使用两种压缩算法，也可以只使用一种。如果你已经启用了有损压缩，建议顺手勾上无损压缩，这可以降低有损压缩对画质的损伤。</p>
+</li>
+</ol>
+<h2 id="_6">立体地图画中的玻璃桥</h2>
+<p>取立体地图画任一水平切面，不难发现，切面上有很多孤立的方块。这种结构真的很难在原版生存建造，即便有投影 mod 辅助也是如此。<strong>但如果我们将这些孤立的方块连接起来，就比较容易建造了。</strong></p>
+<p>玻璃桥就是这个“连接”。使用 Prim 算法可以用最少的玻璃把一层内所有方块都连接起来，这个过程就叫搭桥。通常来说不是每个层都要搭桥，否则会浪费很多玻璃。默认间隔 4 层，即每 5 层搭一次桥。</p>
+<p>考虑到 Prim 算法的时间复杂度为 <span class="arithmatex">\(O(n^3)\)</span>，这会耗费些时间。不过比起建造的肝度，实际上还是节省时间的。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2023 SlopeCraft Team, Cubik65536, ToKiNoBug and Contributors. All rights reserved.<br/> Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "content.tooltips"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
