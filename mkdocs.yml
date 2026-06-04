@@ -28,11 +28,10 @@ theme:
       toggle:
         icon: material/weather-night
         name: Switch to light mode
-  include_search_page: false
-  search_index_only: true
   features:
     - navigation.tabs
     - content.tooltips
+    - search.suggest
   favicon: 'assets/favicon.ico'
   logo: 'assets/logo.png'
 
