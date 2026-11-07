@@ -1,135 +1,133 @@
 # VisualCraft Tutorial
 
-!!! warning "Warning"
-    VisualCraft is still under beta stage. If you want to test it or you found any bugs, please submit an issue on [GitHub](https://github.com/SlopeCraft/SlopeCraft).
+## Introduction
 
-## Description
+VisualCraft is a brand-new Minecraft pixel art generator developed by the MC player TokiNoBug, and it is a subproject of SlopeCraft. Unlike other similar software, VisualCraft aims to keep up with the latest MC versions (1.12 ~ the latest), support as many MC features as possible, and provide the most powerful functions.
 
-VisualCraft is a brand-new pixel art generator for Minecraft. It is developed by TokiNoBug, and is a subproject of SlopeCraft. Unlike other counterparts, VisualCraft aims to catch up with latest versions of Minecraft(from 1.12 to latest), providing greatest functions and supporting as much MC features as possible.
+At the moment VisualCraft can parse many third-party resource packs, and also allows adding custom blocks. Different from the traditional approach, VisualCraft parses resource packs in terms of block models, staying as close to what Minecraft does as possible, so all kinds of custom block models are supported.
 
-Now VisualCraft is able to parse many 3rd party resource packs and allowing to add custom new blocks. Different from traditional methods, VisualCraft understands resource packs by parsing block models, which is rather similiar with what Minecraft does. Thus custom block models are supported.
+As for export, VisualCraft supports Litematica mod schematics (**\*.litematic**), WorldEdit schematics (**\*.shem**)(1.13+ only), vanilla structure block files (**\*.nbt**), flat diagrams (**\*.png**) and so on.
 
-When it comes to export, VisualCraft supports multiple formats, like Litematica mod(**\*.litematic**), WorldEdit schematic(**\*.schem**)(1.13+ only), vanilla structure block file(**\*.nbt**), flat diagram image(**\*.png**) and so on.
+VisualCraft supports stacking various transparent blocks on top of each other to produce more colors. The software supports at most 65534 colors; limited by this, the number of layers of a pixel art does not exceed 3.
 
-VisualCraft composes half-transparent blocks to produce more colors. No greater than 65534 colors are supported, and thus the maximum layers should now exceeds 3.
-
-The great amount of colors makes GPU accleration necessary. Now OpenCL is supported, but it can also run on CPU only.
+Because the number of colors is so large, VisualCraft uses GPU acceleration. The supported API is currently Vulkan, but it can also compute on CPU only.
 
 ## Step 0. GPU settings
 
-This step is not compulsory. You can skip it, but if your image is huge, or you want to export a pixel art of 3 layers, this may help you make VisualCraft faster.
+This step is not compulsory. You can skip it, but if your image is very large, or you want to generate a pixel art of 3 layers, this step greatly improves the efficiency of VisualCraft.
 
-![GPU Settings](./assets/VisualCraft-tutorial-images.en/page-GPU-en.png)
+![GPU settings](./assets/VisualCraft-tutorial-images.en/page-GPU-en.png)
 
-Uptil now there are 2 compute options: CPU threads and compute device.
+Up to now there are two compute options: the number of CPU threads and the compute device.
 
-In the spin box you can set the cpu threads. By default the value is the logical thread number of you CPU, retrieved from `std::thread::hardware_concurrency()`. You can set it a little bit greater so that it may make a better use of CPU cores, but too many threads are extra burdern to thread scheduler, which will supress overall time and increase energy cost.
+In the first box you can set the number of CPU threads. The default value is the logical thread count of your CPU, coming from the return value of `std::thread::hardware_concurrency()`. You can set it a bit larger so that the CPU cores are used better, but too many threads add extra burden to the thread scheduler, which costs more time and consumes more power.
 
-The next combo box helps you to select a compute device. This device is only used during image convertion. All avaliable devices are listed in the right tree widget. Devices are classified by platforms. Now only OpenCL is supported. And for MacOS that has already discard OpenCL, I'm planning to support Metal, but it takes time.
+In the next radio box you can choose a compute device. This device is only used during image conversion, and all available devices are listed in the small tree widget on the right. Only Vulkan is supported as an API for now. For macOS, which has no official Vulkan support, I am trying various community solutions.
 
-If VisualCraft is built without GPU API, only CPU is avaliable, and GPU boosting will not be accessable.
+If VisualCraft was built without a GPU API, then only CPU computation is available and GPU acceleration cannot be used.
 
-## Step 1. Basic Attributes
+## Step 1. Basic attributes
 
-![Basic Attributes](./assets/VisualCraft-tutorial-images.en/page-basic-attributes-en.png)
+![Basic attributes](./assets/VisualCraft-tutorial-images.en/page-basic-attributes-en.png)
 
-On the first page you can setup basical attributes. Pixel art directions and Minecraft versions can be set on the left side, while **biome**, **max layers** and **transparent leaves** can be set below.
+On the first page you can set the basic attributes. On the left you can set the pixel art direction and the Minecraft version, while **biome**, **max layers** and **transparent leaves** can be set below.
 
-It is necessary to explain the last three options:
+The pixel art direction and the MC version are self-evident, while the last three options need to be explained.
 
-1. **Max layers** refers to the maximum block layers of the pixel art, since VisualCraft supports superimposing transparent blocks on non-transparent blocks.
-   - Max layers should be a positive number, and no greater than 3, otherwise the number of blocks will exceed 65534, beyond the capacity of `uint16_t`.
-2. **Biome** refers to what biome the pixel art will be built in. In Minecraft, the colors of grass, leaves and vines differs in biomes, so it is necessary to input the biome.
+1. **Max layers** refers to the maximum number of block layers of the pixel art, because VisualCraft supports stacking transparent blocks on non-transparent blocks.
+    - Max layers should be a positive number and no greater than 3, otherwise the number of colors will exceed 65535, which is beyond the range of `uint16_t`.
+2. **Biome** refers to the biome of the place where the pixel art is built.
+    - In Minecraft, the colors of grass, leaves and vines depend on the biome, so it is necessary to input the biome.
 3. **Transparent leaves** refers to whether leaves are treated as transparent blocks.
-   - The apperaence of leaves are different by render options. If the graphics quality is not fast, leaves are transparent blocks that can be see through, otherwise they are not transparent, and transparent pixels in their textures are replaced with black(`0x000000`).
+    - The appearance of leaves depends on the render options. If the graphics quality is not low, leaves are transparent blocks; otherwise they are opaque, and the transparent pixels in their texture are replaced with black (`0x000000`).
 
-Resource packs and block state list(BSL) jsons can be set on the right side. Resource packs are zips that Minecraft receives, and BSL are json files storing block informations. Only blocks recorded in BSL can be used by VisualCraft.
+Resource packs and block state lists (BSL) can be set on the right. A resource pack is a zip that can be given to Minecraft, and a BSL is a json file that stores block information. Only blocks recorded in a BSL can be used by VisualCraft.
 
-Resource packs and BSL are represented in two list widgets. Click **Add** and you can select a file and add it to the list. To remove one or more items from the list, select them and click **Remove**. Note that only selected items can be removed. You can sort items by dragging them.  If you hope to use an item, turn on its checkbox, otherwise turn it off. When multiple resource packs are parsed, they stack in the represented order, like what Minecraft does. Multiple BSL jsons are parsed similiar.
+Resource packs and BSLs are shown in two lists. Click **Add** and you can select a file and add it to the list. To remove one or more items from the list, select them and click **Remove**. Note that only the selected items can be removed. You can sort the items by dragging them. If you want to use an item, check its checkbox, otherwise leave it unchecked. When several resource packs are parsed, they stack in the order of the list, just as Minecraft does. Several BSLs stack in the same way as resource packs.
 
- `Vanilla` and `Default` are special items that can not be removed, because they represent fundamental resource pack and BSL respectively. But you can still disable them, by turing off their checkbox.
+**Vanilla resource pack** and **vanilla json** are special items that cannot be removed, because they represent the base resource pack and the base BSL respectively. But you can still disable them by unchecking their checkboxes.
 
 ![Load resources](./assets/VisualCraft-tutorial-images.en/page-basic-attributes-loadrp-en.png)
 
- If you have finished basic attributes, find **Resource** menu and click **Load resources** to load resources.
+If you have finished setting the basic attributes, click **Load resources** in the **Resource** menu and VisualCraft will load these resources.
 
-## Step 2. Allowed Blocks
+## Step 2. Set the allowed blocks
 
-![Allowed Blocks](./assets/VisualCraft-tutorial-images.en/page-blocks-en.png)
+![Allowed blocks](./assets/VisualCraft-tutorial-images.en/page-blocks-en.png)
 
-After you load resources, all avaliable blocks will appear on the second page. Blocks are separated by classes. You can select or deselect any block and any classe.
+After loading resources, all available blocks appear on the second page, separated by category. You can select or deselect any single block and any category.
 
-### Hot Keys
+### Hot keys
 
-On the left there are several hot keys to help you select and deselect blocks.
+The hot keys on the left make selecting or disabling blocks more convenient. To eliminate ambiguity, note that: **in the following text, "select" and "enable" mean the same thing, and "disable" and "uncheck" also mean the same thing.**
 
-|          Key name          | Description                                                              |
-| :------------------------: | :----------------------------------------------------------------------- |
-|         Select all         | Select all blocks                                                        |
-|        Deselect all        | Deselect all blocks                                                      |
-|  Disable non-reproducible  | Deselect all non-reproducible blocks                                     |
-|    Disable rare blocks     | Deselect all rare blocks                                                 |
-| Select reversely classwise | Reverse the selection for each class, no block selection will be changed |
-| Select reversely blockwise | Reverse the selection for each block, no calss selection will be changed |
-|          Advanced          | Show a subwindow to select or deselect blocks according to custom rules  |
+|          Key name          | Effect                                                                                                |
+| :------------------------: | :---------------------------------------------------------------------------------------------------- |
+|         Select all         | Select all blocks                                                                                     |
+|        Deselect all        | Deselect all blocks                                                                                   |
+|  Disable non-reproducible  | Disable all non-reproducible blocks                                                                   |
+|    Disable rare blocks     | Disable all rare blocks                                                                               |
+| Select reversely classwise | Reverse the selection of each category, without affecting the checkboxes of blocks                    |
+| Select reversely blockwise | Reverse the selection of all blocks, without affecting the checkboxes of categories                   |
+|     Advanced matching      | Pops up a subwindow that lets you match blocks by custom rules and set them as selected or unselected |
 
-![Set avaliable blocks](./assets/VisualCraft-tutorial-images.en/page-basic-attributes-setall-en.png)
+![Set allowed blocks](./assets/VisualCraft-tutorial-images.en/page-basic-attributes-setall-en.png)
 
-After you finished this page, find **Resource** menu and click **Set avaliable blocks** to setup those selected blocks.
+After finishing the settings above, find the **Resource** menu and click **Set allowed blocks** to set the allowed blocks.
 
 ## Step 3. Load images
 
 ![Load images](./assets/VisualCraft-tutorial-images.en/page-images-en.png)
 
-Acutally, for least operations, the only thing you need to do is to add images, and go the the next page. In this paragraph I will introduce widgets on this page.
+In fact, from a minimalist point of view, all you need to do is add images and then go to the next page. In this section I will introduce the widgets of this page.
 
-After you setup selected blocks, the number of colors will be shown after **Convert algorithms**.
+After you set the allowed blocks, the number of colors is shown after **conversion algorithm**.
 
-There are several algorithms that can convert images into pixel arts. VisualCraft and SlopeCraft share the same alogrithms implementation, so these options are the same. The only difference is that VisualCraft can be boosted by GPU since it may have to deal with more than 10 thousands of colors and much larger images.
+There are several algorithms that can convert images into pixel arts. VisualCraft and SlopeCraft use almost the same set of algorithms, so these options are the same. The only difference is that VisualCraft can be GPU accelerated, because it may have to handle more than 10 thousand colors and much larger images.
 
-The logic of importing images are similiar than resource packs and BSLs. Click **+** to add images and **-** to remove selected images. VisualCraft is born to process multiple images, so all images are placed in a list. If you click a image, it will be displayed and converte.
+The logic of importing images is similar to that of importing resource packs and BSLs. Click **+** to add images and **-** to remove the selected images. VisualCraft was designed as a batch processing tool from the beginning, so all images are placed in one list. If you click an image, it is displayed and converted.
 
-You can change the display options. Turn on **Original size** to force all images displayed by their original size, regardless of label size. Toogle **Display original** and **Display converted** to determine whether to show corresponding image or not.
+You can change the display options. Turn on **Display original size** to force all images to be displayed at their original size regardless of the label size. Select **Display original** and **Display converted** to decide whether to show the corresponding images.
 
 ## Step 4. Export
 
 ![Export table](./assets/VisualCraft-tutorial-images.en/page-export-en.png)
 
-In this page you can tell VisualCraft how to export pixel arts and images. 5 export types are supported.
+On this page you can tell VisualCraft how to export pixel arts and images. 5 export types are supported.
 
-|      Type       | Filename Extension | Description                                        |
-| :-------------: | :----------------: | :------------------------------------------------- |
-|   Litematica    |    \*.litematic    | Litematica mod schematic                           |
-| Structure file  |       \*.nbt       | Vanilla structure block file                       |
-|    WE schem     |      \*.schem      | WorldEdit mod schematic (1.13+)                    |
-| Converted image |   \*.png \*.jpg    | The image after convertion                         |
-|  Flat diagram   |       \*.png       | A diagram replacing each pixel with related block. |
+|         Type         | File name extension | Description                                                                 |
+| :------------------: | :-----------------: | :-------------------------------------------------------------------------- |
+|      Litematica      |    \*.litematic     | Litematica mod schematic                                                    |
+| Structure block file |       \*.nbt        | Vanilla structure block file                                                |
+|     WE schematic     |      \*.schem       | WorldEdit mod schematic (1.13+)                                             |
+|   Converted image    |    \*.png \*.jpg    | The converted image                                                         |
+|     Flat diagram     |       \*.png        | A flat diagram formed by replacing every pixel with the corresponding block |
 
-Since VisualCraft are designed to execute batch operation, you can set which directory to put generated simply by choose a type in the combox and then click **Set export directory**. This operation will fill the related coloumn with exported filename.
+Since VisualCraft is inherently a batch processing tool, you can select a type in the radio box and then click **Set export destination** to set the folder for the generated files. This operation fills the exported file names into the related columns.
 
-If you hope to change how to edit, just change the export table. From the third to the seventh coloumn are editable.
+If you want to change the way of exporting, just edit the export table. The third to the seventh columns are editable.
 
-When you click **Start**, VisualCraft will execute according to the table. If a cell is empty, it will be skipped; otherwise the filename in this cell will be parsed. If the extension name is incorrect, an error may occur.
+When you click **Start**, VisualCraft executes according to the table. If a cell is empty, it is skipped; otherwise the file name in that cell is parsed. If the extension is incorrect, an error may occur.
 
-It's worth to note that flat diagram may consist of multiple images because a pixel art may have multiple layers. So the text in the cell is actually a list of filenames  seperated by semicolon '`;`'. For example :
+It is worth noting that a flat diagram may consist of several images, because a pixel art may have several layers. So the text in the cell is in fact a list of file names separated by semicolons "`;`" (**note: half-width characters!**). For example:
 
 ```bash
-# For double layer
+# Two layers
 D:/image00_layer0.png;D:/image00_layer1.png
-# For triple layer
+# Three layers
 D:/image01_layer0.png;D:/image01_layer1.png;D:/image01_layer2.png
-# For single layer
+# One layer
 D:/image01_layer0.png
 ```
 
-If the number of semicolons are incorrect, errors will occur.
+If the number of semicolons is incorrect, an error will occur as well.
 
 ### Export options
 
 ![Export options](./assets/VisualCraft-tutorial-images.en/page-export-settings-en.png)
 
-In this page you can set attributes of exported files. The options of Litematica, Vanilla structure and WE schem is same as that in SlopeCraft. While flat diagram options are worth to explain.
+On this page you can set the attributes of the exported files. The options of Litematica schematics, structure block files and WE schematics are the same as those in SlopeCraft, while the flat diagram options are worth explaining.
 
-Since flat diagram represent the whole pixel art by blocks, it will be useful to draw horizontal and vertical lines to split the whole image into chunks. By default split lines are drawn by every 16 blocks, which is the size of a Minecraft chunk. You can change the margin in spinboxed, or toogle the checkboxes to disable split lines.
+Since the flat diagram represents the whole pixel art with blocks, it is useful to draw horizontal and vertical lines to split the whole image into chunks. By default a split line is drawn every 16 blocks, which is the size of a Minecraft chunk. You can change the margin in the spin box, or check the checkbox to disable the split lines.
 
-The flat diagram are generated by libpng, and it's really a large image, so you can tell libpng how to compress the image by **png compress level**. The two level numbers are in range [0,9]. A larger compress level means better compression and more encoding time, and a greater memory level means more memory to use. **If you are not familiar with image and file compression, just keep the default value**.
+The flat diagram is generated by libpng, and it really is a large image, so you can tell libpng how to compress the image through **png compression level**. The ranges of the two level numbers are [0,9]. A larger compression level means better compression and more encoding time, while a larger memory level means more memory is used. **If you are not familiar with image and file compression, just keep the default values**.
