@@ -3,7 +3,8 @@
 本文介绍了如何在 macOS 上编译 SlopeCraft。
 
 !!! tip "提示"
-    本文内容会尽量确保大部分用户都可以顺利理解其内容，所以可能会包含一些较为基础的内容（例如如何安装 GCC），如果你发现你已经熟悉了你正在看的内容，你可以酌情跳过这部分内容。
+    本文内容会尽量确保大部分用户都可以顺利理解其内容，所以可能会包含一些较为基础的内容（例如如何安装 Clang），如果你发现你已经熟悉了你正在看的内容，你可以酌情跳过这部分内容。
+    由于核心开发者ToKiNoBug没有macOS设备，本文主要参照 SlopeCraft 在github actions中成功跑通的编译脚本编写，并不是绝对唯一的指南。如果你熟稔macOS软件开发，欢迎按照自己喜欢的方式编译。
 
 ## 前置步骤
 
@@ -23,12 +24,27 @@
 
 1. Apple clang编译器
 
-    <不知道怎么安装，但系统默认的工具链应该不难安装>。
+    macOS 上默认的 C/C++ 编译器是随 Xcode 命令行工具（Command Line Tools）一起分发的 Apple clang，它没有单独的安装包，安装命令行工具即可。如果你还没有安装，请在终端中执行：
 
-    建议执行以下命令检查编译器的版本，版本最好不低于clang 20。
+    ```bash
+    xcode-select --install
+    ```
+
+    随后会弹出一个窗口，点击“安装”，等待下载和安装完成即可。如果你已经安装了完整的 Xcode，那么命令行工具会随 Xcode 一并安装，这一步可以跳过；如果系统提示 `xcode-select: error: command line tools are already installed`，也说明它已经安装好了。
+
+    建议执行以下命令检查编译器的版本，版本最好不低于21，否则很难保证它完整的支持c++23。理论上可以用homebrew的LLVM clang，但可能也会撞在openMP上。如果你熟悉macOS环境不妨试试。
     ```bash
     /usr/bin/clang++ --version
     ```
+
+    如果一切正常，你应该会看到与下面类似的输出（具体的版本号会随 Xcode / 命令行工具的版本而变化）：
+    ```bash
+    Apple clang version 21.0.0 (clang-2100.1.1.101)
+    Target: x86_64-apple-darwin25.6.0
+    Thread model: posix
+    InstalledDir: /Applications/Xcode_26.6.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+    ```
+    值得注意的是，Apple clang不自带OpenMP，所以第4步必须安装`libomp`。
 
 2. Ninja 和 CMake
 
@@ -38,18 +54,25 @@
     brew install cmake ninja
     ```
 
-    使用 `ninja --version` 来检查 Ninja 是否已经安装成功。如果一切正常，你应该会看到与下面类似的输出：
-
-    ```bash
-    1.11.1
-    ```
-
 3. Rust工具链
    
-   SlopeCraft采用的原理图库mc_schem由rust编写，需要安装rust工具链：
+   SlopeCraft采用的原理图库mc_schem由rust编写，需要安装rust工具链。我们推荐使用 rustup 来安装和管理 rust，请在终端中执行：
+
    ```bash
-   <不知道怎么安装，但默认的stable工具链应该不难>
+   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
    ```
+
+   这个脚本会下载 rustup 并列出几个安装选项，直接按回车选择默认的 `1) Proceed with standard installation` 即可。安装完成后，rustup 会把 `cargo`、`rustc`、`rustup` 等命令安装到 `~/.cargo/bin`，并把该目录写入 shell 的 `PATH` 环境变量，**因此你需要重新打开一个终端（或者执行 `source "$HOME/.cargo/env"`）才能使用这些命令。**
+
+   然后执行以下命令，确认工具链已经安装成功，并确保默认使用的是 stable 工具链：
+
+   ```bash
+   rustup default stable
+   rustc --version
+   cargo --version
+   ```
+
+   如果一切正常，`rustc` 和 `cargo` 都会输出各自的版本号。如果你更希望用 Homebrew 管理，也可以执行 `brew install rustup` 安装 rustup，再运行 `rustup-init`，效果是一样的。
 
 4. 第三方依赖
 
@@ -59,11 +82,10 @@
 
 5. Qt
 
+    安装动态版本的Qt6：
     ```bash
     brew install qt
     ```
-
-    在安装完成后，你可以通过检查 `/usr/local/Cellar/qt` 路径来检查 Qt 是否已经安装成功。如果一切正常，你应该会看到一个命名类似于 `6.y.z_1` 的文件夹（例如 `6.4.3_1`）。你只需要确保该文件夹的第一个数字是 `6`，且 `y` 大于等于 `4` 即可。
 
     你也可以使用静态链接的 Qt，但这通常需要自行编译。编译 Qt 是个比较复杂的步骤，以下给出一个样板代码：
     ```bash
@@ -107,25 +129,36 @@
     使用以下命令配置 CMake：
 
     ```bash
-    cmake -S . -B ./build -G "Ninja" -DCMAKE_C_COMPILER=/opt/homebrew/opt/llvm/bin/clang -DCMAKE_CXX_COMPILER=/opt/homebrew/opt/llvm/bin/clang++ -DCMAKE_INSTALL_PREFIX=./build/install -DCMAKE_BUILD_TYPE=Debug -DCMAKE_OSX_DEPLOYMENT_TARGET=12.0
+    LIBOMP_PREFIX="$(brew --prefix libomp)"
+    cmake -S . -B ./build -G Ninja \
+        -DCMAKE_C_COMPILER=/usr/bin/clang \
+        -DCMAKE_CXX_COMPILER=/usr/bin/clang++ \
+        -DCMAKE_INSTALL_PREFIX=./build/install \
+        -DCMAKE_BUILD_TYPE=Release \
+        -DCMAKE_OSX_SYSROOT="$(xcrun --sdk macosx --show-sdk-path)" \
+        -DCMAKE_OSX_DEPLOYMENT_TARGET=15.0 \
+        -DSlopeCraft_GPU_API:STRING=None \
+        -DMC_SCHEM_HAS_mdspan=OFF \
+        -DCMAKE_PREFIX_PATH="$LIBOMP_PREFIX;/usr/local"
     ```
 
 
     在上面的命令中，我们指定了几个参数：
 
-    - `-DCMAKE_C_COMPILER` 指定 C 编译器，可以为`/opt/homebrew/opt/llvm/bin/clang`或者`clang`，前者是标准 LLVM 中的 clang 编译器，后者是 MacOS 上默认的 AppleClang 编译器。
-    - `-DCMAKE_CXX_COMPILER` 指定 C++ 编译器路径，可以为`/opt/homebrew/opt/llvm/bin/clang++`或者`clang++`，前者是标准 LLVM 中的 clang++ 编译器，后者是 MacOS 上默认的 AppleClang 编译器。请注意，无论使用哪个编译器，C 编译器和 C++ 编译器都应当是同一套，请不要混合使用不同来源的编译器。
-    - `-DCMAKE_INSTALL_PREFIX` 指定安装路径，本指南中我们将安装路径设置为 `./build/install`，你可以根据自己的需要进行修改
-    - `-DCMAKE_BUILD_TYPE` 指定编译类型，如 Debug 或 Release
-    - `-DCMAKE_OSX_DEPLOYMENT_TARGET` 指定最低的 macOS 版本，建议：
-      - 对于 Apple Silicon 设备，设置为 `12.0` (macOS Monterey)
-      - 对于 Intel 设备，设置为 `10.13` (macOS High Sierra)
+    - `CMAKE_C_COMPILER` 指定 C 编译器，应当为`/usr/bin/clang`，目前优先适配Apple clang
+    - `CMAKE_CXX_COMPILER` 指定 C++ 编译器路径，应当为`/usr/bin/clang++`。理论上两个编译器可以改用LLVM Clang，但总之必须一致，绝不能混用
+    - `CMAKE_INSTALL_PREFIX` 指定安装路径，本指南中我们将安装路径设置为 `./build/install`，你可以根据自己的需要进行修改
+    - `CMAKE_BUILD_TYPE` 指定编译类型，如 Debug 或 Release
+    - `CMAKE_OSX_DEPLOYMENT_TARGET` 指定最低的 macOS 版本，建议：
+      - 对于 Apple Silicon 设备，设置为 `13.3` 
+      - 对于 Intel 设备，设置为 `15.0` 
+    - `CMAKE_PREFIX_PATH` 指定 CMake 找软件包的路径。可以有多个路径，采用`;`分隔。
 
-    **如果想使用静态编译的 Qt，需要手动指定`-DCMAKE_PREFIX_PATH`为 Qt 的安装目录，否则 CMake 会找不到 Qt，或者找到另一个 Qt。**
+    **如果想使用静态编译的 Qt，需要把Qt安装目录加入到 `CMAKE_PREFIX_PATH`，否则 CMake 会找不到 Qt，或者找到另一个 Qt。**
 
     除此以外，你还可以通过 `SlopeCraft_vectorize` 指定是否使用向量化加速。如果为`ON`，在 intel 芯片上将使用 AVX 和 AVX2 加速，在 apple silicon 芯片上将使用 Neon 加速。**向量化加速默认开启。**
 
-    虽然你可以通过`SlopeCraft_GPU_API`和指定显卡加速，但目前 SlopeCraft 还只支持 OpenCL 的显卡加速手段，而它在 mac 上不能完善使用（OpenCL 在 macOS 下的支持有一些问题），所以非常不建议修改这个选项，目前默认关闭显卡加速，打开也没有作用。
+    虽然你可以通过`SlopeCraft_GPU_API`和指定显卡加速，但目前 SlopeCraft 还只支持 Vulkan 的显卡加速手段，而它在 mac 上没有官方支持（没错苹果就是这么唯我独尊，能不兼容就绝不兼容），目前没有试过社区实现的vulkan支持。
 
 
 3. 切换到 build 目录并编译 SlopeCraft
@@ -143,57 +176,6 @@
 
     ```bash
     cmake --install .
-    ```
-
-5. ~~部署 Qt 可执行文件 **\[可选步骤\]**~~
-   
-   这一步已经被自动化，在安装时就会自动执行这一步，无需手动操作。
-
-6. 修补 `VisualCraft.app` **\[临时\]**
-
-    这一步操作将在未来合并到安装中。
-
-    在安装时我们调用`macdeployqt` 为可执行文件部署动态库（部署到 `*.app/Contents/Frameworks` 文件夹），但这一功能并不完美，它只部署可执行文件直接链接的动态库，但不保证这些动态库能连接到它们依赖的动态库。VisualCraft 因为使用 libzip 遇上了这个问题。
-
-    libzip 依赖 zlib、libbz2、libzstd 和 liblzma，其中前两个是 macOS 内置的，但后两个不是。`macdeployqt` 一般能够部署 `libzip.5.dylib`，但**不一定**能部署 `liblzma.5.dylib`和`libzstd.1.dylib`。而且即便后两个库被部署了，`libzip.5.dylib`中引用它们的路径指向一个错误的相对路径，需要用`install_name_tool`修正。
-
-    首先，切换到 `install` 目录，然后进入`VisualCraft.app`内部：
-
-    ```bash
-    cd install
-    cd VisualCraft.app/Contents/Frameworks
-    ls
-    ```
-
-    上面的 ls 将列出`VisualCraft.app/Contents/Frameworks`中的动态库文件，里面一定含有`libzip.5.dylib`和 libpng、libomp 的动态库。请检查里面有没有`liblzma.5.dylib`和`libzstd.1.dylib`，如果没有，使用 `cp` 命令拷贝它们：
-    ```bash
-    cp /opt/homebrew/lib/libzstd.1.dylib .
-    cp /opt/homebrew/lib/liblzma.5.dylib .
-    ```
-
-    如果使用`otool -L libzip.5.dylib`查看`libzip.5.dylib`链接的动态库，将得到如下输出：
-    ```bash
-    libzip.5.dylib:
-        @executable_path/../Frameworks/libzip.5.dylib (compatibility version 5.0.0, current version 5.5.0)
-        /usr/lib/libbz2.1.0.dylib (compatibility version 1.0.0, current version 1.0.8)
-        @loader_path/../../../../opt/xz/lib/liblzma.5.dylib (compatibility version 10.0.0, current version 10.4.0)
-        @loader_path/../../../../opt/zstd/lib/libzstd.1.dylib (compatibility version 1.0.0, current version 1.5.5)
-        /usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.11)
-        /usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1319.100.3)
-    ```
-    可以发现指向`liblzma.5.dylib`和`libzstd.1.dylib`的相对路径是不存在的，而指向`libz.1.dylib`、`libbz2.1.0.dylib`和`libSystem.B.dylib`的绝对路径一定存在（只要操作系统完整）。
-    
-    使用`install_name_tool`修正这两个链接：
-    ```bash
-    install_name_tool libzip.5.dylib -change @loader_path/../../../../opt/xz/lib/liblzma.5.dylib @loader_path/liblzma.5.dylib
-    install_name_tool libzip.5.dylib -change @loader_path/../../../../opt/zstd/lib/libzstd.1.dylib @loader_path/libzstd.1.dylib
-    ```
-
-    此时 libzip.5.dylib 将能够正确连接到 .app 包内的`liblzma.5.dylib`和`libzstd.1.dylib`。但这一步破坏了 .app 包的签名，需要重新签名：
-
-    ```bash
-    cd ../../.. # 回退到 install 文件夹
-    codesign --force --deep --sign=- VisualCraft.app
     ```
 
 ### 清除已有编译文件
