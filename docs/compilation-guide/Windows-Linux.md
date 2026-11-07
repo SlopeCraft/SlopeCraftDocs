@@ -36,7 +36,7 @@ sudo apt-get install libglm-dev libxcb-dri3-0 libxcb-present0 libpciaccess0 libx
 wget https://sdk.lunarg.com/sdk/download/1.4.363.0/linux/vulkansdk-linux-x86_64-1.4.363.0.tar.xz
 echo 197962f5cbf80baf2775a03336a01cee7c8745686c65aaa70d3f751ade4d7e43 vulkansdk-linux-x86_64-1.4.363.0.tar.xz > vulkanSDK.sha256
 sha256sum --check vulkanSDK.sha256
-tar xf vulkansdk-linux-x86_64-1.4.350.1.tar.xz
+tar xf vulkansdk-linux-x86_64-1.4.363.0.tar.xz
 ```
 
 ### 编译 SlopeCraft
@@ -65,7 +65,7 @@ tar xf vulkansdk-linux-x86_64-1.4.350.1.tar.xz
       - Linux
 
          ```bash
-         cmake -S . -B ./build -G Ninja -DCMAKE_CXX_COMPILER=clang-20 -DCMAKE_CXX_COMPILER=clang++-20 -DMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=install  -DSlopeCraft_GPU_API=Vulkan -DCMAKE_PREFIX_PATH=...
+         cmake -S . -B ./build -G Ninja -DCMAKE_C_COMPILER=clang-20 -DCMAKE_CXX_COMPILER=clang++-20 -DMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=install  -DSlopeCraft_GPU_API=Vulkan -DCMAKE_PREFIX_PATH=...
          ```
          - 如果启用 Vulkan，应当把 vulkan 的安装目录输入到 `CMAKE_PREFIX_PATH` 中。
          - 如果系统默认的 Clang 版本高于20，则无需指定 Clang 版本。
