@@ -5,3 +5,5 @@
 
 # macOS File System
 .DS_Store
+# IDE configs
+.idea

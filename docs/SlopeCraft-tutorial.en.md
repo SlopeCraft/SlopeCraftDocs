@@ -32,7 +32,7 @@ Save this image.
 
 Double click SlopeCraft.exe to start it, and you will see the following window.
 
-![Map art configuration](./assets/SlopeCraft-tutorial-images/page1-MapConfiguration.png)
+![Map art configuration](./assets/SlopeCraft-tutorial-images.en/page1-MapConfiguration.png)
 
 The three page tabs at the top represent the three steps of creating a map art:
 
@@ -72,7 +72,7 @@ The block list is in fact the "**material list**", or "**palette**", of a map ar
 
 This page is relatively complex, so I will introduce every part in turn. **(In fact, you usually do not need to adjust the block list yourself at all)**
 
-![Block list](./assets/SlopeCraft-tutorial-images/page1-MapConfiguration-blocks.png)
+![Block list](./assets/SlopeCraft-tutorial-images.en/page1-MapConfiguration-blocks.png)
 
 The slider area shows every base color. In the **Enable** box you can check **whether SlopeCraft is allowed to use this color**. By default every available base color is checked except **water** (some colors are not available in lower versions).
 
@@ -81,7 +81,7 @@ Below the enable box are **the blocks corresponding to each color**. In the pale
 - You may think that many blocks in the figure have different colors, but note that **they are exactly the same in the "eyes of the map"**; the only basis for choosing is whether the block is easy to mass-produce.
 - Some base colors only have one usable block, and the palette cannot have holes, so this option cannot be changed — like the glass or *emerald block (not shown in the figure)* in the figure, it must be selected.
 
-![Block list presets](./assets/SlopeCraft-tutorial-images/page1-MapConfiguration-blocks-preset.png)
+![Block list presets](./assets/SlopeCraft-tutorial-images.en/page1-MapConfiguration-blocks-preset.png)
 
 There are four block list presets to choose from at the top:
 
@@ -107,7 +107,7 @@ When you are done with these settings, click the **Import images and convert** t
 
 On this page you need to finish two small steps: import images, and convert them into map arts.
 
-![Import images](./assets/SlopeCraft-tutorial-images/page2-Load&Convert.png)
+![Import images](./assets/SlopeCraft-tutorial-images.en/page2-Load&Convert.png)
 
 ### 2.1 Import images
 
@@ -124,7 +124,7 @@ In the project pool, click **Add** to import **one or more** preprocessed images
 
 If your original image has transparent or semi-transparent pixels, a window to set the **transparent pixel handling strategy** pops up automatically. The details are as follows:
 
-![The window to set the transparent pixel handling strategy](./assets/SlopeCraft-tutorial-images/page2-tp-strategy.png)
+![The window to set the transparent pixel handling strategy](./assets/SlopeCraft-tutorial-images.en/page2-tp-strategy.png)
 
 The transparent pixel handling strategy handles fully transparent pixels (alpha=0) and semi-transparent pixels (alpha>0) in different ways. A fully transparent pixel is either replaced with the background color or set to air; a semi-transparent pixel can be replaced with the background color, blended over the background color, or have its transparency ignored and be treated directly as an opaque pixel. The background color can also be set: the default is the light gray of tiled snow blocks, and you can also choose pure white or any custom color.
 
@@ -136,7 +136,7 @@ When the import finishes, the corresponding project appears in the project pool 
 
 With all the preparation above done, it is time for the main course: converting images into map arts.
 
-![Convert images](./assets/SlopeCraft-tutorial-images/page2-Load&Convert-convert.png)
+![Convert images](./assets/SlopeCraft-tutorial-images.en/page2-Load&Convert-convert.png)
 
 #### Choosing a conversion algorithm
 
@@ -186,7 +186,7 @@ Since [the first four export types](#3a-export-as-litematica-schematic-vanilla-s
 
 ### 3.a Export as Litematica schematic / vanilla structure block file / WE schematic / flat diagram
 
-![Export](./assets/SlopeCraft-tutorial-images/page3-Export.png)
+![Export](./assets/SlopeCraft-tutorial-images.en/page3-Export.png)
 
 #### Compressing the height (has no effect on flat map arts)
 
@@ -232,25 +232,25 @@ The first four export types each accept extra export options and attach extra me
 
     In the **schematic name** and **schematic area name** fields you can fill in information about the schematic file. It is not mandatory.
 
-    ![Litematica options](./assets/SlopeCraft-tutorial-images/page3-Export-extra_set-litematica.png)
+    ![Litematica options](./assets/SlopeCraft-tutorial-images.en/page3-Export-extra_set-litematica.png)
 
 - **Options of vanilla structure block files**
 
     Vanilla structure block files are stored as a sparse matrix: wherever nothing is stored there is a structure void. This storage makes structure block files the most vanilla-compatible but worst-compressing format.
 
-    ![Structure options](./assets/SlopeCraft-tutorial-images/page3-Export-extra_set-structure.png)
+    ![Structure options](./assets/SlopeCraft-tutorial-images.en/page3-Export-extra_set-structure.png)
 
     Therefore structure block files have two choices for storing air blocks: as structure void, or stored as-is. Storing air as structure void saves a lot of space, but when pasted out in a structure block it cannot overwrite other non-air blocks; storing it as air blocks overcomes this problem, but the file size becomes very large.
 
 - **Options of WE schematics**
 
-    ![WE options](./assets/SlopeCraft-tutorial-images/page3-Export-extra_set-WE.png)
+    ![WE options](./assets/SlopeCraft-tutorial-images.en/page3-Export-extra_set-WE.png)
 
     WE schematics have a few more properties. They come from reverse engineering the schematics generated by WorldEdit and correspond directly to nbt tags of the same name. I do not know how these meta properties affect the schematic, because I hardly ever use WE.
 
 - **Exporting flat diagrams**
 
-    ![Flat Diagram options](./assets/SlopeCraft-tutorial-images/page3-Export-extra_set-flat_diagram.png)
+    ![Flat Diagram options](./assets/SlopeCraft-tutorial-images.en/page3-Export-extra_set-flat_diagram.png)
 
     Sets whether the exported diagram contains split lines, and the interval of the split lines.
 
@@ -269,7 +269,7 @@ After pre-building the 3D structure, you can do the following two detailed previ
 - Preview the compression result: lossy compression may further change the image, and here you can check the state of the image.
 - Preview the material list: preview the quantity of materials.
 
-| ![page5-preview-converted](./assets/SlopeCraft-tutorial-images/page3-Export-preview-converted.png) | ![page5-preview-material](./assets/SlopeCraft-tutorial-images/page3-Export-preview-material.png) |
+| ![page5-preview-converted](./assets/SlopeCraft-tutorial-images.en/page3-Export-preview-converted.png) | ![page5-preview-material](./assets/SlopeCraft-tutorial-images.en/page3-Export-preview-material.png) |
 | :------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------: |
 | Preview map art | Preview material list |
 
@@ -283,7 +283,7 @@ ________________________________________________________________________________
 
 Click the **Map data file** option to jump to the corresponding page.
 
-![Export as map data files](./assets/SlopeCraft-tutorial-images/page3-Export-map_data_file.png)
+![Export as map data files](./assets/SlopeCraft-tutorial-images.en/page3-Export-map_data_file.png)
 
 This page shows the number of rows and columns of the maps corresponding to the map art, the number of files, and the file names of the map data files to be exported.
 
@@ -369,7 +369,7 @@ A "replace or skip files" window may pop up. If you are worried about overwritin
 
 ## 🛠 Advanced features
 
-![menu-advanced](./assets/SlopeCraft-tutorial-images/menu-advanced.png)
+![menu-advanced](./assets/SlopeCraft-tutorial-images.en/menu-advanced.png)
 
 Some advanced operations can be found in the "Advanced" menu. Each is introduced below.
 
