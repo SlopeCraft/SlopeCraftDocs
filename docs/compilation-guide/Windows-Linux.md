@@ -55,7 +55,7 @@ tar xf vulkansdk-linux-x86_64-1.4.363.0.tar.xz
 
          ```bash
          .../vcvars64.bat
-         cmake -S . -B ./build -G Ninja -DCMAKE_C_COMPILER=clang-cl -DCMAKE_CXX_COMPILER=clang-cl -DMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=install -DSlopeCraft_GPU_API=Vulkan -DCMAKE_PREFIX_PATH=...
+         cmake -S . -B ./build -G Ninja -DCMAKE_C_COMPILER=clang-cl -DCMAKE_CXX_COMPILER=clang-cl -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=install -DSlopeCraft_GPU_API=Vulkan -DCMAKE_PREFIX_PATH=...
          ```
 
          - 使用 clang-cl 编译时，应当先调用 vcvars64.bat 设置 msvc 所需的环境变量（clang-cl 是模仿 msvc 编译器的）。这个文件在可以在 VS 的安装目录里找到。默认的位置可能是`C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvars64.bat`
@@ -65,7 +65,7 @@ tar xf vulkansdk-linux-x86_64-1.4.363.0.tar.xz
       - Linux
 
          ```bash
-         cmake -S . -B ./build -G Ninja -DCMAKE_C_COMPILER=clang-20 -DCMAKE_CXX_COMPILER=clang++-20 -DMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=install  -DSlopeCraft_GPU_API=Vulkan -DCMAKE_PREFIX_PATH=...
+         cmake -S . -B ./build -G Ninja -DCMAKE_C_COMPILER=clang-20 -DCMAKE_CXX_COMPILER=clang++-20 -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=install  -DSlopeCraft_GPU_API=Vulkan -DCMAKE_PREFIX_PATH=...
          ```
          - 如果启用 Vulkan，应当把 vulkan 的安装目录输入到 `CMAKE_PREFIX_PATH` 中。
          - 如果系统默认的 Clang 版本高于20，则无需指定 Clang 版本。

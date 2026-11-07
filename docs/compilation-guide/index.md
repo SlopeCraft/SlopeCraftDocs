@@ -16,20 +16,20 @@
     - 推荐用Qt 6.12 LTS
 2. **Eigen v3.4.0 或更高版本**用于线性代数
      - 可以自动下载。
-3. [**magic_enum**](https://github.com/SlopeCraft/mc_schem)用于原理图库
+3. [**mc_schem**](https://github.com/SlopeCraft/mc_schem)用于原理图库
      - 可以自动下载
      - 依赖rust工具链
 4. [**gapp**](https://github.com/KRM7/gapp)用于遗传算法
      - 可以自动下载
 5. [**xsimd**](https://github.com/xtensor-stack/xsimd)用于向量化
      - 可以自动下载
-5. [**libnbt++**](ttps://github.com/PrismLauncher/libnbtplusplus)用于NBT库
+6. [**libnbt++**](ttps://github.com/PrismLauncher/libnbtplusplus)用于NBT库
      - 可以自动下载
-6. [**Nlohmann json**](https://github.com/nlohmann/json) [**cli11**](https://github.com/CLIUtils/CLI11) [**magic_enum**](https://github.com/Neargye/magic_enum)
+7. [**Nlohmann json**](https://github.com/nlohmann/json) [**cli11**](https://github.com/CLIUtils/CLI11) [**magic_enum**](https://github.com/Neargye/magic_enum)
      - 可以自动下载
-7. **libpng** **libzip** **zlib** **boost**
+8. **libpng** **libzip** **zlib** **boost**
      - 你必须安装它，并将安装路径添加到 `CMAKE_PREFIX_PATH`
-8. **7z**用于制作压缩包
+9. **7z**用于制作压缩包
      - 你必须安装它，但是无需 `CMAKE_PREFIX_PATH`
 
 ## SlopeCraft 中的子项目

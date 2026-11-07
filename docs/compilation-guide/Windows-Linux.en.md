@@ -55,7 +55,7 @@ tar xf vulkansdk-linux-x86_64-1.4.363.0.tar.xz
 
          ```bash
          .../vcvars64.bat
-         cmake -S . -B ./build -G Ninja -DCMAKE_C_COMPILER=clang-cl -DCMAKE_CXX_COMPILER=clang-cl -DMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=install -DSlopeCraft_GPU_API=Vulkan -DCMAKE_PREFIX_PATH=...
+         cmake -S . -B ./build -G Ninja -DCMAKE_C_COMPILER=clang-cl -DCMAKE_CXX_COMPILER=clang-cl -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=install -DSlopeCraft_GPU_API=Vulkan -DCMAKE_PREFIX_PATH=...
          ```
 
          - When compiling with clang-cl, you should first call vcvars64.bat to set the environment variables required by MSVC (clang-cl mimics the MSVC compiler). This file can be found in the Visual Studio installation directory. Its default location is probably `C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvars64.bat`
@@ -65,7 +65,7 @@ tar xf vulkansdk-linux-x86_64-1.4.363.0.tar.xz
       - Linux
 
          ```bash
-         cmake -S . -B ./build -G Ninja -DCMAKE_C_COMPILER=clang-20 -DCMAKE_CXX_COMPILER=clang++-20 -DMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=install  -DSlopeCraft_GPU_API=Vulkan -DCMAKE_PREFIX_PATH=...
+         cmake -S . -B ./build -G Ninja -DCMAKE_C_COMPILER=clang-20 -DCMAKE_CXX_COMPILER=clang++-20 -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=install  -DSlopeCraft_GPU_API=Vulkan -DCMAKE_PREFIX_PATH=...
          ```
          - If Vulkan is enabled, you should put the installation directory of vulkan into `CMAKE_PREFIX_PATH`.
          - If the default Clang of your system is newer than 20, there is no need to specify the Clang version.
