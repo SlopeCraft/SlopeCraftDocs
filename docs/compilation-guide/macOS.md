@@ -21,20 +21,13 @@
 
 然后，我们需要安装一些 SlopeCraft 编译脚本不会自动安装的依赖：
 
-1. clang 编译器
+1. Apple clang编译器
 
+    <不知道怎么安装，但系统默认的工具链应该不难安装>。
+
+    建议执行以下命令检查编译器的版本，版本最好不低于clang 20。
     ```bash
-    brew install llvm
-    ```
-
-    clang 和 clang++ 将被安装在 `/opt/homebrew/opt/llvm/bin`
-
-    在完成后，你可以使用 `/opt/homebrew/opt/llvm/bin/clang --version` 来检查 clang 编译器是否已经安装成功。如果一切正常，你应该会看到与下面类似的输出：
-    ```bash
-    Homebrew clang version 17.0.4
-    Target: arm64-apple-darwin22.6.0
-    Thread model: posix
-    InstalledDir: /opt/homebrew/opt/llvm/bin
+    /usr/bin/clang++ --version
     ```
 
 2. Ninja 和 CMake
@@ -51,19 +44,20 @@
     1.11.1
     ```
 
-3. zlib & libpng & libzip
+3. Rust工具链
+   
+   SlopeCraft采用的原理图库mc_schem由rust编写，需要安装rust工具链：
+   ```bash
+   <不知道怎么安装，但默认的stable工具链应该不难>
+   ```
+
+4. 第三方依赖
 
     ```bash
-    brew install zlib libpng libzip
+    brew install libzip libpng xz bzip2 boost magic_enum xsimd eigen sevenzip libomp
     ```
 
-    在安装完成后，如果以下路径均存在，则表示安装成功：
-
-    - `/usr/local/Cellar/zlib`
-    - `/usr/local/Cellar/libpng`
-    - `/usr/local/Cellar/libzip`
-
-4. Qt
+5. Qt
 
     ```bash
     brew install qt
@@ -75,12 +69,12 @@
     ```bash
     git clone https://github.com/qt/qtbase.git --recursive
     cd qtbase 
-    git checkout v6.6.0
+    git checkout v6.12.0
     cd ..
 
     git clone https://github.com/qt/qttools.git --recursive
     cd qttools
-    git checkout v6.6.0
+    git checkout v6.12.0
     cd ..
     
     mkdir build install
@@ -98,7 +92,7 @@
     cmake --install .
     rm -rf ./*
     ```
-    以上代码可以在任何目录中执行（只要没有权限问题），静态库的 Qt6.6.0 将被安装在 当前目录的 install 子目录中。
+    以上代码可以在任何目录中执行（只要没有权限问题），静态库的 Qt6.12.0 将被安装在 当前目录的 install 子目录中。
 
 ### 编译 SlopeCraft
 
