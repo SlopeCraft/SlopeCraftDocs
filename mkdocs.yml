@@ -38,6 +38,21 @@ theme:
 # Customization
 extra_css:
   - '_static/css/extra.css?v=14'
+
+# 语言切换器
+# 触发原因见 plugins.i18n.languages 里的注释：插件探测不到主题版本，就不会自动生成
+# extra.alternate。这里手动补上，Material 会自己渲染顶栏的语言下拉。
+# link 必须是站点根的绝对路径。当前行为与迁移前一致（迁移前 site_url 未设，base_url 也是空）；
+# 若站点实际挂在子路径下（gh-pages 项目页 /SlopeCraftDocs/、RTD 的 /{lang}/{version}/），
+# 这两条需要配合 site_url 一起校准。
+extra:
+  alternate:
+    - name: 中文
+      link: /
+      lang: zh
+    - name: English
+      link: /en/
+      lang: en
   
 # Extensions
 markdown_extensions:
@@ -77,10 +92,18 @@ plugins:
           default: true
           site_name: SlopeCraft 文档
           build: true
+          # 必须显式指定界面语言。mkdocs-static-i18n 1.3.1 靠 version("mkdocs-material")
+          # 探测主题版本，而我们装的是 mkdocs-ng-material，探测失败后会整段跳过
+          # reconfigure_material_theme，其中就包括设置 theme.language。
+          # 少了这两行，中文站的界面文案（搜索框、目录标题等）会退回英文。
+          theme:
+            language: zh
         - locale: en
           name: English
           site_name: SlopeCraft Documentation
           build: true
+          theme:
+            language: en
           nav_translations:
             欢迎使用 SlopeCraft: Welcome to SlopeCraft
             原理简介: Introduction of Principles

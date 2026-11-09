@@ -1,7 +1,5 @@
 # Generated site files
 /site
-# Generated PDFs
-/pdf
 
 # macOS File System
 .DS_Store

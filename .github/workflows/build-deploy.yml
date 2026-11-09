@@ -36,9 +36,19 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-      - name: Build
+      - name: Verify the active MkDocs implementation
+        # mkdocs-static-i18n 会把上游 mkdocs 作为依赖装上，靠 mkdocs_ng.pth 的重定向
+        # import mkdocs 才指向 mkdocs_ng/mkdocs。这条断言防止哪天上游那份反客为主。
         run: |
-          mkdocs build
+          python -c "import mkdocs, sys; print('mkdocs:', mkdocs.__version__, mkdocs.__file__); assert 'mkdocs_ng' in mkdocs.__file__, '上游 mkdocs 抢走了 import: ' + mkdocs.__file__"
+      - name: Build
+        # 用 python -m 而不是裸 mkdocs 命令：两个发行版都会写 Scripts/mkdocs.exe，
+        # 而 -m 走的是 import 解析，由 mkdocs_ng.pth 保证拿到 ng 的实现。
+        run: |
+          python -m mkdocs build
+      - name: Check both locales were built
+        run: |
+          test -d site/en || { echo "缺少 site/en：i18n 插件没有产出英文站"; exit 1; }
       - name: Deploy to GitHub Pages
         run: |
-          mkdocs gh-deploy --force
+          python -m mkdocs gh-deploy --force
