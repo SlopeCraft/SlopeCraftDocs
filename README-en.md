@@ -23,7 +23,7 @@
 > **Contents of SlopeCraftDocs are licensed under [CC-BY-NC-SA-4.0 License](LICENSE).**
 
 ``` text
-SlopeCraftDocs (c) by SlopeCraft Team, Cubik65536, ToKiNoBug and Contributors.
+SlopeCraftDocs (c) by SlopeCraft Team, Qubik65536, ToKiNoBug and Contributors.
 
 SlopeCraftDocs is licensed under a
 Creative Commons Attribution-NonCommercial 4.0 International License.
@@ -36,7 +36,7 @@ work. If not, see <http://creativecommons.org/licenses/by-nc/4.0/>.
 
 ``` text
 SlopeCraftDocs - User Tutorial and Documentation for SlopeCraft
-Copyright (C) 2026 SlopeCraft Team, Cubik65536, ToKiNoBug and Contributors.
+Copyright (C) 2026 SlopeCraft Team, Qubik65536, ToKiNoBug and Contributors.
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as published

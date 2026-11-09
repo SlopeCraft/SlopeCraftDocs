@@ -23,7 +23,7 @@
 > **SlopeCraftDocs 的内容基于 [CC-BY-NC-SA-4.0 许可证](license-translations/LICENSE-zh)（[原文](LICENSE)）发行**
 
 ``` text
-SlopeCraftDocs (c) 由 SlopeCraft 团队, Cubik65536, ToKiNoBug 以及 所有贡献者 创作.
+SlopeCraftDocs (c) 由 SlopeCraft 团队, Qubik65536, ToKiNoBug 以及 所有贡献者 创作.
 
 SlopeCraftDocs 根据知识共享（Creative Commons）
 署名—非商业性使用—相同方式共享 4.0 公共许可协议进行分发。
@@ -36,7 +36,7 @@ SlopeCraftDocs 根据知识共享（Creative Commons）
 
 ``` text
 SlopeCraftDocs - SlopeCraft 用户指南与文档
-Copyright (C) 2026 SlopeCraft 团队, Cubik65536, ToKiNoBug 以及 所有贡献者 版权所有。
+Copyright (C) 2026 SlopeCraft 团队, Qubik65536, ToKiNoBug 以及 所有贡献者 版权所有。
 
 本程序是自由软件：你可以根据自由软件基金会发布的 GNU Affero 通用公共许可证的条款，
 即许可证的第3版或（您选择的）任何后来的版本重新发布它和/或修改它。
