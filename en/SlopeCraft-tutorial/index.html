@@ -1,0 +1,2321 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="SlopeCraft Team, Qubik65536, ToKiNoBug and Contributors">
+      
+      
+      
+        <link rel="prev" href="../principles-introduction/">
+      
+      
+        <link rel="next" href="../VisualCraft-tutorial/">
+      
+      
+        
+          <link rel="alternate" href="/" hreflang="zh">
+        
+          <link rel="alternate" href="/en/" hreflang="en">
+        
+      
+      
+      <link rel="icon" href="../../assets/favicon.ico">
+      <meta name="generator" content="mkdocs-1.11.1, mkdocs-material-9.8.0">
+    
+    
+      
+        <title>SlopeCraft Tutorial - SlopeCraft Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../_static/css/extra.css?v=14">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="red">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#slopecraft-tutorial" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../" title="SlopeCraft Documentation" class="md-header__button md-logo" aria-label="SlopeCraft Documentation" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SlopeCraft Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              SlopeCraft Tutorial
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="red"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Select language">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="/" hreflang="zh" class="md-select__link">
+              中文
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="/en/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/SlopeCraft/SlopeCraftDocs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    SlopeCraft/SlopeCraftDocs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Welcome to SlopeCraft
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../principles-introduction/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Introduction of Principles
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  SlopeCraft Tutorial
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../VisualCraft-tutorial/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  VisualCraft Tutorial
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../faq/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  FAQ
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../compilation-guide/" class="md-tabs__link">
+          
+  
+  
+  Compilation Guide
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../" title="SlopeCraft Documentation" class="md-nav__button md-logo" aria-label="SlopeCraft Documentation" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    SlopeCraft Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/SlopeCraft/SlopeCraftDocs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    SlopeCraft/SlopeCraftDocs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Welcome to SlopeCraft
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../principles-introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction of Principles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SlopeCraft Tutorial
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SlopeCraft Tutorial
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#step-0-image-preprocessing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 0. Image preprocessing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-map-art-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1. Map art configuration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 1. Map art configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-choose-the-game-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 Choose the game version
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-choose-the-type-of-map-art" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 Choose the type of map art
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-set-the-block-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 Set the block list
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.3 Set the block list">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#saving-and-loading-presets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Saving and loading presets
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-import-images-and-convert" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2. Import images and convert
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 2. Import images and convert">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-import-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Import images
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-convert-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Convert images
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 Convert images">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#choosing-a-conversion-algorithm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Choosing a conversion algorithm
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#convert-all-images-a-special-batch-operation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Convert all images (a special batch operation)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-export" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3. Export
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 3. Export">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#3a-export-as-litematica-schematic-vanilla-structure-block-file-we-schematic-flat-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.a Export as Litematica schematic / vanilla structure block file / WE schematic / flat diagram
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.a Export as Litematica schematic / vanilla structure block file / WE schematic / flat diagram">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#compressing-the-height-has-no-effect-on-flat-map-arts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compressing the height (has no effect on flat map arts)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bridging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bridging
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other options
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extra-export-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Extra export options
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pre-building-the-3d-structure-for-preview-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pre-building the 3D structure for preview (optional)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#export-all" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Export all
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3b-export-as-map-data-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.b Export as map (data) files
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.b Export as map (data) files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setting-the-initial-number-of-the-map-data-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setting the initial number of the map data files
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-import-the-map-art-into-the-game" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4. Import the map art into the game
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 4. Import the map art into the game">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#importing-litematica-schematics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Importing Litematica schematics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#importing-structure-block-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Importing structure block files
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#importing-we-schematics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Importing WE schematics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#importing-map-data-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Importing map data files
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🛠 Advanced features
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🛠 Advanced features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#testing-the-block-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testing the block list
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#outputting-the-current-color-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Outputting the current color table
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#custom-block-lists" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🛠 Custom block lists
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🛠 Custom block lists">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#preliminary-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Preliminary information
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#blocks-and-the-block-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Blocks and the block list
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VisualCraft-tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VisualCraft Tutorial
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compilation Guide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Compilation Guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../compilation-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    General
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../compilation-guide/Windows-Linux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Windows/Linux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../compilation-guide/macOS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    macOS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#step-0-image-preprocessing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 0. Image preprocessing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-map-art-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1. Map art configuration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 1. Map art configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-choose-the-game-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 Choose the game version
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-choose-the-type-of-map-art" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 Choose the type of map art
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-set-the-block-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 Set the block list
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.3 Set the block list">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#saving-and-loading-presets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Saving and loading presets
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-import-images-and-convert" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2. Import images and convert
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 2. Import images and convert">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-import-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Import images
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-convert-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Convert images
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 Convert images">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#choosing-a-conversion-algorithm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Choosing a conversion algorithm
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#convert-all-images-a-special-batch-operation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Convert all images (a special batch operation)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-export" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3. Export
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 3. Export">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#3a-export-as-litematica-schematic-vanilla-structure-block-file-we-schematic-flat-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.a Export as Litematica schematic / vanilla structure block file / WE schematic / flat diagram
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.a Export as Litematica schematic / vanilla structure block file / WE schematic / flat diagram">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#compressing-the-height-has-no-effect-on-flat-map-arts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compressing the height (has no effect on flat map arts)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bridging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bridging
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other options
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extra-export-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Extra export options
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pre-building-the-3d-structure-for-preview-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pre-building the 3D structure for preview (optional)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#export-all" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Export all
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3b-export-as-map-data-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.b Export as map (data) files
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.b Export as map (data) files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setting-the-initial-number-of-the-map-data-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setting the initial number of the map data files
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-import-the-map-art-into-the-game" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4. Import the map art into the game
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 4. Import the map art into the game">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#importing-litematica-schematics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Importing Litematica schematics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#importing-structure-block-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Importing structure block files
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#importing-we-schematics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Importing WE schematics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#importing-map-data-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Importing map data files
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🛠 Advanced features
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🛠 Advanced features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#testing-the-block-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testing the block list
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#outputting-the-current-color-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Outputting the current color table
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#custom-block-lists" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🛠 Custom block lists
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🛠 Custom block lists">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#preliminary-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Preliminary information
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#blocks-and-the-block-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Blocks and the block list
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="slopecraft-tutorial">SlopeCraft Tutorial</h1>
+<p>This document will explain in detail how to use SlopeCraft to create 3D, flat and file-only map arts.</p>
+<p>To eliminate ambiguity, here is the meaning of a few terms:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Term</th>
+<th style="text-align: left;">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">Map</td>
+<td style="text-align: left;">The item in Minecraft whose id is <code>minecraft:filled_map</code></td>
+</tr>
+<tr>
+<td style="text-align: center;">Save</td>
+<td style="text-align: left;">A Minecraft game save</td>
+</tr>
+<tr>
+<td style="text-align: center;">Map art</td>
+<td style="text-align: left;">The image displayed in a map item</td>
+</tr>
+<tr>
+<td style="text-align: center;">Map data file</td>
+<td style="text-align: left;">The nbt binary file that stores map data, named like <code>map_&lt;i&gt;.dat</code></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">tip</p>
+<p>You can find the option to switch languages in the <strong>Language</strong> drop-down menu of the menu bar.</p>
+</div>
+<h2 id="step-0-image-preprocessing">Step 0. Image preprocessing</h2>
+<p>First, prepare the original image you want to turn into a map art. The image used here is <a href="https://t.bilibili.com/544583492149793294" rel="external">the one drawn by Lancet_Corgi</a>, thanks to Daoge for the permission.</p>
+<p>Use Photoshop or any other software that can edit images to <strong>scale its width and height to an integer multiple of 128 pixels</strong>.</p>
+<p>Here I scaled the image to 256×256 pixels, which happens to be the size of a 2×2 map.</p>
+<p><img alt="Original image" src="../../assets/SlopeCraft-tutorial-images.lang-indenpent/img-raw.png" /></p>
+<p>(Resizing <strong>is not mandatory</strong>, and SlopeCraft does not include a feature to scale images either, but I highly recommend doing it)</p>
+<p>Save this image.</p>
+<h2 id="step-1-map-art-configuration">Step 1. Map art configuration</h2>
+<p>Double click SlopeCraft.exe to start it, and you will see the following window.</p>
+<p><img alt="Map art configuration" src="../../assets/SlopeCraft-tutorial-images.en/page1-MapConfiguration.png" /></p>
+<p>The three page tabs at the top represent the three steps of creating a map art:</p>
+<ol>
+<li>Map art configuration</li>
+<li>Import images and convert</li>
+<li>Export</li>
+</ol>
+<p>Outside this software there is a fourth step: importing the files into the game.</p>
+<p>You should now be on the map art configuration page. On this page you need to finish three small steps, each explained below.</p>
+<h3 id="11-choose-the-game-version">1.1 Choose the game version</h3>
+<p>You need to set the game version the map art corresponds to.</p>
+<p>Versions from 1.12 to 26.3 are supported at the moment. I will keep following newer versions, but will not support old versions before 1.12.</p>
+<p>Note that 1.12~1.15 have no difference in the "image quality" of map arts: a flat map art has 51 colors and a 3D map art has 153 colors. 1.16 added 7 base colors for the nether tree, so a flat map art can use 58 colors and a 3D map art can use 174 colors. 1.17 added the colors of deepslate, raw iron block and glow lichen, so a flat map art can use 61 colors and a 3D map art can use 183 colors.</p>
+<blockquote>
+<p><em>Rant: why does Mojang give the nether tree so many colors? Wouldn't more skin colors be better?</em></p>
+</blockquote>
+<h3 id="12-choose-the-type-of-map-art">1.2 Choose the type of map art</h3>
+<p>Here you need to choose <strong>the type of map art</strong>:</p>
+<ul>
+<li><strong>3D map art</strong>: achieves <strong>the richest colors</strong> and <strong>the finest image quality</strong>, at the cost of being hard to build.</li>
+<li><strong>Flat map art</strong>: the traditional type of map art, with <strong>ordinary image quality</strong> and a relatively simple build.</li>
+<li>
+<p><strong>File-only map art</strong>: <strong>the best image quality</strong> a vanilla map art can reach. It cannot be built, and usually can only be obtained with commands. If you do not need the map art to exist in the game as blocks, but only to be displayed on a map and to be able to hang in an item frame, choose this option.</p>
+<p>Note that this kind of file-only map art requires at least replacing files in your save, and may also require commands. It is generally only usable in single-player games, or if you are a server administrator.</p>
+</li>
+</ul>
+<p>Here I chose 3D map art.</p>
+<h3 id="13-set-the-block-list">1.3 Set the block list</h3>
+<p>The block list is in fact the "<strong>material list</strong>", or "<strong>palette</strong>", of a map art. <strong>It determines which colors the palette of the map art contains, and which block each color corresponds to.</strong></p>
+<p>This page is relatively complex, so I will introduce every part in turn. <strong>(In fact, you usually do not need to adjust the block list yourself at all)</strong></p>
+<p><img alt="Block list" src="../../assets/SlopeCraft-tutorial-images.en/page1-MapConfiguration-blocks.png" /></p>
+<p>The slider area shows every base color. In the <strong>Enable</strong> box you can check <strong>whether SlopeCraft is allowed to use this color</strong>. By default every available base color is checked except <strong>water</strong> (some colors are not available in lower versions).</p>
+<p>Below the enable box are <strong>the blocks corresponding to each color</strong>. In the palette every color can only use one block.</p>
+<ul>
+<li>You may think that many blocks in the figure have different colors, but note that <strong>they are exactly the same in the "eyes of the map"</strong>; the only basis for choosing is whether the block is easy to mass-produce.</li>
+<li>Some base colors only have one usable block, and the palette cannot have holes, so this option cannot be changed — like the glass or <em>emerald block (not shown in the figure)</em> in the figure, it must be selected.</li>
+</ul>
+<p><img alt="Block list presets" src="../../assets/SlopeCraft-tutorial-images.en/page1-MapConfiguration-blocks-preset.png" /></p>
+<p>There are four block list presets to choose from at the top:</p>
+<ul>
+<li>Vanilla is "<strong>the original flavor</strong>", trying to use the "original block" of each color. It suits creative mode better and is not suitable for survival builds.</li>
+<li>Cheap tries hard to pick <strong>the cheapest blocks</strong>, making sure every block can be mass-produced. It suits the early stage of survival.</li>
+<li>Elegant tries to pick "<strong>the most elegant blocks</strong>" while still being usable in survival, for example blocks that endermen cannot steal away, that look good and are not too hard to mass-produce. This is the default option.</li>
+<li>Shiny <strong>is made for shaders</strong>: it picks glowing blocks as much as possible, striving to be gorgeous enough with shaders.</li>
+<li>Custom means you are using a <strong>custom</strong> block list.</li>
+</ul>
+<p><strong>A block list preset shows how many colors this map art can use.</strong> If you disable some base colors, this number decreases a bit. <strong>So the richer the palette and the larger the map art, the better the image quality.</strong></p>
+<p>The <strong>prefer concrete</strong> and other buttons in the upper right corner are there for bulk operations; their meaning is rather obvious and needs no explanation.</p>
+<h4 id="saving-and-loading-presets">Saving and loading presets</h4>
+<p>You can export the current block list so that you can load it next time. The file is stored in json and its suffix is <code>.sc_preset_json</code>.</p>
+<hr />
+<p>When you are done with these settings, click the <strong>Import images and convert</strong> tab at the top to go to the next step.</p>
+<h2 id="step-2-import-images-and-convert">Step 2. Import images and convert</h2>
+<p>On this page you need to finish two small steps: import images, and convert them into map arts.</p>
+<p><img alt="Import images" src="../../assets/SlopeCraft-tutorial-images.en/page2-Load%26Convert.png" /></p>
+<h3 id="21-import-images">2.1 Import images</h3>
+<details class="question">
+<summary>What is the 'project pool'?</summary>
+<p>SlopeCraft 5.1 introduced a new feature: the "<strong>project pool</strong>".<br />
+Every image you import is created as a project by the program, and the subsequent conversion operations add data to the project.</p>
+<p>The project pool works like a system file manager: select a single image to preview it or to perform the corresponding operations.</p>
+<p>Simply put, you can now do batch operations conveniently!<br />
+<strong>Note: one batch of images can only use one conversion algorithm; images with very different styles or colors should be processed in separate batches!</strong></p>
+</details>
+<p>In the project pool, click <strong>Add</strong> to import <strong>one or more</strong> preprocessed images.</p>
+<p>If your original image has transparent or semi-transparent pixels, a window to set the <strong>transparent pixel handling strategy</strong> pops up automatically. The details are as follows:</p>
+<p><img alt="The window to set the transparent pixel handling strategy" src="../../assets/SlopeCraft-tutorial-images.en/page2-tp-strategy.png" /></p>
+<p>The transparent pixel handling strategy handles fully transparent pixels (alpha=0) and semi-transparent pixels (alpha&gt;0) in different ways. A fully transparent pixel is either replaced with the background color or set to air; a semi-transparent pixel can be replaced with the background color, blended over the background color, or have its transparency ignored and be treated directly as an opaque pixel. The background color can also be set: the default is the light gray of tiled snow blocks, and you can also choose pure white or any custom color.</p>
+<p><strong>Note: transparent pixels are processed when importing. If you are not satisfied with the result, delete the project from the project pool and import the image again.</strong></p>
+<p>When the import finishes, the corresponding project appears in the project pool on the left; select a project to preview it.</p>
+<h3 id="22-convert-images">2.2 Convert images</h3>
+<p>With all the preparation above done, it is time for the main course: converting images into map arts.</p>
+<p><img alt="Convert images" src="../../assets/SlopeCraft-tutorial-images.en/page2-Load%26Convert-convert.png" /></p>
+<h4 id="choosing-a-conversion-algorithm">Choosing a conversion algorithm</h4>
+<p>The <strong>Convert current image</strong> button adjusts the colors of the image to colors available in the palette of the map art, while <strong>Original</strong> and <strong>Converted</strong> above the preview box show the original image and the adjusted map art respectively, so you can compare them.</p>
+<p>There are 5 conversion algorithms above, <strong>representing 5 ways of adjusting colors</strong>. <strong>Dither</strong> uses the Floyd-Steinberg algorithm, trying to mix several similar colors to fit the original image better.</p>
+<p>The first five conversion algorithms correspond to five different color difference formulas. Among the algorithms, RGB+ is the most recommended, RGB and XYZ are the fastest, and Lab94 and Lab00 give better results but are slower.</p>
+<p>For the same image, these 5 kinds of adjustment all give different results.</p>
+<p>We all want the map art to be as close to the original as possible, so you can try each kind of adjustment in turn, comparing back and forth with the two buttons, and choose the one that works best.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><img alt="original" src="../../assets/SlopeCraft-tutorial-images.lang-indenpent/img-raw.png" /></th>
+<th style="text-align: center;"><img alt="original" src="../../assets/SlopeCraft-tutorial-images.lang-indenpent/img-converted.png" /></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">Before conversion</td>
+<td style="text-align: center;">After conversion</td>
+</tr>
+</tbody>
+</table>
+<p>Adjusting the image may be slow, especially for large images. <strong>If the progress bar suddenly stalls, or even the window stops responding, please do not close the window: do nothing and just wait patiently.</strong> Adjusting the image involves a lot of computation; the lag is normal.</p>
+<h4 id="convert-all-images-a-special-batch-operation">Convert all images (a special batch operation)</h4>
+<p>When you have chosen the algorithm you like best, click <strong>Convert all</strong> to convert every project in the project pool. Converted projects should have a ✔ at their lower right corner.</p>
+<hr />
+<p>Once all images are converted <strong>(make sure every project has a ✔ at its lower right corner)</strong>, it is time for the last step of generating map arts: <strong>export</strong>.</p>
+<h2 id="step-3-export">Step 3. Export</h2>
+<p>There are 6 export types. The table below records how the map art types relate to the export types.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Export type</th>
+<th style="text-align: center;">3D map art</th>
+<th style="text-align: center;">Flat map art</th>
+<th style="text-align: center;">File-only map art</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">Litematica schematic (*.litematic)</td>
+<td style="text-align: center;">✔</td>
+<td style="text-align: center;">✔</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">Vanilla structure block file (*.nbt)</td>
+<td style="text-align: center;">✔</td>
+<td style="text-align: center;">✔</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">WE schematic (*.schem)</td>
+<td style="text-align: center;">✔</td>
+<td style="text-align: center;">✔</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">Map data file (*.dat)</td>
+<td style="text-align: center;">✔</td>
+<td style="text-align: center;">✔</td>
+<td style="text-align: center;">✔</td>
+</tr>
+<tr>
+<td style="text-align: center;">Converted image (*.png *.jpg)</td>
+<td style="text-align: center;">✔</td>
+<td style="text-align: center;">✔</td>
+<td style="text-align: center;">✔</td>
+</tr>
+<tr>
+<td style="text-align: center;">Flat diagram (*.png *.jpg)</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">✔</td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note: WE schematics (*.schem) are only supported in 1.13+. In 1.12, WE uses the old schematic format with the *.schematic suffix, which SlopeCraft does not support at the moment.</strong></p>
+<p>On the export page, choose the type you need and configure it accordingly.</p>
+<p>Since <a href="#3a-export-as-litematica-schematic-vanilla-structure-block-file-we-schematic-flat-diagram" title="jump to the corresponding section">the first four export types</a> involve 3D structures, their settings differ considerably from <a href="#3b-export-as-map-data-files" title="jump to the corresponding section">the map data file type</a>, so both are introduced below.
+(Click a type name to jump there.)</p>
+<h3 id="3a-export-as-litematica-schematic-vanilla-structure-block-file-we-schematic-flat-diagram">3.a Export as Litematica schematic / vanilla structure block file / WE schematic / flat diagram</h3>
+<p><img alt="Export" src="../../assets/SlopeCraft-tutorial-images.en/page3-Export.png" /></p>
+<h4 id="compressing-the-height-has-no-effect-on-flat-map-arts">Compressing the height (has no effect on flat map arts)</h4>
+<p>SlopeCraft supports two compression methods: lossy and lossless.</p>
+<p>Simply put, lossless compression compresses the total height of the map art under the premise of <strong>strictly keeping the color of every pixel unchanged</strong>, at the cost of continuity, but its constraints are strong and it may not work out as you wish. It is no exaggeration to say that some images are incompressible, such as a pure white part. That is when a new compression technique is needed: intelligent lossy compression.</p>
+<p>Lossy compression then <strong>slightly adjusts the colors of individual pixels</strong> to compress the total height of the map art so that it is less than or equal to the maximum allowed height specified by the user. Lossy compression is implemented with a genetic algorithm, which belongs to population artificial intelligence and is the most technically advanced module in SlopeCraft at the moment. Do not set the maximum allowed height below 14, otherwise a 3D map art is very likely to fail to compress.</p>
+<p>Generally speaking, the smaller the maximum allowed height of lossy compression, the more obvious the loss of image quality. Below, this image would be 255 blocks tall as a 3D map art, and is now lossily compressed (with lossless compression enabled as well). Figure 1 is the build result with a maximum height of 100 blocks, and figure 2 with a maximum height of 20 blocks.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><img alt="img-compress-100" src="../../assets/SlopeCraft-tutorial-images.lang-indenpent/img-compress-100.png" /></th>
+<th style="text-align: center;"><img alt="img-compress-20" src="../../assets/SlopeCraft-tutorial-images.lang-indenpent/img-compress-20.png" /></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">Figure 1</td>
+<td style="text-align: center;">Figure 2</td>
+</tr>
+</tbody>
+</table>
+<p>There is no significant change before and after compression and the damage to image quality is not obvious. But on close inspection you can still see some gray dots in the white margins on both sides, and figure 2 has more gray dots than figure 1 because it is compressed more. In addition, a genetic algorithm is a stochastic optimization algorithm, so the modified pixels have a certain randomness and form no obvious regular pattern.</p>
+<p>Lossy and lossless compression can be used together or separately. But generally speaking, if lossy compression is enabled, there is no reason not to enable lossless compression. Pure lossy compression needs to modify more pixels, which damages image quality more, while lossless compression can finish the compression with fewer modified pixels, largely reducing the damage.</p>
+<p>You can check these two options for flat map arts, but they <strong>will not play any role</strong>.</p>
+<h4 id="bridging">Bridging</h4>
+<p>Every horizontal slice of a 3D map art contains many scattered blocks, which are extremely inconvenient to build. If multiple pathways could connect these scattered blocks, building would undoubtedly become much easier. Bridging is the process of connecting all blocks within a horizontal plane with glass blocks to form pathways, which helps the player build.</p>
+<p>Undoubtedly bridging consumes extra glass, so it is not recommended to bridge every single layer of a 3D map art. By default a bridge is built every 4 layers, and you can change this interval. Too large an interval weakens the help of the bridges; too small an interval wastes glass.</p>
+<p>For more details on map art compression and bridging, read <a href="../principles-introduction/">Principles of map arts</a>.</p>
+<p><a href="https://github.com/AbrasiveBoar902" rel="external">AbrasiveBoar902</a> provided great help in optimizing the performance of bridging; thanks to him.</p>
+<h4 id="other-options">Other options</h4>
+<ul>
+<li>
+<p><strong>Fire-proof / enderman-proof:</strong> as the name suggests, this protects flammable blocks and keeps endermen from stealing things. The method is to wrap every exposed face of these blocks with glass; I tested it and it works. But it also consumes a lot of glass, so choose carefully.</p>
+</li>
+<li>
+<p><strong>Connect mushroom blocks:</strong> a map art generated by SlopeCraft may contain several adjacent mushroom blocks (including red mushroom block, brown mushroom block and mushroom stem), whose touching faces should be pore faces but are not in the generated schematic. This feature searches for all adjacent mushroom blocks and fixes their touching faces into pore faces.</p>
+</li>
+</ul>
+<h4 id="extra-export-options">Extra export options</h4>
+<p>The first four export types each accept extra export options and attach extra metadata; each is introduced below.</p>
+<ul>
+<li>
+<p><strong>Options of Litematica schematics</strong></p>
+<p>In the <strong>schematic name</strong> and <strong>schematic area name</strong> fields you can fill in information about the schematic file. It is not mandatory.</p>
+<p><img alt="Litematica options" src="../../assets/SlopeCraft-tutorial-images.en/page3-Export-extra_set-litematica.png" /></p>
+</li>
+<li>
+<p><strong>Options of vanilla structure block files</strong></p>
+<p>Vanilla structure block files are stored as a sparse matrix: wherever nothing is stored there is a structure void. This storage makes structure block files the most vanilla-compatible but worst-compressing format.</p>
+<p><img alt="Structure options" src="../../assets/SlopeCraft-tutorial-images.en/page3-Export-extra_set-structure.png" /></p>
+<p>Therefore structure block files have two choices for storing air blocks: as structure void, or stored as-is. Storing air as structure void saves a lot of space, but when pasted out in a structure block it cannot overwrite other non-air blocks; storing it as air blocks overcomes this problem, but the file size becomes very large.</p>
+</li>
+<li>
+<p><strong>Options of WE schematics</strong></p>
+<p><img alt="WE options" src="../../assets/SlopeCraft-tutorial-images.en/page3-Export-extra_set-WE.png" /></p>
+<p>WE schematics have a few more properties. They come from reverse engineering the schematics generated by WorldEdit and correspond directly to nbt tags of the same name. I do not know how these meta properties affect the schematic, because I hardly ever use WE.</p>
+</li>
+<li>
+<p><strong>Exporting flat diagrams</strong></p>
+<p><img alt="Flat Diagram options" src="../../assets/SlopeCraft-tutorial-images.en/page3-Export-extra_set-flat_diagram.png" /></p>
+<p>Sets whether the exported diagram contains split lines, and the interval of the split lines.</p>
+</li>
+</ul>
+<h4 id="pre-building-the-3d-structure-for-preview-optional">Pre-building the 3D structure for preview (optional)</h4>
+<p>Click <strong>Pre-build 3D structure</strong> and SlopeCraft will build the map art into a 3D structure with the current settings, then show the size and total block count of the schematic.</p>
+<p><strong>The pre-built 3D structure is only used for preview, not for exporting.</strong></p>
+<p><strong>Note: if the y size of the schematic exceeds 256 / 384<sup id="fnref:height"><a class="footnote-ref" href="#fn:height">1</a></sup>, then by all means do not continue exporting. A schematic that exceeds the height limit is meaningless!</strong></p>
+<p>After pre-building the 3D structure, you can do the following two detailed previews:</p>
+<ul>
+<li>Preview the compression result: lossy compression may further change the image, and here you can check the state of the image.</li>
+<li>Preview the material list: preview the quantity of materials.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><img alt="page5-preview-converted" src="../../assets/SlopeCraft-tutorial-images.en/page3-Export-preview-converted.png" /></th>
+<th style="text-align: center;"><img alt="page5-preview-material" src="../../assets/SlopeCraft-tutorial-images.en/page3-Export-preview-material.png" /></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">Preview map art</td>
+<td style="text-align: center;">Preview material list</td>
+</tr>
+</tbody>
+</table>
+<h4 id="export-all">Export all</h4>
+<p>Once the settings are confirmed, click <strong>Export all</strong> and choose the <strong>folder</strong> to export all files into (an empty folder is recommended for batch operations).</p>
+<hr />
+<h3 id="3b-export-as-map-data-files">3.b Export as map (data) files</h3>
+<p>Click the <strong>Map data file</strong> option to jump to the corresponding page.</p>
+<p><img alt="Export as map data files" src="../../assets/SlopeCraft-tutorial-images.en/page3-Export-map_data_file.png" /></p>
+<p>This page shows the number of rows and columns of the maps corresponding to the map art, the number of files, and the file names of the map data files to be exported.</p>
+<h4 id="setting-the-initial-number-of-the-map-data-files">Setting the initial number of the map data files</h4>
+<p>A map data file is named like map_i.dat, where i is an integer greater than or equal to 0, such as map_3.dat. <strong>i is the number of this map data file. The number is in fact the unique identifier of the map data file.</strong> Normally the map data files we generate should not overwrite unrelated map data files, so setting the initial number needs extra care.</p>
+<p>Pressing <kbd>F3</kbd> + <kbd>H</kbd> in the game shows item details, <strong>including the id of the map item, that is, the number of the corresponding map data file</strong>. The map item shown below corresponds to a map data file named map_6.dat.</p>
+<p><img alt="avatar" src="../../assets/SlopeCraft-tutorial-images.lang-indenpent/map-item.png" /></p>
+<p>There are the following two ways to obtain the maps; pick whichever you like. The way you import them into the game afterwards also differs, so pay attention!</p>
+<ul>
+<li>
+<p>If you want to obtain the maps with the /give command:</p>
+<p>The initial number can be anything, as long as it does not overwrite unrelated maps.</p>
+</li>
+<li>
+<p>If you do not want to use commands and only replace the map data files:</p>
+<p><strong>1.</strong> First create the <code>n</code> maps corresponding to the map art, where n is the number of map data files shown by SlopeCraft — 4 in this example.</p>
+<p><strong>2.</strong> Press <kbd>F3</kbd> + <kbd>H</kbd> in the game and check the numbers of the corresponding map data files. These maps should have the numbers <code>a</code>~<code>(a+n-1)</code>, n in total.</p>
+<p><strong>3.</strong> Exit the world and fill the value of <code>a</code> into the <strong>initial number of map data files</strong> field in SlopeCraft.</p>
+</li>
+</ul>
+<p>Once the settings are confirmed, click <strong>Export</strong> and choose the <strong>folder</strong> to export all files into (an empty folder is recommended).</p>
+<hr />
+<h2 id="step-4-import-the-map-art-into-the-game">Step 4. Import the map art into the game</h2>
+<p>Jump to: | <a href="#importing-litematica-schematics" title="jump to the corresponding section">Import Litematica schematics</a> | <a href="#importing-structure-block-files" title="jump to the corresponding section">Import structure block files</a> | <a href="#importing-we-schematics" title="jump to the corresponding section">Import WE schematics</a> | <a href="#importing-map-data-files" title="jump to the corresponding section">Import map data files</a> |</p>
+<h3 id="importing-litematica-schematics">Importing Litematica schematics</h3>
+<p>Open the folder you just exported into and move the exported schematic to the .minecraft<sup id="fnref:mcdir"><a class="footnote-ref" href="#fn:mcdir">2</a></sup>/schematic folder. Then open Minecraft, enter your save/server, and import this schematic where you want to create the map art.</p>
+<p>When placing the schematic, note that <strong>the x and z coordinates of the schematic origin must be <code>-65+k×128</code>, where k is any integer</strong>. The y coordinate can be anything. For example, (63,62,-65). Only then can <strong>the map art be aligned with the grid of the map</strong>.</p>
+<p>Then start building this schematic, or just paste it. When finished, create new maps in the map interior. Each map should be unscaled, because each pixel corresponds to one block. Arrange them in order in item frames, and you are done.</p>
+<ul>
+<li>If it is a 2×2 map art, you should create 2×2, that is 4, maps.</li>
+<li>If your game version is 1.14 or later, it is best to lock the maps with glass panes in a cartography table.</li>
+</ul>
+<h3 id="importing-structure-block-files">Importing structure block files</h3>
+<p>The directory for structure blocks is .minecraft<sup id="fnref2:mcdir"><a class="footnote-ref" href="#fn:mcdir">2</a></sup>/saves/<save name>/generated/minecraft/structures</p>
+<p>If you cannot find this directory, the game has not created it yet; you can create it manually and copy the files into it.</p>
+<p>When loading the structure later, note that <strong>the x and z coordinates of the structure origin must be <code>-65+k×128</code>, where k is any integer</strong>. The y coordinate can be anything. For example, (63,62,-65). Only then can <strong>the map art be aligned with the grid of the map</strong>.</p>
+<p>Using structure blocks is rather complicated, so it is not covered here; see <a href="https://www.bilibili.com/video/BV1ro4y1m7xv" rel="external">this bilibili tutorial</a>.</p>
+<h3 id="importing-we-schematics">Importing WE schematics</h3>
+<p>The directory for WorldEdit schematics is .minecraft<sup id="fnref3:mcdir"><a class="footnote-ref" href="#fn:mcdir">2</a></sup>/config/worldedit/schematics</p>
+<p>If the directory does not exist, the game has not created it yet; you can create it manually and copy the files into it.</p>
+<p>Afterwards, in the game you can import the schematic with the <code>//schem load &lt;schematic name&gt;</code> command. See WorldEdit tutorials for details, for example <a href="https://www.mcmod.cn/post/3050.html" rel="external">this one</a>.</p>
+<h3 id="importing-map-data-files">Importing map data files</h3>
+<p>Open the folder you just exported into and move the exported map data files to the .minecraft<sup id="fnref4:mcdir"><a class="footnote-ref" href="#fn:mcdir">2</a></sup>/saves/<save name>/data folder.</p>
+<p>A "replace or skip files" window may pop up. If you are worried about overwriting unrelated maps, you can leave it for now and read on.</p>
+<ul>
+<li>
+<p>Obtaining the maps with the /give command:</p>
+<p>This way <strong>should not</strong> trigger the "replace or skip files" window. If it does, close the window and check whether the map numbers conflict.</p>
+<ul>
+<li>In 1.12, use <code>/give @s filled_map 1 i</code> to get the map with number i.</li>
+<li>In 1.13+, use <code>/give @s filled_map{map:i}</code> to get the map with number i.</li>
+</ul>
+</li>
+<li>
+<p>Not using commands, only replacing the map data files:</p>
+<p><strong>1.</strong> When you moved the files just now, the "replace or skip files" window <strong>should</strong> have popped up; click "Replace the files in the destination" to replace the files.</p>
+<p><strong>2.</strong> Open the game; these <code>n</code> maps should have been successfully replaced with the map art.</p>
+</li>
+</ul>
+<h2 id="advanced-features">🛠 Advanced features</h2>
+<p><img alt="menu-advanced" src="../../assets/SlopeCraft-tutorial-images.en/menu-advanced.png" /></p>
+<p>Some advanced operations can be found in the "Advanced" menu. Each is introduced below.</p>
+<h3 id="testing-the-block-list">Testing the block list</h3>
+<p>Missing blocks in a schematic are almost always caused by <strong>mis-spelled ids</strong>. If you import many blocks at once, this feature quickly tests every block in the block list for id errors.</p>
+<p>Testing the block list generates a special structure block file containing every available block of every base color (except those that do not match the version). In the structure file every block is arranged in the order of the block list.</p>
+<p>If everything is fine, no block will be missing; otherwise the corresponding block has an id error.</p>
+<p>The figures below show the effect. Because the schematic is long, it is split into two screenshots.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><img alt="test-lite-left" src="../../assets/SlopeCraft-tutorial-images.lang-indenpent/test-lite-left.png" /></th>
+<th style="text-align: center;"><img alt="test-lite-right" src="../../assets/SlopeCraft-tutorial-images.lang-indenpent/test-lite-right.png" /></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">Left half</td>
+<td style="text-align: center;">Right half</td>
+</tr>
+</tbody>
+</table>
+<h3 id="outputting-the-current-color-table">Outputting the current color table</h3>
+<p>This menu item lets the user output the current color table as a <span class="arithmatex">\(16\times 16\)</span> png image containing all colors currently available.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><img alt="colormap_MC19_3d" src="../../assets/SlopeCraft-tutorial-images.lang-indenpent/colormap_MC19_3d.png" /></th>
+<th style="text-align: center;"><img alt="colormap_MC19_flat" src="../../assets/SlopeCraft-tutorial-images.lang-indenpent/colormap_MC19_flat.png" /></th>
+<th style="text-align: center;"><img alt="colormap_MC19_dataonly" src="../../assets/SlopeCraft-tutorial-images.lang-indenpent/colormap_MC19_dataonly.png" /></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1.19 3D</td>
+<td style="text-align: center;">1.19 flat</td>
+<td style="text-align: center;">1.19 file-only</td>
+</tr>
+</tbody>
+</table>
+<details class="question">
+<summary>What is it for?</summary>
+<p>Outputting the color table is in effect exporting a "palette", which makes pixel art creation easier.</p>
+<p>If you want to draw by yourself and use the result in the game, follow the steps below to avoid unexpected errors:</p>
+<ol>
+<li>First finish the settings on the "map art configuration" page, so that you can output the color table you want</li>
+<li>Export the color table in the advanced menu</li>
+<li>Import the color table into your image editing software, draw, and export the image</li>
+<li>Do the "map art configuration" settings again (if you closed the software), and import the image</li>
+<li>When converting the image, choose the RGB+ algorithm and do <strong>not</strong> check dither</li>
+<li>The remaining export steps are the same as the normal flow; see <a href="#step-3-export">above</a></li>
+</ol>
+</details>
+<hr />
+<h2 id="custom-block-lists">🛠 Custom block lists</h2>
+<p>If you are not satisfied with the presets I provided and want to add other vanilla blocks or even mod blocks yourself, this chapter tells you how to add and use custom blocks in SlopeCraft.</p>
+<h3 id="preliminary-information">Preliminary information</h3>
+<p>You need to know the following information about a block:</p>
+<ol>
+<li>
+<p>The <strong>complete</strong> id of the block, including the <strong>namespace prefix</strong> and <strong>all block properties</strong>.</p>
+<p>For example, the upper slab of a waxed copper block:</p>
+<div class="highlight"><pre><span></span><code>minecraft:waxed_copper_slab[type=top,waterlogged=false]
+</code></pre></div>
+<p>Here <code>minecraft:</code> is the namespace prefix of the vanilla block, and the content in the square brackets is all block properties. To be safe, you should set a corresponding value for every block property.</p>
+</li>
+<li>
+<p>The earliest game version in which the block appears</p>
+<p>SlopeCraft uses the following values in block lists to refer to major versions:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Value</th>
+<th style="text-align: center;">Version</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">"ANCIENT"</td>
+<td style="text-align: center;">Earlier than 1.12</td>
+</tr>
+<tr>
+<td style="text-align: center;">"MC12"</td>
+<td style="text-align: center;">1.12</td>
+</tr>
+<tr>
+<td style="text-align: center;">"MC13"</td>
+<td style="text-align: center;">1.13</td>
+</tr>
+<tr>
+<td style="text-align: center;">"MC14"</td>
+<td style="text-align: center;">1.14</td>
+</tr>
+<tr>
+<td style="text-align: center;">"MC15"</td>
+<td style="text-align: center;">1.15</td>
+</tr>
+<tr>
+<td style="text-align: center;">"MC16"</td>
+<td style="text-align: center;">1.16</td>
+</tr>
+<tr>
+<td style="text-align: center;">"MC17"</td>
+<td style="text-align: center;">1.17</td>
+</tr>
+<tr>
+<td style="text-align: center;">"MC18"</td>
+<td style="text-align: center;">1.18</td>
+</tr>
+<tr>
+<td style="text-align: center;">"MC19"</td>
+<td style="text-align: center;">1.19</td>
+</tr>
+<tr>
+<td style="text-align: center;">"MC20"</td>
+<td style="text-align: center;">1.20</td>
+</tr>
+<tr>
+<td style="text-align: center;">"MC21"</td>
+<td style="text-align: center;">1.21</td>
+</tr>
+<tr>
+<td style="text-align: center;">"MC26_1"</td>
+<td style="text-align: center;">26.1</td>
+</tr>
+<tr>
+<td style="text-align: center;">"MC26_2"</td>
+<td style="text-align: center;">26.2</td>
+</tr>
+<tr>
+<td style="text-align: center;">"MC26_3"</td>
+<td style="text-align: center;">26.3</td>
+</tr>
+<tr>
+<td style="text-align: center;">65535</td>
+<td style="text-align: center;">Future versions</td>
+</tr>
+</tbody>
+</table>
+<p>Normally you should not use 65535, it is only a reserved value. If you insist on assigning a block to a future version, then everything that results is undefined behavior — I do not know what will happen either.</p>
+</li>
+<li>
+<p>The id of the block in 1.12</p>
+<p>This property was added because Mojang changed quite a few block ids when updating from 1.12 to 1.13. If the block you want to add did not exist in 1.12, or its id did not change, you can fill in an empty string.</p>
+</li>
+<li>
+<p>The base color of the block</p>
+<p>This is probably the easiest place to make mistakes. For vanilla blocks you can look it up on the <a href="https://zh.minecraft.wiki/w/%E5%9C%B0%E5%9B%BE%E7%89%A9%E5%93%81%E6%A0%BC%E5%BC%8F#%E5%9F%BA%E8%89%B2" rel="external">Minecraft Wiki</a>. If it is a block added by a mod, either figure out how to measure it yourself, or ask the mod developer.</p>
+<p>If you do not know what a base color is, read <a href="../principles-introduction/">Principles of map arts</a></p>
+</li>
+<li>
+<p>The Chinese name of the block</p>
+</li>
+<li>The English name of the block</li>
+<li>Whether the block needs other blocks attached below it</li>
+<li>Whether the block glows</li>
+<li>Whether the block is flammable</li>
+<li>Whether the block can be stolen by an enderman</li>
+<li>The texture image of the block (a 16*16 pixel png image is recommended)</li>
+</ol>
+<h3 id="blocks-and-the-block-list">Blocks and the block list</h3>
+<p>In SlopeCraft, block lists are stored in json format, and the related images are placed in the FixedBlocks and CustomBlocks folders.</p>
+<p>Block lists come in two kinds: fixed block lists and custom block lists. The fixed block list is the most basic set of blocks I provide, stored in <strong>FixedBlocks.json</strong> (the corresponding images are in the <strong>FixedBlocks</strong> folder), making sure every base color has a corresponding block. Although the blocks in the block list are in fact determined only at program runtime, <strong>you should not modify it</strong>.</p>
+<p>Custom block lists are stored in <strong>CustomBlocks.json</strong>, with the corresponding images in the <strong>CustomBlocks</strong> folder. This is the user-defined block list, which allows the user to edit it flexibly. I wrote some slab blocks in there as a reference.</p>
+<p>Each block has the following properties:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Property name</th>
+<th style="text-align: center;">Type</th>
+<th style="text-align: center;">Required</th>
+<th style="text-align: center;">Default</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">baseColor</td>
+<td style="text-align: center;">byte</td>
+<td style="text-align: center;">yes</td>
+<td style="text-align: center;"></td>
+<td style="text-align: left;">The base color of the block on the map</td>
+</tr>
+<tr>
+<td style="text-align: center;">id</td>
+<td style="text-align: center;">string</td>
+<td style="text-align: center;">yes</td>
+<td style="text-align: center;"></td>
+<td style="text-align: left;">Block id, including the namespace and detailed block states</td>
+</tr>
+<tr>
+<td style="text-align: center;">version</td>
+<td style="text-align: center;">byte</td>
+<td style="text-align: center;">yes</td>
+<td style="text-align: center;"></td>
+<td style="text-align: left;">The earliest version in which the block appears.</td>
+</tr>
+<tr>
+<td style="text-align: center;">nameZH</td>
+<td style="text-align: center;">string</td>
+<td style="text-align: center;">yes</td>
+<td style="text-align: center;"></td>
+<td style="text-align: left;">The Chinese name of the block</td>
+</tr>
+<tr>
+<td style="text-align: center;">nameEN</td>
+<td style="text-align: center;">string</td>
+<td style="text-align: center;">yes</td>
+<td style="text-align: center;"></td>
+<td style="text-align: left;">The English name of the block</td>
+</tr>
+<tr>
+<td style="text-align: center;">icon</td>
+<td style="text-align: center;">string</td>
+<td style="text-align: center;">yes</td>
+<td style="text-align: center;"></td>
+<td style="text-align: left;">The file name of the image of the block</td>
+</tr>
+<tr>
+<td style="text-align: center;">idOld</td>
+<td style="text-align: center;">string</td>
+<td style="text-align: center;">no</td>
+<td style="text-align: center;">empty string</td>
+<td style="text-align: left;">The id of the block in 1.12</td>
+</tr>
+<tr>
+<td style="text-align: center;">needGlass</td>
+<td style="text-align: center;">bool</td>
+<td style="text-align: center;">no</td>
+<td style="text-align: center;">false</td>
+<td style="text-align: left;">Whether the bottom of the block must have other blocks</td>
+</tr>
+<tr>
+<td style="text-align: center;">isGlowing</td>
+<td style="text-align: center;">bool</td>
+<td style="text-align: center;">no</td>
+<td style="text-align: center;">false</td>
+<td style="text-align: left;">Whether the block is glowing</td>
+</tr>
+<tr>
+<td style="text-align: center;">endermanPickable</td>
+<td style="text-align: center;">bool</td>
+<td style="text-align: center;">no</td>
+<td style="text-align: center;">false</td>
+<td style="text-align: left;">Whether the block can be stolen by an enderman</td>
+</tr>
+<tr>
+<td style="text-align: center;">burnable</td>
+<td style="text-align: center;">bool</td>
+<td style="text-align: center;">no</td>
+<td style="text-align: center;">false</td>
+<td style="text-align: left;">Whether the block can be burned</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The property wallUseable has been removed, because wall map arts have been removed.</strong></p>
+<p>In json format it looks like this:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">"baseColor"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"minecraft:cobblestone_slab[type=top,waterlogged=false]"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"nameZH"</span><span class="p">:</span><span class="w"> </span><span class="s2">"圆石台阶"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"nameEN"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cobblestone slab"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"icon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cobblestone_slab.png"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ANCIENT"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"idOld"</span><span class="p">:</span><span class="w"> </span><span class="s2">"minecraft:stone_slab[half=top,variant=cobblestone]"</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>The json above shows the information of a cobblestone top slab, parsed as follows:</p>
+<ol>
+<li>Its base color is 11, which is also the base color of cobblestone, stone bricks and stone.</li>
+<li>Its block id is "minecraft:cobblestone_slab[type=top,waterlogged=false]"; the block state in the square brackets says that it is a top slab and does not contain water;</li>
+<li>Its Chinese name is "圆石台阶" and its English name is "Cobblestone slab";</li>
+<li>Its image is a file named "cobblestone_slab.png", placed in the CustomBlocks folder;</li>
+<li>Its earliest version is 0, which means it was added before 1.12;</li>
+<li>Because its block id changed in 1.13, its block id in 1.12 is the value of idOld.</li>
+</ol>
+<!-- https://cdn.jsdelivr.net/npm/sakana-widget@2.7.0/lib/sakana.min.css -->
+<!-- https://cdn.jsdelivr.net/npm/sakana-widget@2.7.0/lib/sakana.min.js -->
+<!-- https://cdnjs.cloudflare.com/ajax/libs/sakana-widget/2.7.0/sakana.min.css -->
+<!-- https://cdnjs.cloudflare.com/ajax/libs/sakana-widget/2.7.0/sakana.min.js -->
+
+<p><link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/sakana-widget@2.7.0/lib/sakana.min.css"
+/></p>
+<div id="sakana-widget"></div>
+<script>
+  function initSakanaWidget() {
+    new SakanaWidget().mount('#sakana-widget');
+  }
+</script>
+<p><script
+  async
+  onload="initSakanaWidget()"
+  src="https://cdn.jsdelivr.net/npm/sakana-widget@2.7.0/lib/sakana.min.js"
+></script>
+</p>
+<p><em>You have found the end of the world (=・ω・=). Here is a cluster amaryllis as a reward.</em></p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:height">
+<p>The build height differs between versions and dimensions. See the <a href="https://zh.minecraft.wiki/w/%E9%AB%98%E5%BA%A6" rel="external">Wiki</a> for details.&#160;<a class="footnote-backref" href="#fnref:height" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:mcdir">
+<p>Save data and configs are not necessarily stored directly in the .minecraft folder; the actual paths depend on version isolation. Take the <code>saves</code> folder as an example: if version isolation is off, the saves directory is <code>.minecraft/saves</code>, otherwise it is <code>.minecraft/versions/&lt;your game version&gt;/saves</code>.&#160;<a class="footnote-backref" href="#fnref:mcdir" title="Jump back to footnote 2 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:mcdir" title="Jump back to footnote 2 in the text">&#8617;</a><a class="footnote-backref" href="#fnref3:mcdir" title="Jump back to footnote 2 in the text">&#8617;</a><a class="footnote-backref" href="#fnref4:mcdir" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2023 SlopeCraft Team, Qubik65536, ToKiNoBug and Contributors. All rights reserved.<br/> Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
+    </div>
+  
+  
+    Made with
+    <a href="https://mkdocs-ng.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "content.tooltips", "search.suggest"], "search": "../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.64ff5bb9.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
